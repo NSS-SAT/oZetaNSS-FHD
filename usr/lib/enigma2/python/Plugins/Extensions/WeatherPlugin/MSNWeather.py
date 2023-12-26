@@ -1,5 +1,3 @@
-dr.best@dreambox-tools.info
-WeatherPlugin
 # -*- coding: utf-8 -*-
 #
 # WeatherPlugin E2
