@@ -130,15 +130,16 @@ class MSNWeatherPluginEntriesListConfigScreen(Screen):
 		configfile.save()
 		self.updateList()
 
+
 class WeatherPluginEntryList(MenuList):
-	def __init__(self, list, enableWrapAround = True):
+	def __init__(self, list, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
-		self.l.setFont(0, gFont("Regular", 20))
-		self.l.setFont(1, gFont("Regular", 18))
+		self.l.setFont(0, gFont("Regular", 32))
+		self.l.setFont(1, gFont("Regular", 24))
 
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
-		instance.setItemHeight(20)
+		instance.setItemHeight(44)
 
 	def getCurrentIndex(self):
 		return self.instance.getCurrentIndex()
@@ -148,8 +149,8 @@ class WeatherPluginEntryList(MenuList):
 		for c in config.plugins.WeatherPlugin.Entry:
 			res = [
 				c,
-				(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 400, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.city.value)),
-				(eListboxPythonMultiContent.TYPE_TEXT, 410, 0, 80, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.degreetype .value)),
+				(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 400, 40, 0, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.city.value)),
+				(eListboxPythonMultiContent.TYPE_TEXT, 410, 0, 80, 40, 0, RT_HALIGN_LEFT|RT_VALIGN_CENTER, str(c.degreetype .value)),
 			]
 			list.append(res)
 		self.list = list
@@ -319,12 +320,12 @@ class MSNWeatherPluginSearch(Screen):
 class MSNWeatherPluginSearchResultList(MenuList):
 	def __init__(self, list, enableWrapAround = True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
-		self.l.setFont(0, gFont("Regular", 20))
-		self.l.setFont(1, gFont("Regular", 18))
+		self.l.setFont(0, gFont("Regular", 32))
+		self.l.setFont(1, gFont("Regular", 24))
 
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
-		instance.setItemHeight(44)
+		instance.setItemHeight(50)
 
 	def getCurrentIndex(self):
 		return self.instance.getCurrentIndex()
@@ -342,8 +343,8 @@ class MSNWeatherPluginSearchResultList(MenuList):
 				weatherlocationcode = childs.attrib.get("weatherlocationcode")
 				res = [
 					(weatherlocationcode, searchlocation),
-					(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 500, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchlocation),
-					(eListboxPythonMultiContent.TYPE_TEXT, 5, 22, 500, 20, 1, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchresult),
+					(eListboxPythonMultiContent.TYPE_TEXT, 5, 0, 500, 45, 0, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchlocation),
+					(eListboxPythonMultiContent.TYPE_TEXT, 5, 65, 500, 45, 0, RT_HALIGN_LEFT|RT_VALIGN_CENTER, searchresult),
 				]
 				list.append(res)
 		self.list = list
