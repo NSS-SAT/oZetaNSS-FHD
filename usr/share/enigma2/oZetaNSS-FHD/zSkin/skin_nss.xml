@@ -63,9 +63,9 @@
     <screen name="nssConfig" position="0,0" size="1920,1080" title="NSS Addon Manager" backgroundColor="#ff000000" flags="wfNoBorder">
         <panel name="LayerMenu1000" />
         <panel name="vButtonTemplate-m1000" />    
-        <widget name="config" position="230,200" size="810,219"  itemHeight="40" scrollbarWidth="10" scrollbarMode="showOnDemand" backgroundColor="#000000" transparent="1" />
+        <widget name="config" position="230,200" size="810,300" itemHeight="40" scrollbarWidth="10" scrollbarMode="showOnDemand" backgroundColor="#000000" transparent="1" />
         
-        <widget name="info" position="230,435" size="809,512" font="Regular; 26" halign="left" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="0" zPosition="5" />
+        <widget name="info" position="230,486" size="809,461" font="Regular; 26" halign="left" valign="center" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="5" />
         <widget name="description" position="231,137" size="809,50" font="Regular;30" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="0" zPosition="5" />
         
         <!--
