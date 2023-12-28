@@ -195,28 +195,41 @@ def convtext(text=''):
             print('original text: ', text)
             text = text.replace("\xe2\x80\x93", "").replace('\xc2\x86', '').replace('\xc2\x87', '')  # replace special
             text = text.lower()
-            text = text.replace('studio aperto mag', 'Studio Aperto')
-            text = text.replace('1^ visione rai', '').replace('1^ visione', '').replace('primatv', '').replace('1^tv', '')
+            text = text.replace('1^ visione rai', '').replace('1^ visione', '').replace('primatv', '').replace('1^tv', '').replace('1^ tv', '')
             text = text.replace(' prima pagina', '').replace(' -20.30', '').replace(': parte 2', '').replace(': parte 1', '')
+            if 'studio aperto' in text:
+                text = 'studio aperto'
             if text.endswith("the"):
                 text.rsplit(" ", 1)[0]
                 text = text.rsplit(" ", 1)[0]
                 text = "the " + str(text)
                 print('the from last to start text: ', text)
             text = text + 'FIN'
-            text = re.sub("[^\w\s]", "", text)  # remove .
+            # text = re.sub("[^\w\s]", "", text)  # remove .
+
+            print('[(01)] ', text)
+            # text = re.sub('\ \(\d+\/\d+\)$', '', text)  # remove episode-number " (xx/xx)" at the end
+            # text = re.sub('\ \(\d+\)$', '', text)  # remove episode-number " (xxx)" at the end
+
+            # text = re.sub('(?-s)(?<=-)', '', text)
+            text = re.sub(' [\-][ ][a-z0-9]+.*?FIN', '', text)
+            # text = re.sub(' -[ ][\d\w][0-9]+.*?FIN', '', text)
+            # (?-s)(?<=-).*
+            print('[(02)] ', text)
             text = re.sub(' - [Ss][0-9]+[Ee][0-9]+.*?FIN', '', text)
             text = re.sub('[Ss][0-9]+[Ee][0-9]+.*?FIN', '', text)
-            text = re.sub(' - [Ss][0-9] [Ee][0-9]+.*?FIN', '', text)            
+            text = re.sub(' - [Ss][0-9] [Ee][0-9]+.*?FIN', '', text)
             text = re.sub('[Ss][0-9] [Ee][0-9]+.*?FIN', '', text)
             # text = text.replace('(', '').replace(')', '')
             print('[(0)] ', text)
             # print(' - +.*?FIN:INIT ', text)
-            text = re.sub(' - +.+?FIN', '', text) # all episodes and series ????
+            text = re.sub(' - +.+?FIN', '', text)  # all episodes and series ????
             # print(' - +.*?FIN:END ', text)
             text = re.sub('FIN', '', text)
             print('[(1)] ', text)
-            
+            text = REGEX.sub('', text)  # paused
+            print('[(2)] ', text)
+
             text = text.replace('  ', ' ').replace(' - ', ' ').replace(' - "', '')
             # text = REGEX.sub('', text)  # paused
             # # add
@@ -237,8 +250,7 @@ def convtext(text=''):
                 # text, n = re.subn(r'\[[^\[\]]*\]', '', text)
             # print('\[[^\[\]]*\] text: ', text)
             # # add end
-            # text = re.sub('\ \(\d+\/\d+\)$', '', text)  # remove episode-number " (xx/xx)" at the end
-            # text = re.sub('\ \(\d+\)$', '', text)  # remove episode-number " (xxx)" at the end
+
             text = re.sub(r"[-,?!/\.\":]", '', text)  # replace (- or , or ! or / or . or " or :) by space
             # print('[-,?!/\.\":] text: ', text)
             # text = re.sub(r'\s{1,}', ' ', text)  # replace multiple space by one space
@@ -250,8 +262,8 @@ def convtext(text=''):
             # text = re.sub('\Teil\d+$', '', text)
             # text = re.sub('\Folge\d+$', '', text)
             # # add end
-            cleanEvent = re.sub('\ \(\d+\)$', '', text) #remove episode-number " (xxx)" at the end
-            cleanEvent = re.sub('\ \(\d+\/\d+\)$', '', cleanEvent) #remove episode-number " (xx/xx)" at the end
+            cleanEvent = re.sub('\ \(\d+\)$', '', text)  # remove episode-number " (xxx)" at the end
+            cleanEvent = re.sub('\ \(\d+\/\d+\)$', '', cleanEvent)  # remove episode-number " (xx/xx)" at the end
             text = re.sub('\!+$', '', cleanEvent)
             # text = unicodify(text)
             text = text.strip()
@@ -312,32 +324,41 @@ class zStarX(VariableValue, Renderer):
                 self.evntNm = convtext(self.evnt)
                 dwn_infos = "{}/{}".format(path_folder, self.evntNm)
                 if not os.path.exists(dwn_infos):
-                        OnclearMem()
-                        '''
-                        try:
-                            url = 'http://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(str(tmdb_api), self.evntNm)
-                            if PY3:
-                                url = url.encode()
-                            url = checkRedirect(url)
-                            print('url1:', url)
-                            ids = url['results'][0]['id']
-                            print('url1 ids:', ids)
-                        except:
-                        '''
-                        try:
-                            url = 'http://api.themoviedb.org/3/search/multi?api_key={}&query={}'.format(str(tmdb_api), self.evntNm)
-                            if PY3:
-                                url = url.encode()
-                            url = checkRedirect(url)
-                            print('url2:', url)
-                            ids = url['results'][0]['id']
-                            print('url2 ids:', ids)
-                        except Exception as e:
-                            print('Exception no ids in zstar ', e)
+                    OnclearMem()
+                    '''
+                    try:
+                        url = 'http://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(str(tmdb_api), self.evntNm)
+                        if PY3:
+                            url = url.encode()
+                        url = checkRedirect(url)
+                        print('url1:', url)
+                        ids = url['results'][0]['id']
+                        print('url1 ids:', ids)
+                    except:
+                    '''
+                    try:
+                        url = 'http://api.themoviedb.org/3/search/multi?api_key={}&query={}'.format(str(tmdb_api), self.evntNm)
+                        if PY3:
+                            url = url.encode()
+                        url = checkRedirect(url)
+                        print('url2:', url)
+                        ids = url['results'][0]['id']
+                        print('url2 ids:', ids)
+                    except Exception as e:
+                        print('Exception no ids in zstar ', e)
 
-                        if ids is not None:
-                            try:
-                                data = 'https://api.themoviedb.org/3/movie/{}?api_key={}&append_to_response=credits&language={}'.format(str(ids), str(tmdb_api), str(lng))  # &language=" + str(language)
+                    if ids is not None:
+                        try:
+                            data = 'https://api.themoviedb.org/3/movie/{}?api_key={}&append_to_response=credits&language={}'.format(str(ids), str(tmdb_api), str(lng))  # &language=" + str(language)
+                            if PY3:
+                                import six
+                                data = six.ensure_str(data)
+                            print('zstar pass ids Else: ')
+                            if data:
+                                data = json.load(urlopen(data))
+                                open(dwn_infos, "w").write(json.dumps(data))
+                            else:
+                                data = 'https://api.themoviedb.org/3/tv/{}?api_key={}&append_to_response=credits&language={}'.format(str(ids), str(tmdb_api), str(lng))  # &language=" + str(language)
                                 if PY3:
                                     import six
                                     data = six.ensure_str(data)
@@ -345,18 +366,9 @@ class zStarX(VariableValue, Renderer):
                                 if data:
                                     data = json.load(urlopen(data))
                                     open(dwn_infos, "w").write(json.dumps(data))
-                                else:
-                                    data = 'https://api.themoviedb.org/3/tv/{}?api_key={}&append_to_response=credits&language={}'.format(str(ids), str(tmdb_api), str(lng))  # &language=" + str(language)
-                                    if PY3:
-                                        import six
-                                        data = six.ensure_str(data)
-                                    print('zstar pass ids Else: ')
-                                    if data:
-                                        data = json.load(urlopen(data))
-                                        open(dwn_infos, "w").write(json.dumps(data))
 
-                            except Exception as e:
-                                print('pass Exception:', e)
+                        except Exception as e:
+                            print('pass Exception:', e)
                 # if os.path.exists(dwn_infos):
                 else:
                     try:
