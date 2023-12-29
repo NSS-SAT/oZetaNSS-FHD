@@ -140,30 +140,31 @@ def convtext(text=''):
                 print('the from last to start text: ', text)
             text = text + 'FIN'
             # text = re.sub("[^\w\s]", "", text)  # remove .
-
+            
             print('[(01)] ', text)
             # text = re.sub('\ \(\d+\/\d+\)$', '', text)  # remove episode-number " (xx/xx)" at the end
-            # text = re.sub('\ \(\d+\)$', '', text)  # remove episode-number " (xxx)" at the end
-
-            # text = re.sub('(?-s)(?<=-)', '', text)
+            # text = re.sub('\ \(\d+\)$', '', text)  # remove episode-number " (xxx)" at the end            
+            text = re.sub(' [\:][a-z0-9]+.*?FIN', '', text)
+            text = re.sub(' [\:][ ][a-z0-9]+.*?FIN', '', text)
+            text = re.sub(' [\(][ ][a-z0-9]+.*?FIN', '', text)
             text = re.sub(' [\-][ ][a-z0-9]+.*?FIN', '', text)
             # text = re.sub(' -[ ][\d\w][0-9]+.*?FIN', '', text)
             # (?-s)(?<=-).*
             print('[(02)] ', text)
             text = re.sub(' - [Ss][0-9]+[Ee][0-9]+.*?FIN', '', text)
             text = re.sub('[Ss][0-9]+[Ee][0-9]+.*?FIN', '', text)
-            text = re.sub(' - [Ss][0-9] [Ee][0-9]+.*?FIN', '', text)
+            text = re.sub(' - [Ss][0-9] [Ee][0-9]+.*?FIN', '', text)            
             text = re.sub('[Ss][0-9] [Ee][0-9]+.*?FIN', '', text)
             # text = text.replace('(', '').replace(')', '')
             print('[(0)] ', text)
             # print(' - +.*?FIN:INIT ', text)
-            text = re.sub(' - +.+?FIN', '', text)  # all episodes and series ????
+            text = re.sub(' - +.+?FIN', '', text) # all episodes and series ????
             # print(' - +.*?FIN:END ', text)
             text = re.sub('FIN', '', text)
             print('[(1)] ', text)
             text = REGEX.sub('', text)  # paused
             print('[(2)] ', text)
-
+            
             text = text.replace('  ', ' ').replace(' - ', ' ').replace(' - "', '')
             # text = REGEX.sub('', text)  # paused
             # # add
@@ -196,7 +197,7 @@ def convtext(text=''):
             # text = re.sub('\Teil\d+$', '', text)
             # text = re.sub('\Folge\d+$', '', text)
             # # add end
-            cleanEvent = re.sub('\ \(\d+\)$', '', text)  # remove episode-number " (xxx)" at the end
+            cleanEvent = re.sub('\ \(\d+\)$', '', text) #remove episode-number " (xxx)" at the end
             cleanEvent = re.sub('\ \(\d+\/\d+\)$', '', cleanEvent) #remove episode-number " (xx/xx)" at the end
             text = re.sub('\!+$', '', cleanEvent)
             # text = unicodify(text)

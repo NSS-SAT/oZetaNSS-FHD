@@ -541,7 +541,11 @@ class zBackdropXDownloadThread(threading.Thread):
             ratio = float(width) / float(height)
             new_height = int(isz.split(",")[1])
             new_width = int(ratio * new_height)
-            rimg = img.resize((new_width, new_height), Image.ANTIALIAS)
+            # rimg = img.resize((new_width, new_height), Image.ANTIALIAS)
+            try:
+                rimg = img.resize((new_width, new_height), Image.LANCZOS)
+            except:
+                rimg = img.resize((new_width, new_height), Image.ANTIALIAS)
             img.close()
             rimg.save(dwn_backdrop)
             rimg.close()

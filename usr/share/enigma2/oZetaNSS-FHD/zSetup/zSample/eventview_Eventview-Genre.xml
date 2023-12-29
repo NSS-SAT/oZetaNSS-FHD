@@ -1,6 +1,0 @@
-	<!-- *** oZeta - XML Version 2.27 EventView Network By zSetup v2.0.0 *** -->  
-	<!-- Author Lululla : Modules : EventView + zGenre -->
-	<screen name="EventView" position="0,0" size="1920,1080" title="EventView" backgroundColor="transparent" flags="wfNoBorder">
-		<panel name="EventView"/>		
-		<panel name="zGenre"/>		
-	</screen>
