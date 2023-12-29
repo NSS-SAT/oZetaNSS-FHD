@@ -180,7 +180,7 @@
         <widget render="VideoSize" source="session.CurrentService" position="1790,1038" size="120,25" backgroundColor="#000000" font="Regular;20" foregroundColor="#ffff00" halign="center" transparent="1" zPosition="1" />
         <!-- MENU ICONS COLORS -->
         <ePixmap pixmap="oZetaNSS-FHD/buttons/button_red.png" position="305,1035" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="Info" position="340,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
+        <eLabel text="InfoNSS" position="340,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
         <ePixmap pixmap="oZetaNSS-FHD/buttons/button_green.png" position="505,1035" size="30,30" alphatest="blend" zPosition="2" />
         <eLabel text="Plugins" position="540,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
         <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="775,1035" size="30,30" alphatest="blend" zPosition="2" />

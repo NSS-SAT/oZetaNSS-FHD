@@ -1249,7 +1249,6 @@ class oZetaNSS(ConfigListScreen, Screen):
             except:
                 pass
 
-
     def goWeather(self, result=False):
         if result:
             try:
