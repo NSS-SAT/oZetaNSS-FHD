@@ -248,7 +248,7 @@ class MSNWeatherPlugin(Screen):
 
 	def error(self, errortext):
 		self.clearFields()
-		self["statustext"].text = errortext
+		self["statustext"].text = str(errortext)
 
 	def showWebsite(self):
 		try:
