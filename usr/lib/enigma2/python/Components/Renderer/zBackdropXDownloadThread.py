@@ -3,6 +3,7 @@
 
 # edit lululla to 30.07.2022
 # recode from lululla 2023
+from __future__ import absolute_import
 from PIL import Image
 import os
 import re
@@ -14,19 +15,19 @@ from Components.config import config
 
 global my_cur_skin
 
-PY3 = (sys.version_info[0] == 3)
-
-if PY3:
+PY3 = False
+if sys.version_info[0] >= 3:
+    PY3 = True
+    unicode = str
+    unichr = chr
+    long = int
     from urllib.parse import quote
     import html
     html_parser = html
-    unicode = str
 else:
     from urllib2 import quote
     from HTMLParser import HTMLParser
     html_parser = HTMLParser()
-    # str = unicode
-
 
 
 try:
@@ -50,6 +51,7 @@ omdb_api = "cb1d9f55"
 # thetvdbkey = 'D19315B88B2DE21F'
 thetvdbkey = "a99d487bb3426e5f3a60dea6d3d3c7ef"
 # thetvdbkey = "acbe31f8-f39a-4910-9b45-2c1d01c38478"
+fanart_api = "6d231536dea4318a88cb2520ce89473b"
 my_cur_skin = False
 cur_skin = config.skin.primary_skin.value.replace('/skin.xml', '')
 
@@ -147,16 +149,19 @@ class zBackdropXDownloadThread(threading.Thread):
                 year = ''
                 pass
             # url_tmdb = "https://api.themoviedb.org/3/search/{}?api_key={}&include_adult=true&query={}".format(srch, tmdb_api, quote(title))
-            url_tmdb = "https://api.themoviedb.org/3/search/{}?api_key={}&query={}".format(chkType, tmdb_api, quote(title))
+            url_tmdb = "https://api.themoviedb.org/3/search/{}?api_key={}".format(chkType, tmdb_api)  # &query={}".format(chkType, tmdb_api, quote(title))
             if year:
                 url_tmdb += "&year={}".format(year)
-            if lng:
-                url_tmdb += "&language={}".format(lng)
+            # if lng:
+                # url_tmdb += "&language={}".format(lng)
+            url_tmdb += "&query={}".format(quote(title))
+            print('url_tmdb= ', url_tmdb)
             backdrop = requests.get(url_tmdb).json()
             if backdrop and backdrop['results'] and backdrop['results'][0] and backdrop['results'][0]['backdrop_path']:
-                url_backdrop = "https://image.tmdb.org/t/p/{}{}".format(str(isz.split(",")[0]), backdrop['results'][0]['backdrop_path'])
-                self.savebackdrop(dwn_backdrop, url_backdrop)
-                return True, "[SUCCESS backdrop: tmdb] {} [{}-{}] => {} => {}".format(title, chkType, year, url_tmdb, url_backdrop)
+                if backdrop and backdrop != 'null' or backdrop is not None or backdrop != '':
+                    url_backdrop = "https://image.tmdb.org/t/p/{}{}".format(str(isz.split(",")[0]), backdrop['results'][0]['backdrop_path'])
+                    self.savebackdrop(dwn_backdrop, url_backdrop)
+                    return True, "[SUCCESS backdrop: tmdb] {} [{}-{}] => {} => {}".format(title, chkType, year, url_tmdb, url_backdrop)
             else:
                 return False, "[SKIP : tmdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tmdb)
         except Exception as e:
@@ -211,6 +216,53 @@ class zBackdropXDownloadThread(threading.Thread):
                 return True, "[SUCCESS backdrop: tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_backdrop)
             else:
                 return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tvdbg)
+
+        except Exception as e:
+            if os.path.exists(dwn_backdrop):
+                os.remove(dwn_backdrop)
+            return False, "[ERROR : tvdb] {} => {} ({})".format(title, url_tvdbg, str(e))
+
+    def search_fanart(self, dwn_backdrop, title, shortdesc, fulldesc, channel=None):
+        try:
+            year = None
+            url_tmdb = ""
+            poster = None
+            id = "-"
+            chkType, fd = self.checkType(shortdesc, fulldesc)
+            try:
+                if re.findall('19\d{2}|20\d{2}', title):
+                    year = re.findall('19\d{2}|20\d{2}', fd)[1]
+                else:
+                    year = re.findall('19\d{2}|20\d{2}', fd)[0]
+            except:
+                year = ''
+                pass
+
+            try:
+                url_maze = "http://api.tvmaze.com/singlesearch/shows?q={}".format(quote(title))
+                mj = requests.get(url_maze).json()
+                id = (mj['externals']['thetvdb'])
+            except Exception as err:
+                print('Error:', err)
+
+            try:
+                m_type = 'tv'
+                url_fanart = "https://webservice.fanart.tv/v3/{}/{}?api_key={}".format(m_type, id, fanart_api)
+                fjs = requests.get(url_fanart, verify=False, timeout=5).json()
+                try:
+                    url = (fjs['showbackground'][0]['url'])
+                except:
+                    url = (fjs['moviebackground'][0]['url'])
+
+                url_backdrop = requests.get(url).json()
+                print('url fanart url_backdrop:', url_backdrop)
+                if url_backdrop and url_backdrop != 'null' or url_backdrop is not None or url_backdrop != '':
+                    self.savebackdrop(dwn_backdrop, url_backdrop)
+                    return True, "[SUCCESS backdrop: tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_backdrop)
+                else:
+                    return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tvdbg)
+            except Exception as e:
+                print(e)
 
         except Exception as e:
             if os.path.exists(dwn_backdrop):
@@ -488,7 +540,6 @@ class zBackdropXDownloadThread(threading.Thread):
                 srch = chkType[6:]
             elif chkType.startswith("tv"):
                 srch = chkType[3:]
-            # url_google = quote(title)
             url_google = '"'+quote(title)+'"'
             if channel and title.find(channel) < 0:
                 url_google += "+{}".format(quote(channel))
@@ -541,7 +592,6 @@ class zBackdropXDownloadThread(threading.Thread):
             ratio = float(width) / float(height)
             new_height = int(isz.split(",")[1])
             new_width = int(ratio * new_height)
-            # rimg = img.resize((new_width, new_height), Image.ANTIALIAS)
             try:
                 rimg = img.resize((new_width, new_height), Image.LANCZOS)
             except:

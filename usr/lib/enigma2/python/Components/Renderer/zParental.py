@@ -13,6 +13,7 @@ from enigma import ePixmap, eTimer, loadPNG
 import json
 import re
 import os
+import unicodedata
 import sys
 curskin = config.skin.primary_skin.value.replace('/skin.xml', '')
 pratePath = '/usr/share/enigma2/%s/parental' % curskin
@@ -93,6 +94,18 @@ REGEX = re.compile(
         r'\d{1,3}(-я|-й|\sс-н).+|', re.DOTALL)
 
 
+def remove_accents(string):
+    if type(string) is not unicode:
+        string = unicode(string, encoding='utf-8')
+    string = re.sub(u"[àáâãäå]", 'a', string)
+    string = re.sub(u"[èéêë]", 'e', string)
+    string = re.sub(u"[ìíîï]", 'i', string)
+    string = re.sub(u"[òóôõö]", 'o', string)
+    string = re.sub(u"[ùúûü]", 'u', string)
+    string = re.sub(u"[ýÿ]", 'y', string)
+    return string
+
+
 def unicodify(s, encoding='utf-8', norm=None):
     if not isinstance(s, unicode):
         s = unicode(s, encoding)
@@ -102,20 +115,6 @@ def unicodify(s, encoding='utf-8', norm=None):
     return s
 
 
-def transEpis(text):
-    text = text.lower() + '+FIN'
-    text = text.replace('  ', '+').replace(' ', '+').replace('&', '+').replace(':', '+').replace('_', '+').replace('u.s.', 'us').replace('l.a.', 'la').replace('.', '+').replace('"', '+').replace('(', '+').replace(')', '+').replace('[', '+').replace(']', '+').replace('!', '+').replace('++++', '+').replace('+++', '+').replace('++', '+')
-    text = text.replace('+720p+', '++').replace('+1080i+', '+').replace('+1080p+', '++').replace('+dtshd+', '++').replace('+dtsrd+', '++').replace('+dtsd+', '++').replace('+dts+', '++').replace('+dd5+', '++').replace('+5+1+', '++').replace('+3d+', '++').replace('+ac3d+', '++').replace('+ac3+', '++').replace('+avchd+', '++').replace('+avc+', '++').replace('+dubbed+', '++').replace('+subbed+', '++').replace('+stereo+', '++')
-    text = text.replace('+x264+', '++').replace('+mpeg2+', '++').replace('+avi+', '++').replace('+xvid+', '++').replace('+blu+', '++').replace('+ray+', '++').replace('+bluray+', '++').replace('+3dbd+', '++').replace('+bd+', '++').replace('+bdrip+', '++').replace('+dvdrip+', '++').replace('+rip+', '++').replace('+hdtv+', '++').replace('+hddvd+', '++')
-    text = text.replace('+german+', '++').replace('+ger+', '++').replace('+english+', '++').replace('+eng+', '++').replace('+spanish+', '++').replace('+spa+', '++').replace('+italian+', '++').replace('+ita+', '++').replace('+russian+', '++').replace('+rus+', '++').replace('+dl+', '++').replace('+dc+', '++').replace('+sbs+', '++').replace('+se+', '++').replace('+ws+', '++').replace('+cee+', '++')
-    text = text.replace('+remux+', '++').replace('+directors+', '++').replace('+cut+', '++').replace('+uncut+', '++').replace('+extended+', '++').replace('+repack+', '++').replace('+unrated+', '++').replace('+rated+', '++').replace('+retail+', '++').replace('+remastered+', '++').replace('+edition+', '++').replace('+version+', '++')
-    text = text.replace('\xc3\x9f', '%C3%9F').replace('\xc3\xa4', '%C3%A4').replace('\xc3\xb6', '%C3%B6').replace('\xc3\xbc', '%C3%BC')
-    text = re.sub('\\+tt[0-9]+\\+', '++', text)
-    text = re.sub('\\+\\+\\+\\+.*?FIN', '', text)
-    text = re.sub('\\+FIN', '', text)
-    return text
-
-
 def convtext(text=''):
     try:
         if text != '' or text is not None or text != 'None':
@@ -123,9 +122,10 @@ def convtext(text=''):
             text = text.replace("\xe2\x80\x93", "").replace('\xc2\x86', '').replace('\xc2\x87', '')  # replace special
             text = text.lower()
             text = text.replace('1^ visione rai', '').replace('1^ visione', '').replace('primatv', '').replace('1^tv', '').replace('1^ tv', '')
-            text = text.replace(' prima pagina', '').replace(' -20.30', '').replace(': parte 2', '').replace(': parte 1', '')
             if 'studio aperto' in text:
                 text = 'studio aperto'
+            if 'josephine ange gardien' in text:
+                text = 'josephine ange gardien'
             if text.endswith("the"):
                 text.rsplit(" ", 1)[0]
                 text = text.rsplit(" ", 1)[0]
@@ -140,17 +140,19 @@ def convtext(text=''):
             print('[(02)] ', text)
 
             if re.search('[Ss][0-9]+[Ee][0-9]+.*?FIN', text):
-                text = re.sub('[Ss][0-9]+[Ee][0-9]+.*[a-zA-Z0-9_]+.*?FIN','', text, flags=re.S|re.I)
+                text = re.sub('[Ss][0-9]+[Ee][0-9]+.*[a-zA-Z0-9_]+.*?FIN', '', text, flags=re.S|re.I)
             if re.search('[Ss][0-9] [Ee][0-9]+.*?FIN', text):
-                text = re.sub('[Ss][0-9] [Ee][0-9]+.*[a-zA-Z0-9_]+.*?FIN','', text, flags=re.S|re.I)
+                text = re.sub('[Ss][0-9] [Ee][0-9]+.*[a-zA-Z0-9_]+.*?FIN', '', text, flags=re.S|re.I)
             if re.search(' - [Ss][0-9] [Ee][0-9]+.*?FIN', text):
-                text = re.sub(' - [Ss][0-9] [Ee][0-9]+.*?FIN','', text, flags=re.S|re.I)
+                text = re.sub(' - [Ss][0-9] [Ee][0-9]+.*?FIN', '', text, flags=re.S|re.I)
             if re.search(' - [Ss][0-9]+[Ee][0-9]+.*?FIN', text):
-                text = re.sub(' - [Ss][0-9]+[Ee][0-9]+.*?FIN','', text, flags=re.S|re.I)
+                text = re.sub(' - [Ss][0-9]+[Ee][0-9]+.*?FIN', '', text, flags=re.S|re.I)
 
-            text = re.sub(r'\(.*[^A-Za-z]\)+.+?FIN', '', text).rstrip() # remove episode number from series, like "series name (234) and not (Un)defeated"
+            text = re.sub("([\(\[]).*?([\)\]])|(: odc.\d+)|(\d+: odc.\d+)|(\d+ odc.\d+)|(:)|( -(.*?).*)|(,)|!|\+.*?FIN", "", text)
+            text = re.sub('odc. [0-9]+.*?FIN', '', text)
+            text = re.sub(r'\(.*[^A-Za-z0-9]\)+.+?FIN', '', text).rstrip()  # remove episode number from series, like "series name (234) and not (Un)defeated"
             print('[(0)] ', text)
-            text = re.sub(' - +.+?FIN', '', text) # all episodes and series ????
+            text = re.sub(' - +.+?FIN', '', text)  # all episodes and series ????
             text = re.sub('FIN', '', text)
             print('[(1)] ', text)
             text = REGEX.sub('', text)  # paused
@@ -175,6 +177,7 @@ def convtext(text=''):
             # cleanEvent = re.sub('\ \(\d+\/\d+\)$', '', cleanEvent) #remove episode-number " (xx/xx)" at the end
             # text = re.sub('\!+$', '', cleanEvent)
             # text = unicodify(text)
+            text = remove_accents(text)
             text = text.strip()
             text = text.capitalize()
             print('Final text: ', text)

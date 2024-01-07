@@ -384,9 +384,26 @@ class oZetaNSS(ConfigListScreen, Screen):
             self['config'].onSelectionChanged.append(self.setInfo)
 
         self.current_skin = config.skin.primary_skin.value
+        self.onFirstExecBegin.append(self.check_dependencies)
+        self.onLayoutFinish.append(self.__layoutFinished)
+        # self.onLayoutFinish.append(self.layoutFinished)
+    def __layoutFinished(self):
+        self.setTitle(self.setup_title)
 
-        self.onLayoutFinish.append(self.layoutFinished)
-
+    def check_dependencies(self):
+        dependencies = True
+        try:
+            import requests
+        except Exception as e:
+            print("**** missing dependencies ***")
+            print(e)
+            dependencies = False
+        if dependencies is False:
+            os.chmod("/usr/lib/enigma2/python/Plugins/Extensions/oZetaNSS/dependencies.sh", 0o0755)
+            cmd1 = ". /usr/lib/enigma2/python/Plugins/Extensions/oZetaNSS/dependencies.sh"
+            self.session.openWithCallback(self.layoutFinished, Console, title="Checking Python Dependencies", cmdlist=[cmd1], closeOnSuccess=False)
+        else:
+            self.layoutFinished()
     def layoutFinished(self):
         if os.path.isdir(weatherz):
             self.UpdateComponents()
