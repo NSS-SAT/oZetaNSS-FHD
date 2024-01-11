@@ -101,16 +101,16 @@ REGEX = re.compile(
         r'\d{1,3}(-я|-й|\sс-н).+|', re.DOTALL)
 
 
-# def remove_accents(string):
-    # if type(string) is not unicode:
-        # string = unicode(string, encoding='utf-8')
-    # string = re.sub(u"[àáâãäå]", 'a', string)
-    # string = re.sub(u"[èéêë]", 'e', string)
-    # string = re.sub(u"[ìíîï]", 'i', string)
-    # string = re.sub(u"[òóôõö]", 'o', string)
-    # string = re.sub(u"[ùúûü]", 'u', string)
-    # string = re.sub(u"[ýÿ]", 'y', string)
-    # return string
+def remove_accents(string):
+    if type(string) is not unicode:
+        string = unicode(string, encoding='utf-8')
+    string = re.sub(u"[àáâãäå]", 'a', string)
+    string = re.sub(u"[èéêë]", 'e', string)
+    string = re.sub(u"[ìíîï]", 'i', string)
+    string = re.sub(u"[òóôõö]", 'o', string)
+    string = re.sub(u"[ùúûü]", 'u', string)
+    string = re.sub(u"[ýÿ]", 'y', string)
+    return string
 
 
 def unicodify(s, encoding='utf-8', norm=None):
@@ -128,8 +128,8 @@ def convtext(text=''):
             print('original text: ', text)
             text = text.replace("\xe2\x80\x93", "").replace('\xc2\x86', '').replace('\xc2\x87', '')  # replace special
             text = text.lower()
-            text = text.replace('1^ visione rai', '').replace('1^ visione', '').replace('primatv', '').replace('1^tv', '').replace('1^ tv', '')
-            text = text.replace('prima visione', '')
+            text = text.replace('1^ visione rai', '').replace('1^ visione', '').replace('primatv', '').replace('1^tv', '')
+            text = text.replace('prima visione', '').replace('1^ tv', '').replace('((', '(').replace('))', ')')
             if 'studio aperto' in text:
                 text = 'studio aperto'
             if 'josephine ange gardien' in text:
@@ -142,6 +142,12 @@ def convtext(text=''):
                 text = 'criminal minds'
             if 'i delitti del barlume' in text:
                 text = 'i delitti del barlume'
+            if 'senza traccia' in text:
+                text = 'senza traccia'
+            if 'hudson e rex' in text:
+                text = 'hudson e rex'
+            if 'ben-hur' in text:
+                text = 'ben-hur'
             if text.endswith("the"):
                 text.rsplit(" ", 1)[0]
                 text = text.rsplit(" ", 1)[0]
@@ -149,22 +155,18 @@ def convtext(text=''):
                 print('the from last to start text: ', text)
             text = text + 'FIN'
             # text = re.sub("[^\w\s]", "", text)  # remove .
-            text = re.sub(' [\:][a-z0-9]+.*?FIN', '', text)
-            text = re.sub(' [\:][ ][a-z0-9]+.*?FIN', '', text)
-            text = re.sub(' [\(][ ][a-z0-9]+.*?FIN', '', text)
-            text = re.sub(' [\-][ ][a-z0-9]+.*?FIN', '', text)
+            # text = re.sub(' [\:][a-z0-9]+.*?FIN', '', text)
+            # text = re.sub(' [\:][ ][a-zA-Z0-9]+.*?FIN', '', text)
+            # text = re.sub(' [\(][ ][a-zA-Z0-9]+.*?FIN', '', text)
+            # text = re.sub(' [\-][ ][a-zA-Z0-9]+.*?FIN', '', text)
             print('[(00)] ', text)
-
-            if re.search('[Ss][0-9]+[Ee][0-9]+.*?FIN', text):
-                text = re.sub('[Ss][0-9]+[Ee][0-9]+.*[a-zA-Z0-9_]+.*?FIN', '', text, flags=re.S|re.I)
-            if re.search('[Ss][0-9] [Ee][0-9]+.*?FIN', text):
-                text = re.sub('[Ss][0-9] [Ee][0-9]+.*[a-zA-Z0-9_]+.*?FIN', '', text, flags=re.S|re.I)
-            if re.search(' - [Ss][0-9] [Ee][0-9]+.*?FIN', text):
-                text = re.sub(' - [Ss][0-9] [Ee][0-9]+.*?FIN', '', text, flags=re.S|re.I)
-            if re.search(' - [Ss][0-9]+[Ee][0-9]+.*?FIN', text):
-                text = re.sub(' - [Ss][0-9]+[Ee][0-9]+.*?FIN', '', text, flags=re.S|re.I)
-            # text = re.sub("([\(\[]).*?([\)\]])|(: odc.\d+)|(\d+: odc.\d+)|(\d+ odc.\d+)|(:)|( -(.*?).*)|(,)|!|\+.*?FIN", "", text)
-            text = text.partition("(")[0].strip()
+            if re.search(r'[Ss][0-9][Ee][0-9]+.*?FIN', text):
+                text = re.sub(r'[Ss][0-9][Ee][0-9]+.*?FIN', '', text)
+            if re.search(r'[Ss][0-9] [Ee][0-9]+.*?FIN', text):
+                text = re.sub(r'[Ss][0-9] [Ee][0-9]+.*[a-zA-Z0-9_]+.*?FIN', '', text)
+            text = text.partition("(")[0]  # .strip()
+            text = text.partition(":")[0]  # .strip()
+            text = text.partition(" -")[0]  # .strip()
             print('[(01)] ', text)
             text = re.sub(' - +.+?FIN', '', text)  # all episodes and series ????
             text = re.sub('FIN', '', text)
