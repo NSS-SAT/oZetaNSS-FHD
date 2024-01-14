@@ -38,6 +38,9 @@ global nss_my_cur_skin, zaddon
 PY3 = sys.version_info.major >= 3
 thisdir = resolveFilename(SCOPE_PLUGINS, "Extensions/{}".format('oZetaNSS'))
 my_cur_skin = config.skin.primary_skin.value.replace('/skin.xml', '')
+cur_skin = 'oZetaNSS-FHD'
+if str(my_cur_skin) == 'oZetaNSS-FHD':
+    my_cur_skin = 'oZetaNSS-FHD'
 OAWeather = resolveFilename(SCOPE_PLUGINS, "Extensions/{}".format('OAWeather'))
 weatherz = resolveFilename(SCOPE_PLUGINS, "Extensions/{}".format('WeatherPlugin'))
 theweather = resolveFilename(SCOPE_PLUGINS, "Extensions/{}".format('TheWeather'))
@@ -60,7 +63,7 @@ visual_api = "5KAUFAYCDLUYVQPNXPN3K24V5"
 thetvdb_skin = "%senigma2/%s/thetvdbkey" % (mvi, my_cur_skin)
 thetvdbkey = 'D19315B88B2DE21F'
 welcome = 'WELCOME Z USER\nfrom\nLululla and Mmark'
-tarfile = '/tmp/ozeta.tar'
+tarfile = '/tmp/download.tar'
 #  -----------------
 
 XStreamity = False
@@ -257,6 +260,7 @@ if f:
 def fakeconfig(name):
     retr = [
             ['NONSOLOSAT SKIN OPTIONS'],
+            ['NONSOLOSAT SKIN: INSTALLED BUT NOT ACTIVE'],
             ['SKIN PARTS SETUP'],
             ['SERVER API KEY SETUP'],
             ['WEATHER BOX SETUP'],
@@ -322,16 +326,13 @@ class oZetaNSS(ConfigListScreen, Screen):
         with open(skin, 'r') as f:
             self.skin = f.read()
         self.setup_title = ('oZetaNSS Skin Setup')
-
         self.onChangedEntry = []
         self.list = []
         ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
-
         self.skinFileTmp = '%senigma2/%s/zSkin/skin_infochannel.tmp' % (mvi, my_cur_skin)
         self.skinFile = '%senigma2/%s/zSkin/skin_infochannel.xml' % (mvi, my_cur_skin)
         self.chooseFile = '%s/' % sample
         self.getImg = Uri.imagevers()
-
         self['Preview'] = Pixmap()
         self['key_red'] = Label(_('Cancel'))
         self['key_green'] = Label(_('Save'))
@@ -339,7 +340,9 @@ class oZetaNSS(ConfigListScreen, Screen):
         if str(my_cur_skin) == 'oZetaNSS-FHD':
             self['key_yellow'] = Label(_('Preview'))
         # self['key_blue'] = Label(_('Restart'))
-        self["key_blue"] = StaticText(self.getSkinSelector() is not None and "Skin" or "")
+        # self["key_blue"] = StaticText(self.getSkinSelector() is not None and "Skin" or "")
+        self["key_blue"] = Label('Skin')
+        # self["key_blue"].hide()
         self["HelpWindow"] = Pixmap()
         self["HelpWindow"].hide()
         self["VKeyIcon"] = Pixmap()
@@ -356,7 +359,6 @@ class oZetaNSS(ConfigListScreen, Screen):
             self.PicLoad.PictureData.get().append(self.DecodePicture)
         except:
             self.PicLoad_conn = self.PicLoad.PictureData.connect(self.DecodePicture)
-        # self.UpdatePicture()
         self['actions'] = ActionMap([
             'DirectionActions',
             'ColorActions',
@@ -365,8 +367,9 @@ class oZetaNSS(ConfigListScreen, Screen):
             'NumberActions',
             'OkCancelActions',
             'HelpActions',
-            # 'InfobarEPGActions',
-            'VirtualKeyboardActions'
+            'InfobarEPGActions',
+            'VirtualKeyboardActions',
+            'HotkeyActions',
         ], {
             'left': self.keyLeft,
             'down': self.keyDown,
@@ -386,6 +389,7 @@ class oZetaNSS(ConfigListScreen, Screen):
             'ok': self.keyRun,
             '0': self.nssDefault,
             'yellowlong': self.answercheck,
+            'yellow_long': self.answercheck,
             'cancel': self.zExit}, -2)
         self.createSetup()
         if self.setInfo not in self['config'].onSelectionChanged:
@@ -394,6 +398,9 @@ class oZetaNSS(ConfigListScreen, Screen):
         self.onFirstExecBegin.append(self.check_dependencies)
         self.onLayoutFinish.append(self.__layoutFinished)
         self.onLayoutFinish.append(self.UpdatePicture)
+
+    def passs(self, foo):
+        pass
 
     def __layoutFinished(self):
         self.setTitle(self.setup_title)
@@ -411,6 +418,9 @@ class oZetaNSS(ConfigListScreen, Screen):
             cmd1 = ". /usr/lib/enigma2/python/Plugins/Extensions/oZetaNSS/dependencies.sh"
             self.session.openWithCallback(self.layoutFinished, Console, title="Checking Python Dependencies", cmdlist=[cmd1], closeOnSuccess=False)
         else:
+            if str(my_cur_skin) != 'oZetaNSS-FHD' and os.path.exists('/usr/share/enigma2/oZetaNSS-FHD'):
+                text = _("ATTENTION!!\nThe Skin is already installed:\nto activate you must choose from:\nmenu-setup-system-skin\nand select it!\nNow you can only update the installation.")
+                self.msg = self.session.openWithCallback(self.passs, MessageBox, text, MessageBox.TYPE_INFO, timeout=5)
             self.layoutFinished()
 
     def layoutFinished(self):
@@ -435,8 +445,11 @@ class oZetaNSS(ConfigListScreen, Screen):
             print(e)
 
     def keyOpenSkinselector(self):
-        if self.getSkinSelector() is not None:
-            self.session.openWithCallback(self.restoreCurrentSkin, self.getSkinSelector())
+        try:
+            if self.getSkinSelector() is not None:
+                self.session.openWithCallback(self.restoreCurrentSkin, self.getSkinSelector())
+        except Exception as e:
+            print(e)
 
     def restoreCurrentSkin(self, SkinSelector):
         try:
@@ -478,9 +491,13 @@ class oZetaNSS(ConfigListScreen, Screen):
         # tab = " " * 9
         # sep = "-"
         try:
-            self.list.append(getConfigListEntry(_("NONSOLOSAT SKIN OPTIONS")))
-            # self.list.append(getConfigListEntry(("SKIN PARTS SETUP")))
+            if str(my_cur_skin) != 'oZetaNSS-FHD' and os.path.exists('/usr/share/enigma2/oZetaNSS-FHD'):
+
+                self.list.append(getConfigListEntry(_("NONSOLOSAT SKIN: INSTALLED BUT NOT ACTIVE")))
+
             if str(my_cur_skin) == 'oZetaNSS-FHD':
+                self.list.append(getConfigListEntry(_("NONSOLOSAT SKIN OPTIONS")))
+
                 # if ozetamenupredefinedlist:
                     # self.list.append(getConfigListEntry('Menu:', config.ozetanss.FirstMenuFHD, _("Settings Menu Image Panel")))
                 if ozetainfobarpredefinedlist:
@@ -641,8 +658,6 @@ class oZetaNSS(ConfigListScreen, Screen):
             self.KeyMenu2()
         if sel and sel == config.ozetanss.city:
             self.KeyText()
-        # if sel and sel == config.ozetanss.Logoboth:
-            # self.zLogoboth(None)
         else:
             return
         return
@@ -660,7 +675,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                 except Exception as e:
                     print('error zXStreamity ', e)
         else:
-            self.mbox = self.session.open(MessageBox, _("Missing XStreamity Plugins!"), MessageBox.TYPE_INFO, timeout=4)
+            self.session.open(MessageBox, _("Missing XStreamity Plugins!"), MessageBox.TYPE_INFO, timeout=4)
 
     def zLogoboth(self, answer=None):
         sel2 = self['config'].getCurrent()[1].value
@@ -1053,7 +1068,7 @@ class oZetaNSS(ConfigListScreen, Screen):
             if fileExists(api) and os.stat(api).st_size > 0:
                 self.session.openWithCallback(self.keyApi, MessageBox, _("Import Api Key TMDB from /tmp/apikey.txt?"))
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api), MessageBox.TYPE_INFO, timeout=4)
         elif answer:
             if fileExists(api) and os.stat(api).st_size > 0:
                 with open(api, 'r') as f:
@@ -1064,9 +1079,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                     config.ozetanss.txtapi.setValue(str(fpage))
                     config.ozetanss.txtapi.save()
                     self.createSetup()
-                    self.mbox = self.session.open(MessageBox, (_("TMDB ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
+                    self.session.open(MessageBox, (_("TMDB ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api), MessageBox.TYPE_INFO, timeout=4)
         return
 
     def keyApi2(self, answer=None):
@@ -1075,7 +1090,7 @@ class oZetaNSS(ConfigListScreen, Screen):
             if fileExists(api2) and os.stat(api2).st_size > 0:
                 self.session.openWithCallback(self.keyApi2, MessageBox, _("Import Api Key OMDB from /tmp/omdbkey.txt?"))
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api2), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api2), MessageBox.TYPE_INFO, timeout=4)
         elif answer:
             if fileExists(api2) and os.stat(api2).st_size > 0:
                 with open(api2, 'r') as f:
@@ -1086,9 +1101,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                     config.ozetanss.txtapi2.setValue(str(fpage))
                     config.ozetanss.txtapi2.save()
                     self.createSetup()
-                    self.mbox = self.session.open(MessageBox, (_("OMDB ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
+                    self.session.open(MessageBox, (_("OMDB ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api2), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api2), MessageBox.TYPE_INFO, timeout=4)
         return
 
     def keyApi3(self, answer=None):
@@ -1097,7 +1112,7 @@ class oZetaNSS(ConfigListScreen, Screen):
             if fileExists(api3) and os.stat(api3).st_size > 0:
                 self.session.openWithCallback(self.keyApi3, MessageBox, _("Import Api Key VISUALWEATHER from /etc/enigma2/VisualWeather/apikey.txt?"))
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api3), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api3), MessageBox.TYPE_INFO, timeout=4)
         elif answer:
             if fileExists(api3) and os.stat(api3).st_size > 0:
                 with open(api3, 'r') as f:
@@ -1108,9 +1123,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                     config.ozetanss.txtapi3.setValue(str(fpage))
                     config.ozetanss.txtapi3.save()
                     self.createSetup()
-                    self.mbox = self.session.open(MessageBox, (_("VISUALWEATHER ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
+                    self.session.open(MessageBox, (_("VISUALWEATHER ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api3), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api3), MessageBox.TYPE_INFO, timeout=4)
         return
 
     def keyApi4(self, answer=None):
@@ -1119,7 +1134,7 @@ class oZetaNSS(ConfigListScreen, Screen):
             if fileExists(api4) and os.stat(api4).st_size > 0:
                 self.session.openWithCallback(self.keyapi4, MessageBox, _("Import Api Key THETVDB from /tmp/thetvdbkey.txt?"))
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api4), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api4), MessageBox.TYPE_INFO, timeout=4)
         elif answer:
             if fileExists(api4) and os.stat(api4).st_size > 0:
                 with open(api4, 'r') as f:
@@ -1130,9 +1145,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                     config.ozetanss.txtapi4.setValue(str(fpage))
                     config.ozetanss.txtapi4.save()
                     self.createSetup()
-                    self.mbox = self.session.open(MessageBox, (_("THETVDB ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
+                    self.session.open(MessageBox, (_("THETVDB ApiKey Imported & Stored!")), MessageBox.TYPE_INFO, timeout=4)
             else:
-                self.mbox = self.session.open(MessageBox, (_("Missing %s !") % api4), MessageBox.TYPE_INFO, timeout=4)
+                self.session.open(MessageBox, (_("Missing %s !") % api4), MessageBox.TYPE_INFO, timeout=4)
         return
 
 #  reset config
@@ -1207,7 +1222,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                     fout.close()
                     cmd1 = 'mv -f %s %s > /dev/null 2>&1' % (filename2, filename)
                     os.system(cmd1)
-        self.session.open(MessageBox, _('OZSKIN UPDATE\nPLEASE RESTART GUI'), MessageBox.TYPE_INFO, timeout=5)
+            self.session.open(MessageBox, _('OZSKIN UPDATE\nPLEASE RESTART GUI'), MessageBox.TYPE_INFO, timeout=5)
 
 #  error load
     def errorLoad(self):
@@ -1260,14 +1275,6 @@ class oZetaNSS(ConfigListScreen, Screen):
             restartbox.setTitle(_('Install Weather Plugin and Reboot'))
         self.UpdatePicture()
 
-    # def theweath(self):
-        # try:
-            # from .addons import WeatherSearch
-            # entry = config.plugins.WeatherPlugin.Entry[0]
-            # self.session.openWithCallback(self.UpdateComponents, WeatherSearch.MSNWeatherPluginEntryConfigScreen, entry)
-        # except:
-            # pass
-
     def goWeather(self, result=False):
         if result:
             try:
@@ -1288,7 +1295,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                 print(e)
         else:
             message = _('Plugin WeatherPlugin not installed!!!')
-            self.mbox = self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
+            self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
 
     def KeyMenu2(self, answer=None):
         if os.path.isdir(OAWeather):
@@ -1322,7 +1329,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                 print(e)
         else:
             message = _('Plugin OAWeatherPlugin not installed!!!')
-            self.mbox = self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
+            self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
 
     def UpdateComponents(self):
         try:

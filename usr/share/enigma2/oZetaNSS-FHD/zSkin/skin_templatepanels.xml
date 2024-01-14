@@ -24,7 +24,7 @@
     <!-- ________________________ -->
     <!-- TEMPLATE Infobar -->
     <screen name="TempInfoBar">
-        <ePixmap pixmap="oZetaNSS-FHD/menu/ibtopsm.png" position="0,733" size="1920,347" alphatest="blend" />
+        <ePixmap pixmap="oZetaNSS-FHD/menu/ibtopsm.png" position="0,733" size="1920,347" alphatest="blend"/>
         <!--
         <eLabel position="0,733" size="1920,347" backgroundColor="#20000000" />
         -->
@@ -43,7 +43,7 @@
             <convert type="ServiceName">Reference</convert>
         </widget>
         <!-- BLINKING (recording in progress) -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/icon_event.png" position="325,884" size="50,45" alphatest="blend" zPosition="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/icon_event.png" position="325,884" size="50,45" alphatest="blend" zPosition="1"/>
         <widget source="session.RecordState" render="Pixmap" position="325,884" size="50,45" pixmap="oZetaNSS-FHD/icons/icon_event_rec.png" alphatest="blend" zPosition="3">
             <convert type="ConditionalShowHide">Blink</convert>
         </widget>
@@ -86,52 +86,52 @@
 		</widget>
 		-->
         <!-- ENCRYPT SERVICE -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/ico_crypt_off.png" position="1590,965" size="50,30" alphatest="blend" zPosition="4" scale="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/ico_crypt_off.png" position="1590,965" size="50,30" alphatest="blend" zPosition="4" scale="1"/>
         <widget source="session.CurrentService" render="Pixmap" pixmap="oZetaNSS-FHD/icons/ico_crypt_on.png" position="1590,965" size="50,30" alphatest="blend" zPosition="5" scale="1">
             <convert type="ServiceInfo">IsCrypted</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <!-- AUDIO -->
-        <ePixmap pixmap="icons/ico_dolbyb_off.png" position="1589,1035" size="50,30" zPosition="3" alphatest="blend" scale="1" />
+        <ePixmap pixmap="icons/ico_dolbyb_off.png" position="1589,1035" size="50,30" zPosition="3" alphatest="blend" scale="1"/>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_dolbyb_on.png" position="1589,1035" size="50,30" zPosition="4" alphatest="blend" scale="1">
             <convert type="ServiceInfo">IsMultichannel</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
-        <eLabel position="1586,1013" size="330,1" backgroundColor="#404040" zPosition="3" />
+        <eLabel position="1586,1013" size="330,1" backgroundColor="#404040" zPosition="3"/>
         <!-- 4K/HD/SD/HDR -->
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_sd.png" position="1656,1035" size="60,35" zPosition="2" alphatest="blend">
             <convert type="ServiceInfo">IsSD</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_hd.png" position="1656,1035" size="60,35" zPosition="4" alphatest="blend">
             <convert type="ServiceInfo">IsHD</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_4k.png" position="1656,1035" size="60,35" zPosition="6" alphatest="blend">
             <convert type="ServiceInfo">Is4K</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <!-- WIDE -->
-        <ePixmap pixmap="icons/ico_format_off.png" position="1723,1035" size="60,35" alphatest="blend" zPosition="1" />
+        <ePixmap pixmap="icons/ico_format_off.png" position="1723,1035" size="60,35" alphatest="blend" zPosition="1"/>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_16_9.png" position="1723,1035" size="60,35" alphatest="blend" zPosition="2">
             <convert type="ServiceInfo">IsWidescreen</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <!-- RESOLUTION -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/res1.png" position="1790,1035" size="120,30" alphatest="blend" zPosition="2" />
-        <widget render="VideoSize" source="session.CurrentService" position="1790,1038" size="120,25" backgroundColor="#000000" font="Regular;20" foregroundColor="#ffff00" halign="center" transparent="1" zPosition="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/res1.png" position="1790,1035" size="120,30" alphatest="blend" zPosition="2"/>
+        <widget render="VideoSize" source="session.CurrentService" position="1790,1038" size="120,25" backgroundColor="#000000" font="Regular;20" foregroundColor="#ffff00" halign="center" transparent="1" zPosition="1"/>
         <!-- MENU ICONS COLORS -->
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_red.png" position="305,1035" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="InfoNSS" position="340,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_green.png" position="505,1035" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="Plugins" position="540,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="775,1035" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="Audio" position="810,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <eLabel text="Extensions" position="1085,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_blue.png" position="1050,1035" size="30,30" alphatest="blend" zPosition="2" />
-        <ePixmap position="1480,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_info.png" alphatest="blend" scale="1" zPosition="2" />
-        <ePixmap position="1400,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_menu.png" alphatest="blend" scale="1" zPosition="2" />
-        <ePixmap position="1320,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_epg.png" alphatest="blend" scale="1" zPosition="2" />
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_red.png" position="305,1035" size="30,30" alphatest="blend" zPosition="2"/>
+        <eLabel text="InfoNSS" position="340,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_green.png" position="505,1035" size="30,30" alphatest="blend" zPosition="2"/>
+        <eLabel text="Plugins" position="540,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="775,1035" size="30,30" alphatest="blend" zPosition="2"/>
+        <eLabel text="Audio" position="810,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <eLabel text="Extensions" position="1085,1035" size="230,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_blue.png" position="1050,1035" size="30,30" alphatest="blend" zPosition="2"/>
+        <ePixmap position="1480,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_info.png" alphatest="blend" scale="1" zPosition="2"/>
+        <ePixmap position="1400,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_menu.png" alphatest="blend" scale="1" zPosition="2"/>
+        <ePixmap position="1320,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_epg.png" alphatest="blend" scale="1" zPosition="2"/>
     </screen>
     <!-- ************************ -->
     <!-- **** INFOBAR BLOCK ***** -->
@@ -321,11 +321,11 @@
         </widget>
     </screen>
     <!-- TEMPLATE Infobar DataChannel DX -->
-<screen name="PartDataChannel">
+    <screen name="PartDataChannel">
         <!-- SMALL CHANNEL -->
-        <eLabel text="Ch:" position="20,825" size="60,40" font="Regular;32" backgroundColor="#000000" foregroundColor="#ffffff" transparent="1" zPosition="3" />
-        <widget source="session.CurrentService" render="zChannelNumber" position="85,820" size="250,50" font="Regular;44" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <ePixmap pixmap="oZetaNSS-FHD/menu/ibtopsm.png" position="0,733" size="1920,347" alphatest="blend" />
+        <eLabel text="Ch:" position="20,825" size="60,40" font="Regular;32" backgroundColor="#000000" foregroundColor="#ffffff" transparent="1" zPosition="3"/>
+        <widget source="session.CurrentService" render="zChannelNumber" position="85,820" size="250,50" font="Regular;44" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/menu/ibtopsm.png" position="0,733" size="1920,347" alphatest="blend"/>
         <!-- SMALL PICON -->
         <widget source="session.CurrentService" render="Picon" position="320,790" size="110,70" backgroundColor="#000000" alphatest="blend" transparent="1" zPosition="1">
             <convert type="ServiceName">Reference</convert>
@@ -335,14 +335,14 @@
             <convert type="ServiceName">Name</convert>
         </widget>
         <!-- POSTER -->
-        <eLabel position="0,665" size="290,415" backgroundColor="#40000000" />
+        <eLabel position="0,665" size="290,415" backgroundColor="#40000000"/>
         <!-- BIG PICON -->
         <widget source="session.CurrentService" render="Picon" position="30,675" size="220,132" backgroundColor="#000000" alphatest="blend" transparent="1" zPosition="1">
             <convert type="ServiceName">Reference</convert>
         </widget>
-        <eLabel position="15,815" size="260,4" backgroundColor="#404040" zPosition="1" />
+        <eLabel position="15,815" size="260,4" backgroundColor="#404040" zPosition="1"/>
         <!-- BLINKING (recording in progress) -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/icon_event.png" position="325,884" size="50,45" alphatest="blend" zPosition="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/icon_event.png" position="325,884" size="50,45" alphatest="blend" zPosition="1"/>
         <widget source="session.RecordState" render="Pixmap" position="325,884" size="50,45" pixmap="oZetaNSS-FHD/icons/icon_event_rec.png" alphatest="blend" zPosition="3">
             <convert type="ConditionalShowHide">Blink</convert>
         </widget>
@@ -379,57 +379,57 @@
             <convert type="ClockToText">Format:%H:%M:%S</convert>
         </widget>
         <!-- ENCRYPT SERVICE -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/ico_crypt_off.png" position="1590,965" size="50,30" alphatest="blend" zPosition="4" scale="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/ico_crypt_off.png" position="1590,965" size="50,30" alphatest="blend" zPosition="4" scale="1"/>
         <widget source="session.CurrentService" render="Pixmap" pixmap="oZetaNSS-FHD/icons/ico_crypt_on.png" position="1590,965" size="50,30" alphatest="blend" zPosition="5" scale="1">
             <convert type="ServiceInfo">IsCrypted</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <!-- AUDIO -->
-        <ePixmap pixmap="icons/ico_dolbyb_off.png" position="1589,1035" size="50,30" zPosition="3" alphatest="blend" scale="1" />
+        <ePixmap pixmap="icons/ico_dolbyb_off.png" position="1589,1035" size="50,30" zPosition="3" alphatest="blend" scale="1"/>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_dolbyb_on.png" position="1589,1035" size="50,30" zPosition="4" alphatest="blend" scale="1">
             <convert type="ServiceInfo">IsMultichannel</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
-        <eLabel position="1586,1013" size="330,1" backgroundColor="#404040" zPosition="3" />
+        <eLabel position="1586,1013" size="330,1" backgroundColor="#404040" zPosition="3"/>
         <!-- 4K/HD/SD/HDR -->
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_sd.png" position="1656,1035" size="60,35" zPosition="2" alphatest="blend">
             <convert type="ServiceInfo">IsSD</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_hd.png" position="1656,1035" size="60,35" zPosition="4" alphatest="blend">
             <convert type="ServiceInfo">IsHD</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_4k.png" position="1656,1035" size="60,35" zPosition="6" alphatest="blend">
             <convert type="ServiceInfo">Is4K</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <!-- WIDE -->
-        <ePixmap pixmap="icons/ico_format_off.png" position="1723,1035" size="60,35" alphatest="blend" zPosition="1" />
+        <ePixmap pixmap="icons/ico_format_off.png" position="1723,1035" size="60,35" alphatest="blend" zPosition="1"/>
         <widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_16_9.png" position="1723,1035" size="60,35" alphatest="blend" zPosition="2">
             <convert type="ServiceInfo">IsWidescreen</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <!-- RESOLUTION -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/res1.png" position="1790,1035" size="120,30" alphatest="blend" zPosition="2" />
-        <widget render="VideoSize" source="session.CurrentService" position="1790,1038" size="120,25" backgroundColor="#000000" font="Regular;20" foregroundColor="#ffff00" halign="center" transparent="1" zPosition="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/res1.png" position="1790,1035" size="120,30" alphatest="blend" zPosition="2"/>
+        <widget render="VideoSize" source="session.CurrentService" position="1790,1038" size="120,25" backgroundColor="#000000" font="Regular;20" foregroundColor="#ffff00" halign="center" transparent="1" zPosition="1"/>
         <!-- MENU ICONS COLORS -->
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_red.png" position="15,870" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="InfoNSS" position="60,870" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_green.png" position="15,910" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="Plugins" position="60,910" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="15,950" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="Audio" position="60,950" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_blue.png" position="15,990" size="30,30" alphatest="blend" zPosition="2" />
-        <eLabel text="Extensions" position="60,990" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1" />
-        <eLabel position="15,1030" size="260,4" backgroundColor="#404040" zPosition="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_red.png" position="15,870" size="30,30" alphatest="blend" zPosition="2"/>
+        <eLabel text="InfoNSS" position="60,870" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_green.png" position="15,910" size="30,30" alphatest="blend" zPosition="2"/>
+        <eLabel text="Plugins" position="60,910" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="15,950" size="30,30" alphatest="blend" zPosition="2"/>
+        <eLabel text="Audio" position="60,950" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_blue.png" position="15,990" size="30,30" alphatest="blend" zPosition="2"/>
+        <eLabel text="Extensions" position="60,990" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <eLabel position="15,1030" size="260,4" backgroundColor="#404040" zPosition="1"/>
         <!-- INFO ZEXTRA -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/cpu_load.png" position="20,1042" size="25,25" zPosition="1" alphatest="blend" transparent="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/cpu_load.png" position="20,1042" size="25,25" zPosition="1" alphatest="blend" transparent="1"/>
         <widget source="session.CurrentService" render="Label" position="50,1040" size="200,35" font="Regular; 24" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="#ffffff" text="CPUload" halign="left" noWrap="1">
             <convert type="zExtra">CPULoad</convert>
         </widget>
         <!-- INFO CPU -->
-        <ePixmap pixmap="oZetaNSS-FHD/icons/cpu_temp.png" position="190,1042" size="25,25" zPosition="1" alphatest="blend" transparent="1" />
+        <ePixmap pixmap="oZetaNSS-FHD/icons/cpu_temp.png" position="190,1042" size="25,25" zPosition="1" alphatest="blend" transparent="1"/>
         <widget source="session.CurrentService" render="Label" position="215,1040" size="200,35" font="Regular; 24" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="#ffffff" text="Temperature" noWrap="1" halign="left">
             <convert type="zExtra">Temperature</convert>
         </widget>
@@ -438,21 +438,21 @@
             <convert type="eCryptoInfo">VerboseInfo</convert>
         </widget>
         <!-- TUNER -->
-        <eLabel text="Tun:" position="1590,870" size="120,40" font="Regular;28" backgroundColor="#000000" foregroundColor="#ffffff" transparent="1" zPosition="3" />
+        <eLabel text="Tun:" position="1590,870" size="120,40" font="Regular;28" backgroundColor="#000000" foregroundColor="#ffffff" transparent="1" zPosition="3"/>
         <widget source="session.FrontendInfo" render="Label" position="1655,874" size="200,33" font="Regular;24" halign="left" backgroundColor="#000000" transparent="1" zPosition="3">
             <convert type="FrontendInfo">STRING</convert>
         </widget>
         <!-- SATELLITE -->
         <widget source="session.CurrentService" render="Label" position="1687,905" size="150,33" font="Regular;24" halign="right" foregroundColor="yellow" backgroundColor="#101010" text="DVB-S" transparent="1" zPosition="1">
-            <convert type="ServiceOrbitalPosition" />
+            <convert type="ServiceOrbitalPosition"/>
         </widget>
         <!-- SOGNAL -->
-        <eLabel text="Snr:" position="1590,905" size="60,40" font="Regular;28" backgroundColor="#000000" foregroundColor="#ffffff" transparent="1" zPosition="1" />
+        <eLabel text="Snr:" position="1590,905" size="60,40" font="Regular;28" backgroundColor="#000000" foregroundColor="#ffffff" transparent="1" zPosition="1"/>
         <widget source="session.FrontendStatus" render="Label" position="1655,909" size="100,33" font="Regular;26" halign="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="3">
             <convert type="FrontendInfo">SNR</convert>
         </widget>
         <!-- SIGNAL PROGRESS (orientation="orBottomToTop" - "orLeftToRight" -->
-        <eLabel position="1590,938" size="240,6" backgroundColor="#202020" zPosition="1" />
+        <eLabel position="1590,938" size="240,6" backgroundColor="#202020" zPosition="1"/>
         <widget source="session.FrontendStatus" render="Progress" pixmap="skin_default/icons/bbox.png" orientation="orLeftToRight" position="1590,939" size="240,4" backgroundColor="#303030" zPosition="3">
             <convert type="FrontendInfo">SNR</convert>
         </widget>
@@ -460,26 +460,26 @@
         <widget source="session.FrontendInfo" render="Pixmap" pixmap="oZetaNSS-FHD/icons/scan-s.png" position="1840,874" size="70,70" alphatest="blend" zPosition="3">
             <convert type="FrontendInfo">TYPE</convert>
             <convert type="ValueRange">0,0</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <widget source="session.FrontendInfo" render="Pixmap" pixmap="oZetaNSS-FHD/icons/scan-c.png" position="1840,874" size="70,70" alphatest="blend" zPosition="3">
             <convert type="FrontendInfo">TYPE</convert>
             <convert type="ValueRange">1,1</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <widget source="session.FrontendInfo" render="Pixmap" pixmap="oZetaNSS-FHD/icons/scan-t.png" position="1840,874" size="70,70" alphatest="blend" zPosition="3">
             <convert type="FrontendInfo">TYPE</convert>
             <convert type="ValueRange">2,2</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
         <widget source="session.FrontendInfo" render="Pixmap" pixmap="oZetaNSS-FHD/icons/scan-c.png" position="1840,874" size="70,70" alphatest="blend" zPosition="3">
             <convert type="FrontendInfo">TYPE</convert>
             <convert type="ValueRange">3,3</convert>
-            <convert type="ConditionalShowHide" />
+            <convert type="ConditionalShowHide"/>
         </widget>
-        <ePixmap position="1480,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_info.png" alphatest="blend" scale="1" zPosition="2" />
-        <ePixmap position="1400,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_menu.png" alphatest="blend" scale="1" zPosition="2" />
-        <ePixmap position="1320,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_epg.png" alphatest="blend" scale="1" zPosition="2" />
+        <ePixmap position="1480,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_info.png" alphatest="blend" scale="1" zPosition="2"/>
+        <ePixmap position="1400,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_menu.png" alphatest="blend" scale="1" zPosition="2"/>
+        <ePixmap position="1320,1035" size="60,30" pixmap="oZetaNSS-FHD/buttons/80/key_epg.png" alphatest="blend" scale="1" zPosition="2"/>
     </screen>
     <!-- TEMPLATE InfoBar Meteo -->
     <screen name="PartInfoMeteo">
