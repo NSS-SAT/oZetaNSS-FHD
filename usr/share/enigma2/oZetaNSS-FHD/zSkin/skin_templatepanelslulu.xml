@@ -198,11 +198,11 @@
     <screen name="Rating">
         <!-- RATING -->
         <!-- <widget source="ServiceEvent" render="zInfoEvents" position="0,0" size="0,0" />		 -->
-        <widget source="session.Event_Now" render="zInfoEvents"/>
+        <!-- <widget source="session.Event_Now" render="zInfoEvents"/> -->
         <ePixmap pixmap="oZetaNSS-FHD/menu/stargrey.png" position="310,79" size="316,27" alphatest="blend" zPosition="20" transparent="1"/>
         <widget source="session.Event_Now" render="zStarX" pixmap="oZetaNSS-FHD/menu/staryellow.png" position="310,79" size="316,27" alphatest="blend" transparent="1" zPosition="22"/>
         <!-- NEXT RATING -->
-        <widget source="session.Event_Next" render="zInfoEvents"/>
+        <!-- <widget source="session.Event_Next" render="zInfoEvents"/> -->
         <ePixmap pixmap="oZetaNSS-FHD/menu/stargrey.png" position="1275,79" size="316,27" alphatest="blend" zPosition="20" transparent="1"/>
         <widget source="session.Event_Next" render="zStarX" pixmap="oZetaNSS-FHD/menu/staryellow.png" position="1275,79" size="316,27" alphatest="blend" transparent="1" zPosition="22"/>
     </screen>
@@ -252,7 +252,7 @@
     <!-- ________________________ -->
     <screen name="zGenreCh">
         <!-- genre -->
-        <widget source="ServiceEvent" render="zInfoEvents"/>
+        <!-- <widget source="ServiceEvent" render="zInfoEvents"/> -->
         <ePixmap pixmap="oZetaNSS-FHD/genre_pic/banner.png" position="1546,320" size="285,93" scale="10" zPosition="1"/>
         <widget source="ServiceEvent" render="zGenre" position="1546,320" size="285,93" zPosition="12" alphatest="blend"/>
     </screen>

@@ -422,7 +422,7 @@
         <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="15,950" size="30,30" alphatest="blend" zPosition="2"/>
         <eLabel text="Audio" position="60,950" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
         <ePixmap pixmap="oZetaNSS-FHD/buttons/button_blue.png" position="15,990" size="30,30" alphatest="blend" zPosition="2"/>
-        <eLabel text="NssAddons" position="60,990" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
+        <eLabel text="Extensions" position="60,990" size="200,33" font="Regular;28" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" zPosition="1"/>
         <eLabel position="15,1030" size="260,4" backgroundColor="#404040" zPosition="1"/>
         <!-- INFO ZEXTRA -->
         <ePixmap pixmap="oZetaNSS-FHD/icons/cpu_load.png" position="20,1042" size="25,25" zPosition="1" alphatest="blend" transparent="1"/>
