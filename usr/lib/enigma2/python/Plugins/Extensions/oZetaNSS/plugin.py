@@ -124,10 +124,10 @@ config.ozetanss.data4 = NoSave(ConfigOnOff(default=False))
 config.ozetanss.api4 = NoSave(ConfigSelection(['-> Ok']))
 config.ozetanss.txtapi4 = ConfigText(default=thetvdbkey, visible_width=50, fixed_size=False)
 # config.ozetanss.mmpicons = NoSave(ConfigSelection(['-> Ok']))
-# config.ozetanss.update = ConfigOnOff(default=False)
+# config.ozetanss.update = NoSave(ConfigOnOff(default=False))
 # config.ozetanss.upfind = NoSave(ConfigSelection(['-> Ok']))
 # config.ozetanss.options = NoSave(ConfigSelection(['-> Ok']))
-config.ozetanss.zweather = ConfigOnOff(default=False)
+config.ozetanss.zweather = NoSave(ConfigOnOff(default=False))
 config.ozetanss.weather = NoSave(ConfigSelection(['-> Ok']))
 config.ozetanss.oaweather = NoSave(ConfigSelection(['-> Ok']))
 config.ozetanss.city = ConfigText(default='', visible_width=50, fixed_size=False)
@@ -166,28 +166,29 @@ if f:
         if 'infobar_' in nssline:
             ozetainfobar = nssline[8:].replace("-", " ")
             ozetainfobarpredefinedlist.append(ozetainfobar)
-        elif 'second_' in nssline:
+        if 'second_' in nssline:
             ozetasecinfobar = nssline[7:].replace("-", " ")
             ozetainfobarsecpredefinedlist.append(ozetasecinfobar)
-        elif 'channel_' in nssline:
+        if 'channel_' in nssline:
             ozetachannelselection = nssline[8:].replace("-", " ")
             ozetachannelselectionpredefinedlist.append(ozetachannelselection)
-        elif 'volume_' in nssline:
+        if 'volume_' in nssline:
             ozetavolume = nssline[7:].replace("-", " ")
             ozetavolumepredefinedlist.append(ozetavolume)
-        elif 'radio_' in nssline:
+        if 'radio_' in nssline:
             ozetaradio = nssline[6:].replace("-", " ")
             ozetaradiopredefinedlist.append(ozetaradio)
-        elif 'mediaplayer_' in nssline:
+        if 'mediaplayer_' in nssline:
             ozetamediaplayer = nssline[12:].replace("-", " ")
             ozetamediaplayerpredefinedlist.append(ozetamediaplayer)
-        elif 'eventview_' in nssline:
+        if 'eventview_' in nssline:
             ozetaeventview = nssline[10:].replace("-", " ")
             ozetaeventviewpredefinedlist.append(ozetaeventview)
-        elif 'plugins_' in nssline:
-            ozetaplugins = nssline[8:].replace("-", " ")
-            ozetapluginspredefinedlist.append(ozetaplugins)
-        # elif 'alogo_' in nssline:
+        if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+            if 'plugins_' in nssline:
+                ozetaplugins = nssline[8:].replace("-", " ")
+                ozetapluginspredefinedlist.append(ozetaplugins)
+        # if 'alogo_' in nssline:
             # ozetalogo = nssline[6:].replace("-", " ")
             # ozetaalogopredefinedlist.append(ozetalogo)
         # else:
@@ -202,7 +203,8 @@ if f:
     ozetaradiopredefinedlist.sort()
     ozetamediaplayerpredefinedlist.sort()
     ozetaeventviewpredefinedlist.sort()
-    ozetapluginspredefinedlist.sort()
+    if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+        ozetapluginspredefinedlist.sort()
     # ozetamvipredefinedlist.sort()
     # ozetaalogopredefinedlist.sort()
     # ozetablogopredefinedlist.sort()
@@ -237,11 +239,12 @@ if f:
     if ozetaeventviewpredefinedlist and 'Eventview Default' in ozetaeventviewpredefinedlist:
         config.ozetanss.EventviewFHD = ConfigSelection(default='Eventview Default', choices=ozetaeventviewpredefinedlist)
     else:
-        config.ozetanss.EventviewFHD = ConfigSelection(choices=ozetapluginspredefinedlist)
-    if ozetapluginspredefinedlist and 'PluginBrowser Default' in ozetapluginspredefinedlist:
-        config.ozetanss.PluginsFHD = ConfigSelection(default='PluginBrowser Default', choices=ozetapluginspredefinedlist)
-    else:
-        config.ozetanss.PluginsFHD = ConfigSelection(choices=ozetapluginspredefinedlist)
+        config.ozetanss.EventviewFHD = ConfigSelection(choices=ozetaeventviewpredefinedlist)
+    if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+        if ozetapluginspredefinedlist and 'PluginBrowser Default' in ozetapluginspredefinedlist:
+            config.ozetanss.PluginsFHD = ConfigSelection(default='PluginBrowser Default', choices=ozetapluginspredefinedlist)
+        else:
+            config.ozetanss.PluginsFHD = ConfigSelection(choices=ozetapluginspredefinedlist)
 
     # if ozetaalogopredefinedlist and 'TopLogo Default' in ozetaalogopredefinedlist:
         # config.ozetanss.LogoaFHD = ConfigSelection(default='TopLogo Default', choices=ozetaalogopredefinedlist)
@@ -303,6 +306,7 @@ def localreturn(name):
         ["update", "update"],
         ["ok", "ok"],
         ["mmpicons", "mmpicons"],
+        ["xstreamity", "xstreamity"],
         ["bootlogo", "bootlogo"],
         ["setup", "setup"],
         ["options", "options"],
@@ -361,13 +365,13 @@ class oZetaNSS(ConfigListScreen, Screen):
             self.PicLoad_conn = self.PicLoad.PictureData.connect(self.DecodePicture)
         self['actions'] = ActionMap([
             'DirectionActions',
-            'ColorActions',
             'EPGSelectActions',
             'MenuActions',
             'NumberActions',
             'OkCancelActions',
             'HelpActions',
-            'InfobarEPGActions',
+            'InfoActions',
+            'ColorActions',
             'VirtualKeyboardActions',
             'HotkeyActions',
         ], {
@@ -514,8 +518,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                     self.list.append(getConfigListEntry('MediaPlayer Panel:', config.ozetanss.MediaPlayerFHD, _("Settings MediaPlayer Panels")))
                 if ozetaeventviewpredefinedlist:
                     self.list.append(getConfigListEntry('Eventview Panel:', config.ozetanss.EventviewFHD, _("Settings Eventview Panels")))
-                if ozetapluginspredefinedlist:
-                    self.list.append(getConfigListEntry('PluginBrowser Panel:', config.ozetanss.PluginsFHD, _("Settings PluginBrowser Panels")))
+                if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+                    if ozetapluginspredefinedlist:
+                        self.list.append(getConfigListEntry('PluginBrowser Panel:', config.ozetanss.PluginsFHD, _("Settings PluginBrowser Panels")))
                 # if ozetaalogopredefinedlist:
                     # self.list.append(getConfigListEntry('Logo Image Top:', config.ozetanss.LogoaFHD, _("Settings Logo Image Top")))
                 # if ozetablogopredefinedlist:
@@ -556,7 +561,7 @@ class oZetaNSS(ConfigListScreen, Screen):
             self.list.append(getConfigListEntry(("MISC SETUP")))
             # self.list.append(getConfigListEntry("Install or Open mmPicons Plugin", config.ozetanss.mmpicons, _("Install or Open mmPicons Plugin\nPress OK")))
             if XStreamity is True:
-                self.list.append(getConfigListEntry('Install Options XStreamity Skin', config.ozetanss.XStreamity, _("Install Optional XStreamity Skin\nPress Ok")))
+                self.list.append(getConfigListEntry('Install Skin Zeta for XStreamity Plugin (only FHD)', config.ozetanss.XStreamity, _("Install Skin Zeta for XStreamity Plugin (only FHD)\nPress Ok")))
 
             self["config"].list = self.list
             self["config"].l.setList(self.list)
@@ -665,12 +670,12 @@ class oZetaNSS(ConfigListScreen, Screen):
     def zXStreamity(self, answer=None):
         if XStreamity is True:
             if answer is None:
-                self.session.openWithCallback(self.zXStreamity, MessageBox, _('Install Optional XStreamity skin\nDo you really want to install now?'))
+                self.session.openWithCallback(self.zXStreamity, MessageBox, _('Install Skin Zeta for XStreamity Plugin (only FHD)\nDo you really want to install now?'))
             elif answer:
                 try:
-                    Options = self.session.openWithCallback(Uri.zXStreamop, MessageBox, _('Install Optional XStreamity skin...\nPlease Wait'), MessageBox.TYPE_INFO, timeout=4)
-                    Options.setTitle(_('Install Options'))
-                    print('Options zXStreamity - Done!!!')
+                    Options = self.session.openWithCallback(Uri.zXStreamop, MessageBox, _('Install Skin Zeta for XStreamity Plugin (only FHD)...\nPlease Wait'), MessageBox.TYPE_INFO, timeout=4)
+                    Options.setTitle(_('Install Skin Zeta for XStreamity Plugin'))
+                    print('Install Skin Zeta for XStreamity Plugin - Done!!!')
                     self.createSetup()
                 except Exception as e:
                     print('error zXStreamity ', e)
@@ -893,7 +898,8 @@ class oZetaNSS(ConfigListScreen, Screen):
             radio_file = (self.chooseFile + 'radio_' + config.ozetanss.RadioFHD.value + '.xml').replace(" ", "-")
             mediaplayer_file = (self.chooseFile + 'mediaplayer_' + config.ozetanss.MediaPlayerFHD.value + '.xml').replace(" ", "-")
             eventview_file = (self.chooseFile + 'eventview_' + config.ozetanss.EventviewFHD.value + '.xml').replace(" ", "-")
-            plugins_file = (self.chooseFile + 'plugins_' + config.ozetanss.PluginsFHD.value + '.xml').replace(" ", "-")
+            if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+                plugins_file = (self.chooseFile + 'plugins_' + config.ozetanss.PluginsFHD.value + '.xml').replace(" ", "-")
             # alogo_file = (self.chooseFile + 'alogo_' + config.ozetanss.LogoaFHD.value + '.xml').replace(" ", "-")
             # blogo_file = (self.chooseFile + 'blogo_' + config.ozetanss.LogobFHD.value + '.xml').replace(" ", "-")
             file_lines = ''
@@ -913,14 +919,13 @@ class oZetaNSS(ConfigListScreen, Screen):
                     # skFilewM = open(skinMenu, 'w')
                     # skFilewM.write('<?xml version="1.0" encoding="UTF-8"?>\n<skin>\n' + file_menu + '\n</skin>\n')
                     # skFilewM.close()
-                # print (infobar_file + "\n#########################")
+                
                 if fileExists(infobar_file):
                     print("Infobar file %s found, writing....." % infobar_file)
                     skFile = open(infobar_file, 'r')
                     file_lines = skFile.read()
                     skFile.close()
                     skFilew.write('\n' + file_lines + '\n')
-                print (secinfobar_file + "\n#########################")
                 if fileExists(secinfobar_file):
                     print("Second Infobar file %s found, writing....." % secinfobar_file)
                     skFile = open(secinfobar_file, 'r')
@@ -928,7 +933,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                     skFile.close()
                     skFilew.write('\n' + file_lines + '\n')
 
-                print (chansel_file + "\n#########################")
                 if fileExists(chansel_file):
                     print("Channel Selection file %s found, writing....." % chansel_file)
                     skFile = open(chansel_file, 'r')
@@ -936,7 +940,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                     skFile.close()
                     skFilew.write('\n' + file_lines + '\n')
 
-                print (volume_file + "\n#########################")
                 if fileExists(volume_file):
                     print("Volume file %s found, writing....." % volume_file)
                     skFile = open(volume_file, 'r')
@@ -944,7 +947,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                     skFile.close()
                     skFilew.write('\n' + file_lines + '\n')
 
-                print (radio_file + "\n#########################")
                 if fileExists(radio_file):
                     print("Radio file %s found, writing....." % radio_file)
                     skFile = open(radio_file, 'r')
@@ -952,7 +954,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                     skFile.close()
                     skFilew.write('\n' + file_lines + '\n')
 
-                print (mediaplayer_file + "\n#########################")
                 if fileExists(mediaplayer_file):
                     print("mediaplayer file %s found, writing....." % mediaplayer_file)
                     skFile = open(mediaplayer_file, 'r')
@@ -960,7 +961,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                     skFile.close()
                     skFilew.write('\n' + file_lines + '\n')
 
-                print (eventview_file + "\n#########################")
                 if fileExists(eventview_file):
                     print("eventview file %s found, writing....." % eventview_file)
                     skFile = open(eventview_file, 'r')
@@ -968,15 +968,14 @@ class oZetaNSS(ConfigListScreen, Screen):
                     skFile.close()
                     skFilew.write('\n' + file_lines + '\n')
 
-                print (plugins_file + "\n#########################")
-                if fileExists(plugins_file):
-                    print("plugins_file file %s found, writing....." % plugins_file)
-                    skFile = open(plugins_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
+                if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+                    if fileExists(plugins_file):
+                        print("plugins_file file %s found, writing....." % plugins_file)
+                        skFile = open(plugins_file, 'r')
+                        file_lines = skFile.read()
+                        skFile.close()
+                        skFilew.write('\n' + file_lines + '\n')
 
-                # print (alogo_file + "\n#########################")
                 # if fileExists(alogo_file):
                     # print("Logo Top file %s found, writing....." % alogo_file)
                     # skFile = open(alogo_file, 'r')
@@ -984,7 +983,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                     # skFile.close()
                     # skFilew.write('\n' + file_lines + '\n')
 
-                # print (blogo_file + "\n#########################")
                 # if fileExists(blogo_file):
                     # print("Logo Bottom file %s found, writing....." % blogo_file)
                     # skFile = open(blogo_file, 'r')
@@ -1032,8 +1030,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                 config.ozetanss.RadioFHD.save()
                 config.ozetanss.MediaPlayerFHD.save()
                 config.ozetanss.EventviewFHD.save()
+                if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+                    config.ozetanss.PluginsFHD.save()
                 # # config.ozetanss.FirstMenuFHD.save()
-                # # config.ozetanss.PluginsFHD.save()
                 # # config.ozetanss.LogoaFHD.save()
                 # # config.ozetanss.LogobFHD.save()
                 # # config.ozetanss.Logoboth.save()
@@ -1164,7 +1163,8 @@ class oZetaNSS(ConfigListScreen, Screen):
                 config.ozetanss.RadioFHD.value = 'RadioInfoBar Default'
                 config.ozetanss.MediaPlayerFHD.value = 'MediaPlayer Default'
                 config.ozetanss.EventviewFHD.value = 'Eventview Default'
-                config.ozetanss.PluginsFHD.value = 'PluginBrowser Default'
+                if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
+                    config.ozetanss.PluginsFHD.value = 'PluginBrowser Default'
                 # config.ozetanss.LogoaFHD.value = 'TopLogo Default'
                 # config.ozetanss.LogobFHD.value = 'BottomLogo Default'
                 # config.ozetanss.Logoboth.value = 'Bootlogo Default'
@@ -1535,7 +1535,7 @@ class ShowPictureFullX(Screen):
     def PreviewPictureFull(self):
         myicon = self.path
         if myicon:
-            png = loadPic(myicon, 1024, 576, 0, 0, 0, 1)
+            png = loadPic(myicon, 1280, 720, 0, 0, 0, 1)
         self["PreviewFull"].instance.setPixmap(png)
 
 
