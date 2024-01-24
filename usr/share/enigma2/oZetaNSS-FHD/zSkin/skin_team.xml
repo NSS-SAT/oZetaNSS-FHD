@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <skin>
     <!-- ***************************************************************************************************************** -->
     <!-- ************ MENUS ***************************** MENUS ************************************ MENUS *************** -->
@@ -22,15 +22,14 @@
             <convert type="MenuEntryCompare">NssMenu</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
-     
-        <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/iconsmenu/menu_information_about.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
-            <convert type="MenuEntryCompare">Infopanel</convert>
-            <convert type="ConditionalShowHide"/>
-        </widget>
-        
-        
+
         <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/menu/sLogo.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
             <convert type="MenuEntryCompare">NSSAddon</convert>
+            <convert type="ConditionalShowHide"/>
+        </widget>
+
+        <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/iconsmenu/menu_information_about.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
+            <convert type="MenuEntryCompare">Infopanel</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
         
@@ -74,7 +73,7 @@
             <convert type="MenuEntryCompare">standby_restart_list</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
-        <widget source="menu" render="Pixmap" pixmap="iconsmennu/pvmc.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
+        <widget source="menu" render="Pixmap" pixmap="iconsmenu/pvmc.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
             <convert type="MenuEntryCompare">pvmc_mainmenu</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
@@ -165,15 +164,15 @@
             <convert type="ConditionalShowHide"/>
         </widget>
         
-        <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/iconsmenu/menu_system_usage_setup.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
+        <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/iconsmenu/menu_mainmenu_pluginmanager.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
             <convert type="MenuEntryCompare">BrowserStyle</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
         
-        <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/iconsmenu/menu_information_about.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
+<!--         <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/iconsmenu/menu_information_about.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
             <convert type="MenuEntryCompare">about_screen</convert>
             <convert type="ConditionalShowHide"/>
-        </widget>        
+        </widget>      -->   
     </screen>
 
     
@@ -712,7 +711,7 @@
             <convert type="MenuEntryCompare">netvpn_setup</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
-        <widget source="menu" render="Pixmap" pixmap="iconsmennu/menu_network_netsabnzbd_setup.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
+        <widget source="menu" render="Pixmap" pixmap="iconsmenu/menu_network_netsabnzbd_setup.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
             <convert type="MenuEntryCompare">netsabnzbd_setup</convert>
             <convert type="ConditionalShowHide"/>
         </widget>

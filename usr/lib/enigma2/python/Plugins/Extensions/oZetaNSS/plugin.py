@@ -113,6 +113,16 @@ ozetapluginspredefinedlist = []
 # ozetablogopredefinedlist = []
 # ozetamvipredefinedlist = []
 
+
+config.misc.plugin_style = ConfigSelection(default="normallstyle", choices=[
+	("normallstyle", _("Normall Style")),
+	("newstyle1", _("New Style 1")),
+	("newstyle2", _("New Style 2")),
+	("newstyle3", _("New Style 3")),
+	("newstyle4", _("New Style 4")),
+	("newstyle5", _("New Style 5")),
+	("newstyle6", _("New Style 6"))])
+
 config.ozetanss.actapi = NoSave(ConfigOnOff(default=False))
 config.ozetanss.data = NoSave(ConfigOnOff(default=False))
 config.ozetanss.api = NoSave(ConfigSelection(['-> Ok']))
@@ -300,6 +310,7 @@ def fakeconfig(name):
 
 def localreturn(name):
     retr = [
+        ["pluginbrowser", "pluginbrowser"],
         ["omdb", "omdb"],
         ["tmdb", "tmdb"],
         ["thetvdb", "thetvdb"],
@@ -521,6 +532,10 @@ class oZetaNSS(ConfigListScreen, Screen):
                     self.list.append(getConfigListEntry('MediaPlayer Panel:', config.ozetanss.MediaPlayerFHD, _("Settings MediaPlayer Panels")))
                 if ozetaeventviewpredefinedlist:
                     self.list.append(getConfigListEntry('Eventview Panel:', config.ozetanss.EventviewFHD, _("Settings Eventview Panels")))
+
+
+                self.list.append(getConfigListEntry('PluginBrowser Style:', config.misc.plugin_style, _("Settings Style PluginBrowser [need restart GUI]")))
+
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     if ozetapluginspredefinedlist:
                         self.list.append(getConfigListEntry('PluginBrowser Panel:', config.ozetanss.PluginsFHD, _("Settings PluginBrowser Panels")))
@@ -800,6 +815,9 @@ class oZetaNSS(ConfigListScreen, Screen):
             if 'visualweather plugin api:' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'visualweather'))
                 return PicturePath
+            if 'style' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style'))
+                return PicturePath
 
             c = ['setup', 'autoupdate', ' weather', 'oaweather', 'nonsolosat']
             if xxxx.lower() in c:
@@ -1032,6 +1050,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                 config.ozetanss.RadioFHD.save()
                 config.ozetanss.MediaPlayerFHD.save()
                 config.ozetanss.EventviewFHD.save()
+
+                config.misc.plugin_style.save()
+
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     config.ozetanss.PluginsFHD.save()
                 # # config.ozetanss.FirstMenuFHD.save()
