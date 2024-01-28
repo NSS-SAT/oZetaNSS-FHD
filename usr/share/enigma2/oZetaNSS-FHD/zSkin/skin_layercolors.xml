@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <skin>
     <!-- **************************************  -->
     <!-- Skin oZetaNSS-FHD by mmark v.2.0.0	     -->
@@ -217,6 +217,23 @@
         <widget objectTypes="key_green,Label,Button" name="key_green" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
     </screen>
+
+
+
+    <!-- ButtonGraphicGreen -->
+    <screen name="vButtonGraphicGreen-1500">
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="oZetaNSS-FHD/buttons/button_green.png" position="230,1035" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_green,Button,Label" pixmap="oZetaNSS-FHD/buttons/button_green.png" position="230,1035" size="30,30" zPosition="1" alphatest="blend"/>
+    </screen>
+    <!-- ButtonTextGreen -->
+    <screen name="vButtonTextGreen-1500">
+        <widget objectTypes="key_green,Label,Button" name="key_green" position="275,1035" size="350,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="275,1035" size="350,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+    </screen>
+
+    
     <screen name="vButtonGraphicYellow-1000">
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="1010,985" size="30,30" zPosition="1" alphatest="blend">
             <convert type="ConditionalShowHide"/>
@@ -369,10 +386,17 @@
         <panel name="vButtonGraphicBlue-1500"/>
         <panel name="vButtonTextBlue-1500"/>
     </screen>
+    
+    <screen name="vButtonGreen-1500">
+        <panel name="vButtonGraphicGreen-1500"/>
+        <panel name="vButtonTextGreen-1500"/>
+    </screen>
+    
+    
     <!-- Buttons Template -->
     <screen name="vButtonTemplate-1500">
         <panel name="vButtonRed-1000"/>
-        <panel name="vButtonGreen-1000"/>
+        <panel name="vButtonGreen-1500"/>
         <panel name="vButtonYellow-1500"/>
         <panel name="vButtonBlue-1500"/>
     </screen>
