@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <skin>
     <!-- **************************************	 -->
     <!-- Skin oZetaNSS-FHD by mmark v2.0.0		 -->
@@ -114,11 +114,11 @@
         <parameter name="AutotimerEnabledIcon" value="5,2,38,36"/>
         <parameter name="AutotimerRecordIcon" value="46,5,20,20"/>
         <parameter name="ChoicelistIcon" value="5,2,80,40"/>
-        <parameter name="ChoicelistName" value="80,3,1000,40"/>
+        <parameter name="ChoicelistName" value="80,3,900,40"/>
         <parameter name="ChoicelistDash" value="5,2,700,2"/>
         <parameter name="ChoicelistIconVerticalline" value="10,0,30,38"/>
         <parameter name="ChoicelistIconExpanded" value="10,3,30,35"/>
-        <parameter name="ChoicelistNameSingle" value="10,0,690,38"/>
+        <parameter name="ChoicelistNameSingle" value="10,0,1000,40"/>
         <parameter name="ConfigListSlider" value="10,3"/>
         <parameter name="ConfigListSeperator" value="360"/>
         <parameter name="DreamexplorerName" value="70,2,1200,50"/>
