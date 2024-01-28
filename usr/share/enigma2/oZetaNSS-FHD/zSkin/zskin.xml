@@ -316,30 +316,30 @@
         <panel name="LayerMenu1500"/>
         <panel name="vButtonTemplate-1500"/>
         <panel name="Logo"/>
-	<widget name="description" position="230,140" size="1250,60" font="Regular;28" foregroundColor="yellow" halign="center" valign="center" backgroundColor="#303030" conditional="description"/>
-	<widget source="plugins" render="Listbox" position="230,220" size="1250,720" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="#000000" foregroundColor="#ffffff" 
-		scrollbarSliderForegroundColor="ltbluette" scrollbarSliderBorderColor="#606060" backgroundColorSelected="barColor" foregroundColorSelected="Yellow" transparent="1">
-		<convert type="TemplatedMultiContent">
-			{
-			"template":
-				[
-				MultiContentEntryPixmapAlphaBlend(pos=(5, 5), size=(60, 50), png=6, flags=BT_SCALE),
-				MultiContentEntryText(pos=(75, 0), size=(650, 50), font=0, flags=RT_VALIGN_CENTER, text=2), # Category
-				MultiContentEntryText(pos=(75, 0), size=(650, 30), font=1, flags=RT_VALIGN_CENTER, text=11), # Name + Version
-				# MultiContentEntryText(pos=(70, 1), size=(430, 25), font=1, flags=RT_VALIGN_CENTER, text=3), Name
-				# MultiContentEntryText(pos=(480, 1), size=(160, 25), font=1, flags=RT_VALIGN_CENTER, text=5), Version
-				MultiContentEntryText(pos=(75, 29), size=(1070, 30), font=2, flags=RT_VALIGN_CENTER, text=4, color=0xa9e8fd), # Description
-				MultiContentEntryPixmapAlphaBlend(pos=(1180, 10), size=(40, 40), png=7, flags=BT_SCALE)
-				],
-			"fonts": [gFont("Regular", 28),gFont("Regular", 26),gFont("Regular", 24)],
-			"itemHeight": 60
-			}
-		</convert>
-	</widget>
-	<widget name="quickselect" position="230,220" size="1250,720" backgroundColor="#000000" foregroundColor="yellow" font="Regular;100" halign="center" valign="center" transparent="1" zPosition="5" />
-	<widget source="global.CurrentTime" render="Label" position="1110,985" size="380,30" font="Regular;27" foregroundColor="yellow" halign="center" backgroundColor="#000000" valign="center" transparent="1">
-		<convert type="MetrixHDSTBinfo">FLASHfree</convert>
-	</widget>
+        <widget name="description" position="230,140" size="1250,60" font="Regular;28" foregroundColor="yellow" halign="center" valign="center" backgroundColor="#303030" conditional="description"/>
+        <widget source="plugins" render="Listbox" position="230,220" size="1250,720" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="#000000" foregroundColor="#ffffff" 
+            scrollbarSliderForegroundColor="ltbluette" scrollbarSliderBorderColor="#606060" backgroundColorSelected="barColor" foregroundColorSelected="Yellow" transparent="1">
+            <convert type="TemplatedMultiContent">
+                {
+                "template":
+                    [
+                    MultiContentEntryPixmapAlphaBlend(pos=(5, 5), size=(60, 50), png=6, flags=BT_SCALE),
+                    MultiContentEntryText(pos=(75, 0), size=(650, 50), font=0, flags=RT_VALIGN_CENTER, text=2), # Category
+                    MultiContentEntryText(pos=(75, 0), size=(650, 30), font=1, flags=RT_VALIGN_CENTER, text=11), # Name + Version
+                    # MultiContentEntryText(pos=(70, 1), size=(430, 25), font=1, flags=RT_VALIGN_CENTER, text=3), Name
+                    # MultiContentEntryText(pos=(480, 1), size=(160, 25), font=1, flags=RT_VALIGN_CENTER, text=5), Version
+                    MultiContentEntryText(pos=(75, 29), size=(1070, 30), font=2, flags=RT_VALIGN_CENTER, text=4, color=0xa9e8fd), # Description
+                    MultiContentEntryPixmapAlphaBlend(pos=(1180, 10), size=(40, 40), png=7, flags=BT_SCALE)
+                    ],
+                "fonts": [gFont("Regular", 28),gFont("Regular", 26),gFont("Regular", 24)],
+                "itemHeight": 60
+                }
+            </convert>
+        </widget>
+        <widget name="quickselect" position="230,220" size="1250,720" backgroundColor="#000000" foregroundColor="yellow" font="Regular;100" halign="center" valign="center" transparent="1" zPosition="5" />
+        <widget source="global.CurrentTime" render="Label" position="1110,985" size="380,30" font="Regular;27" foregroundColor="yellow" halign="center" backgroundColor="#000000" valign="center" transparent="1">
+            <convert type="MetrixHDSTBinfo">FLASHfree</convert>
+        </widget>
     </screen>
     <screen name="PluginDownloadBrowser" position="0,0" size="1920,1080" Title="ATV Plugins" backgroundColor="transparent" flags="wfNoBorder">
         <panel name="LayerMenu1500"/>
@@ -1208,12 +1208,12 @@
     </screen>
     <!-- SelectImage OK -->
     <screen name="SelectImage" position="0,0" size="1920,1080" title="Select Image" backgroundColor="#FF000000" flags="wfNoBorder">
-        <panel name="LayerMenu1500"/>
-        <panel name="vButtonTemplate-1500"/>
-        <ePixmap position="230,10" size="110,110" pixmap="oZetaNSS-FHD/iconsmenu/menu_multiboot.png" alphatest="blend" transparent="1" scale="1" zPosition="1"/>
-        <widget name="text" position="230,1250" size="810,50" font="Regular;30" foregroundColor="yellow" backgroundColor="#303030" transparent="0" zPosition="2"/>
-        <widget name="description" position="230,1250" size="810,50" font="Regular;30" foregroundColor="yellow" backgroundColor="#303030" transparent="0" zPosition="3"/>
-        <widget name="list" position="230,150" size="1250,760" font="Regular;30" itemHeight="40" valign="center" scrollbarMode="showOnDemand" scrollbarWidth="10" transparent="1" zPosition="20" backgroundColorSelected="#124b97"/>
+        <panel name="LayerMenu1300" />
+        <panel name="vButtonTemplate-1500" />
+        <ePixmap position="230,10" size="110,110" pixmap="oZetaNSS-FHD/iconsmenu/menu_multiboot.png" alphatest="blend" transparent="1" scale="1" zPosition="1" />
+        <widget name="text" position="230,1250" size="810,50" font="Regular;30" foregroundColor="yellow" backgroundColor="#303030" transparent="0" zPosition="2" />
+        <widget name="description" position="230,1250" size="810,50" font="Regular;30" foregroundColor="yellow" backgroundColor="#303030" transparent="0" zPosition="3" />
+        <widget name="list" position="230,150" size="1040,760" font="Regular; 30" itemHeight="40" valign="center" scrollbarMode="showOnDemand" scrollbarWidth="10" transparent="1" zPosition="20" backgroundColorSelected="#124b97" />
     </screen>
     <!-- Button Setup -->
     <screen name="ButtonSetup" position="center,center" size="1200,400" title="Setup" backgroundColor="#10000000">
