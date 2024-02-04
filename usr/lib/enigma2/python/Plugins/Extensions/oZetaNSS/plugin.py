@@ -99,6 +99,17 @@ descplug = 'Customization tool for oZeta NSS Skin v.%s' % version
 plugindesc = 'Manage your oZeta NSS Skin v.%s' % version
 iconpic = 'plugin.png'
 sample = mvi + 'enigma2/' + my_cur_skin + '/zSetup/zSample'
+
+
+config.pluginfilter.pluginstyle = ConfigSelection(default="1", choices=[
+    (1, _("Style 1")),
+    (2, _("Style 2")),
+    (3, _("Style 3")),
+    (4, _("Style 4")),
+    (5, _("Style 5")),
+    (6, _("Style 6"))])
+
+
 config.ozetanss = ConfigSubsection()
 # ozetamenupredefinedlist = []
 ozetainfobarpredefinedlist = []
@@ -112,15 +123,6 @@ ozetapluginspredefinedlist = []
 # ozetaalogopredefinedlist = []
 # ozetablogopredefinedlist = []
 # ozetamvipredefinedlist = []
-
-
-config.pluginfilter.pluginstyle = ConfigSelection(default="1", choices=[
-    (1, _("Style 1")),
-    (2, _("Style 2")),
-    (3, _("Style 3")),
-    (4, _("Style 4")),
-    (5, _("Style 5")),
-    (6, _("Style 6"))])
 
 config.ozetanss.actapi = NoSave(ConfigOnOff(default=False))
 config.ozetanss.data = NoSave(ConfigOnOff(default=False))
@@ -300,7 +302,7 @@ def fakeconfig(name):
             ['--Load VISUALWEATHER Apikey'],
             # ['--Set VISUALWEATHER Apikey'],
             ['Install or Open mmPicons Plugin'],
-            ]
+           ]
     for nname in retr:
         if nname[0] in str(name):
             return True
@@ -1249,11 +1251,11 @@ class oZetaNSS(ConfigListScreen, Screen):
     def errorLoad(self):
         print('error: errorLoad')
 
-
 # weather search
 # config.plugins.ozeta.zweather = ConfigOnOff(default=False)
 # config.plugins.ozeta.weather = NoSave(ConfigSelection(['-> Ok']))
 # config.plugins.ozeta.city = ConfigText(default='', visible_width=50, fixed_size=False)
+
     def KeyMenu(self):
         if os.path.isdir(weatherz):
             weatherPluginEntryCount = config.plugins.WeatherPlugin.entrycount.value
