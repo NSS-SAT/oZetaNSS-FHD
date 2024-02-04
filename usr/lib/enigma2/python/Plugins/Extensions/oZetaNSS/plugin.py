@@ -114,14 +114,13 @@ ozetapluginspredefinedlist = []
 # ozetamvipredefinedlist = []
 
 
-config.misc.plugin_style = ConfigSelection(default="New Style 5", choices=[
-	("normallstyle", _("Normall Style")),
-	("newstyle1", _("New Style 1")),
-	("newstyle2", _("New Style 2")),
-	("newstyle3", _("New Style 3")),
-	("newstyle4", _("New Style 4")),
-	("newstyle5", _("New Style 5")),
-	("newstyle6", _("New Style 6"))])
+config.misc.plugin_style = ConfigSelection(default="5", choices=[
+    (1, _("Style 1")),
+    (2, _("Style 2")),
+    (3, _("Style 3")),
+    (4, _("Style 4")),
+    (5, _("Style 5")),
+    (6, _("Style 6"))])
 
 config.ozetanss.actapi = NoSave(ConfigOnOff(default=False))
 config.ozetanss.data = NoSave(ConfigOnOff(default=False))
@@ -406,6 +405,7 @@ class oZetaNSS(ConfigListScreen, Screen):
             'showVirtualKeyboard': self.KeyText,
             'ok': self.keyRun,
             '0': self.nssDefault,
+            '5': self.answercheck,
             'yellowlong': self.answercheck,
             'yellow_long': self.answercheck,
             'cancel': self.zExit}, -2)
