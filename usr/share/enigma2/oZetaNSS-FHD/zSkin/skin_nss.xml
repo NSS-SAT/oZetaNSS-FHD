@@ -59,14 +59,14 @@
     </screen>
     <!-- ************* HomeNss************* -->
     <screen name="HomeNss" position="0,0" size="1920,1080" title="NSS Addon Manager" backgroundColor="#ff000000" flags="wfNoBorder">
-        <panel name="LayerMenu1000"/>
-        <panel name="vButtonTemplate-m1000"/>
-        <widget name="list" position="230,200" size="810,676" scrollbarWidth="10" scrollbarMode="showOnDemand" backgroundColor="#000000" transparent="1"/>
-        <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/nssaddon/res/pics/key_menu.png" position="946,150" size="80,35" zPosition="10"/>
-        <widget name="info" position="230,897" size="809,50" font="Regular;30" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="0" zPosition="5"/>
-        <widget name="statusgreen" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/nssaddon/res/pics/status-on.png" alphatest="blend" position="661,145" size="40,40" zPosition="5"/>
-        <widget name="statusred" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/nssaddon/res/pics/status-off.png" alphatest="blend" position="661,145" size="40,40" zPosition="5"/>
-        <widget name="status" position="234,137" size="420,50" font="Regular; 40" foregroundColor="#ffb75b" backgroundColor="#101010" halign="right" transparent="1" zPosition="4"/>
+        <panel name="LayerMenu1000" />
+        <panel name="vButtonTemplate-m1000" />
+        <widget name="list" position="230,200" size="810,676" scrollbarWidth="10" scrollbarMode="showOnDemand" backgroundColor="#000000" transparent="1" />
+        <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/nssaddon/res/pics/key_menu.png" position="946,150" size="80,35" zPosition="10" />
+        <widget name="info" position="230,897" size="809,50" font="Regular;30" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="0" zPosition="5" />
+        <widget name="statusgreen" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/nssaddon/res/pics/status-on.png" alphatest="blend" position="235,145" size="40,40" zPosition="5" />
+        <widget name="statusred" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/nssaddon/res/pics/status-off.png" alphatest="blend" position="235,145" size="40,40" zPosition="5" />
+        <widget name="status" position="283,145" size="420,40" font="Regular; 40" foregroundColor="#ffb75b" backgroundColor="#101010" halign="left" transparent="1" zPosition="4" />
     </screen>
     <!-- ************* nssConfig************* -->
     <screen name="nssConfig" position="0,0" size="1920,1080" title="NSS Addon Manager" backgroundColor="#ff000000" flags="wfNoBorder">
