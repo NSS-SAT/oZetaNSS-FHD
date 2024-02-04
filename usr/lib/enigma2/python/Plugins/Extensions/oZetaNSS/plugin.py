@@ -114,7 +114,7 @@ ozetapluginspredefinedlist = []
 # ozetamvipredefinedlist = []
 
 
-config.misc.plugin_style = ConfigSelection(default="5", choices=[
+config.misc.plugin_style = ConfigSelection(default="1", choices=[
     (1, _("Style 1")),
     (2, _("Style 2")),
     (3, _("Style 3")),
