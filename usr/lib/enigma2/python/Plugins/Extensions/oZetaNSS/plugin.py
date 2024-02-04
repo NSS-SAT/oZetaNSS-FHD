@@ -101,7 +101,7 @@ iconpic = 'plugin.png'
 sample = mvi + 'enigma2/' + my_cur_skin + '/zSetup/zSample'
 
 
-config.pluginfilter.pluginstyle = ConfigSelection(default="1", choices=[
+config.misc.pluginstyle = ConfigSelection(default="1", choices=[
     (1, _("Style 1")),
     (2, _("Style 2")),
     (3, _("Style 3")),
@@ -535,7 +535,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                 if ozetaeventviewpredefinedlist:
                     self.list.append(getConfigListEntry('Eventview Panel:', config.ozetanss.EventviewFHD, _("Settings Eventview Panels")))
 
-                self.list.append(getConfigListEntry('PluginBrowser Style:', config.pluginfilter.pluginstyle, _("Settings Style PluginBrowser [need restart GUI]")))
+                self.list.append(getConfigListEntry('PluginBrowser Style:', config.misc.pluginstyle, _("Settings Style PluginBrowser [need restart GUI]")))
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     if ozetapluginspredefinedlist:
                         self.list.append(getConfigListEntry('PluginBrowser Panel:', config.ozetanss.PluginsFHD, _("Settings PluginBrowser Panels")))
@@ -1051,7 +1051,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                 config.ozetanss.MediaPlayerFHD.save()
                 config.ozetanss.EventviewFHD.save()
 
-                config.misc.plugin_style.save()
+                config.misc.pluginstyle.save()
 
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     config.ozetanss.PluginsFHD.save()
@@ -1265,12 +1265,12 @@ class oZetaNSS(ConfigListScreen, Screen):
                 self.goWeather(True)
         elif os.path.isdir(theweather):
             locdirsave = "/etc/enigma2/TheWeather_last.cfg"
-            location = 'n\A'
+            location = 'n\\A'
             if os.path.exists(locdirsave):
                 for line in open(locdirsave):
                     location = line.rstrip()
                 # zLine = str(location)
-                if location != 'n\A':
+                if location != 'n\\A':
                     zLine = str(location)
                 # zLine = str(city) + ' - ' + str(location)
                 config.ozetanss.city.setValue(zLine)
