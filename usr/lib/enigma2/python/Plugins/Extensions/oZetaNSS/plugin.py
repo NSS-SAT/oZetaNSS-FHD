@@ -533,7 +533,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                 if ozetaeventviewpredefinedlist:
                     self.list.append(getConfigListEntry('Eventview Panel:', config.ozetanss.EventviewFHD, _("Settings Eventview Panels")))
 
-                self.list.append(getConfigListEntry('PluginBrowser Style:', config.misc.plugin_style, _("Settings Style PluginBrowser [need restart GUI]")))
+                self.list.append(getConfigListEntry('PluginBrowser Style:', config.pluginfilter.pluginstyle, _("Settings Style PluginBrowser [need restart GUI]")))
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     if ozetapluginspredefinedlist:
                         self.list.append(getConfigListEntry('PluginBrowser Panel:', config.ozetanss.PluginsFHD, _("Settings PluginBrowser Panels")))
