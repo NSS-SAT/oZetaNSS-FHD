@@ -276,33 +276,25 @@ if f:
 
 def fakeconfig(name):
     retr = [
-            ['NONSOLOSAT SKIN OPTIONS'],
-            ['NONSOLOSAT SKIN: INSTALLED BUT NOT ACTIVE'],
-            ['SKIN PARTS SETUP'],
-            ['SERVER API KEY SETUP'],
-            ['WEATHER BOX SETUP'],
-            ['MISC SETUP'],
-            ['API KEY SETUP:'],
-            ['TMDB API:'],
-            ['OMDB API:'],
-            ['THETVDB API:'],
-            ['WEATHER:'],
-            # ['Install or Update oZeta Skin:'],
-            # ['Install/Update/Restore oZeta Skin'],
-            # ['Install Options Developer'],
-            ['Update Conponent Skin'],
-            ['--Load TMDB Apikey'],
-            # ['--Set TMDB Apikey'],
-            ['--Load OMDB Apikey'],
-            # ['--Set OMDB Apikey'],
-            ['-Load THETVDB Apikey'],
-            # ['--Set THETVDB Apikey'],
-            ['Install'],
-            ['VisualWeather Plugin API:'],
-            ['--Load VISUALWEATHER Apikey'],
-            # ['--Set VISUALWEATHER Apikey'],
-            ['Install or Open mmPicons Plugin'],
-           ]
+           ['NONSOLOSAT SKIN OPTIONS'],
+           ['NONSOLOSAT SKIN: INSTALLED BUT NOT ACTIVE'],
+           ['SKIN PARTS SETUP'],
+           ['SERVER API KEY SETUP'],
+           ['WEATHER BOX SETUP'],
+           ['MISC SETUP'],
+           ['API KEY SETUP:'],
+           ['TMDB API:'],
+           ['OMDB API:'],
+           ['THETVDB API:'],
+           ['WEATHER:'],
+           ['Update Conponent Skin'],
+           ['--Load TMDB Apikey'],
+           ['--Load OMDB Apikey'],
+           ['-Load THETVDB Apikey'],
+           ['Install'],
+           ['VisualWeather Plugin API:'],
+           ['--Load VISUALWEATHER Apikey'],
+           ['Install or Open mmPicons Plugin']]
     for nname in retr:
         if nname[0] in str(name):
             return True
@@ -512,12 +504,10 @@ class oZetaNSS(ConfigListScreen, Screen):
         # sep = "-"
         try:
             if str(my_cur_skin) != 'oZetaNSS-FHD' and os.path.exists('/usr/share/enigma2/oZetaNSS-FHD'):
-
                 self.list.append(getConfigListEntry(_("NONSOLOSAT SKIN: INSTALLED BUT NOT ACTIVE")))
 
             if str(my_cur_skin) == 'oZetaNSS-FHD':
                 self.list.append(getConfigListEntry(_("NONSOLOSAT SKIN OPTIONS")))
-
                 # if ozetamenupredefinedlist:
                     # self.list.append(getConfigListEntry('Menu:', config.ozetanss.FirstMenuFHD, _("Settings Menu Image Panel")))
                 if ozetainfobarpredefinedlist:
@@ -534,7 +524,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                     self.list.append(getConfigListEntry('MediaPlayer Panel:', config.ozetanss.MediaPlayerFHD, _("Settings MediaPlayer Panels")))
                 if ozetaeventviewpredefinedlist:
                     self.list.append(getConfigListEntry('Eventview Panel:', config.ozetanss.EventviewFHD, _("Settings Eventview Panels")))
-
                 self.list.append(getConfigListEntry('PluginBrowser Style:', config.misc.pluginstyle, _("Settings Style PluginBrowser [need restart GUI]")))
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     if ozetapluginspredefinedlist:
@@ -568,7 +557,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                 self.list.append(getConfigListEntry("Install or Open Weather Plugin", config.ozetanss.weather, _("Install or Open Weather Plugin\nPress OK")))
                 if os.path.isdir(weatherz):
                     self.list.append(getConfigListEntry("--Setting Weather City", config.ozetanss.city, _("Settings City Weather Plugin")))
-
                 VisualWeather = resolveFilename(SCOPE_PLUGINS, "Extensions/{}".format('VisualWeather'))
                 if os.path.isdir(VisualWeather):
                     self.list.append(getConfigListEntry("VisualWeather Plugin API:", config.ozetanss.data3, _("Settings VISUALWEATHER APIKEY")))
@@ -579,7 +567,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                 self.list.append(getConfigListEntry(("MISC SETUP")))
                 # self.list.append(getConfigListEntry("Install or Open mmPicons Plugin", config.ozetanss.mmpicons, _("Install or Open mmPicons Plugin\nPress OK")))
                 self.list.append(getConfigListEntry('Install Skin Zeta for XStreamity Plugin (only FHD)', config.ozetanss.XStreamity, _("Install Skin Zeta for XStreamity Plugin (only FHD)\nPress Ok")))
-
             self["config"].list = self.list
             self["config"].l.setList(self.list)
             # self.handleInputHelpers()
@@ -797,6 +784,13 @@ class oZetaNSS(ConfigListScreen, Screen):
                 self['author'].setText(welcome)
                 self['description'].setText('-')
 
+# (1, _("Style 1")),
+# (2, _("Style 2")),
+# (3, _("Style 3")),
+# (4, _("Style 4")),
+# (5, _("Style 5")),
+# (6, _("Style 6"))])
+
     def GetPicturePath(self):
         PicturePath = '%sbasefile/default.jpg' % thisdir
         sel = self["config"].getCurrent()[1]
@@ -815,10 +809,24 @@ class oZetaNSS(ConfigListScreen, Screen):
             if 'visualweather plugin api:' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'visualweather'))
                 return PicturePath
-            if 'style' in xxxx.lower():
-                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style'))
+            if 'style 1' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style1'))
                 return PicturePath
-
+            if 'style 2' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style2'))
+                return PicturePath
+            if 'style 3' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style3'))
+                return PicturePath
+            if 'style 4' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style4'))
+                return PicturePath
+            if 'style 5' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style5'))
+                return PicturePath
+            if 'style 6' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style6'))
+                return PicturePath
             c = ['setup', 'autoupdate', ' weather', 'oaweather', 'nonsolosat']
             if xxxx.lower() in c:
                 PicturePath = '%sbasefile/default.jpg' % thisdir
@@ -1050,27 +1058,15 @@ class oZetaNSS(ConfigListScreen, Screen):
                 config.ozetanss.RadioFHD.save()
                 config.ozetanss.MediaPlayerFHD.save()
                 config.ozetanss.EventviewFHD.save()
-
                 config.misc.pluginstyle.save()
-
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     config.ozetanss.PluginsFHD.save()
                 # # config.ozetanss.FirstMenuFHD.save()
                 # # config.ozetanss.LogoaFHD.save()
                 # # config.ozetanss.LogobFHD.save()
                 # # config.ozetanss.Logoboth.save()
-
         except Exception as e:
             print('error save:', e)
-
-    # def mmWaitReload(self):
-        # self.Timer = eTimer()
-        # try:
-            # self.Timer.callback.append(self.zMMpicons)
-        # except:
-            # self.Timer_conn = self.Timer.timeout.connect(self.zMMpicons)
-        # self.Timer.start(2000, 1)
-        # self.createSetup()
 
     def KeyText(self):
         from Screens.VirtualKeyBoard import VirtualKeyBoard
