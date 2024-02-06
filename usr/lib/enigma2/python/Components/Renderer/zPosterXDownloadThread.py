@@ -364,9 +364,9 @@ class zPosterXDownloadThread(threading.Thread):
                     if ptitle == get_title:
                         h_ori = float(url_poster_size[0][1])
                         h_tar = float(re.findall('(\d+)', isz)[1])
-                        ratio = h_ori/h_tar
+                        ratio = h_ori / h_tar
                         w_ori = float(url_poster_size[0][0])
-                        w_tar = w_ori/ratio
+                        w_tar = w_ori / ratio
                         w_tar = int(w_tar)
                         h_tar = int(h_tar)
                         url_poster = re.sub('/\d+x\d+/', "/" + str(w_tar) + "x" + str(h_tar) + "/", url_poster)
