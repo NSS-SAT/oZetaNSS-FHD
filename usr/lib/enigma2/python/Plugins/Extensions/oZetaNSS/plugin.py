@@ -796,6 +796,9 @@ class oZetaNSS(ConfigListScreen, Screen):
         sel = self["config"].getCurrent()[1]
         sel2 = self['config'].getCurrent()[1].value
         xxxx = self["config"].getCurrent()[0]
+        # print('sel2: ', str(sel2))
+        # print(type(sel2))
+        returnValue = '%sbasefile/default.jpg' % thisdir
         try:
             if 'tmdb api:' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'tmdb'))
@@ -809,24 +812,26 @@ class oZetaNSS(ConfigListScreen, Screen):
             if 'visualweather plugin api:' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'visualweather'))
                 return PicturePath
-            if 'style 1' in xxxx.lower():
+
+            if '1' in str(sel2) and 'style' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style1'))
                 return PicturePath
-            if 'style 2' in xxxx.lower():
+            if '2' in str(sel2) and 'style' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style2'))
                 return PicturePath
-            if 'style 3' in xxxx.lower():
+            if '3' in str(sel2) and 'style' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style3'))
                 return PicturePath
-            if 'style 4' in xxxx.lower():
+            if '4' in str(sel2) and 'style' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style4'))
                 return PicturePath
-            if 'style 5' in xxxx.lower():
+            if '5' in str(sel2) and 'style' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style5'))
                 return PicturePath
-            if 'style 6' in xxxx.lower():
+            if '6' in str(sel2) and 'style' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style6'))
                 return PicturePath
+
             c = ['setup', 'autoupdate', ' weather', 'oaweather', 'nonsolosat']
             if xxxx.lower() in c:
                 PicturePath = '%sbasefile/default.jpg' % thisdir
@@ -860,7 +865,9 @@ class oZetaNSS(ConfigListScreen, Screen):
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'API-Manualkey'))
             if sel and sel == config.ozetanss.XStreamity:
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'xstreamity'))
-            returnValue = sel2.replace(" ", "-")
+            
+            if sel2 is not None or sel2 != '' or sel2 != 'None':
+                returnValue = str(sel2).replace(" ", "-")
             if fileExists('%senigma2/%s/zSetup/zPreview/%s.jpg' % (mvi, my_cur_skin, returnValue)):
                 PicturePath = '%senigma2/%s/zSetup/zPreview/%s.jpg' % (mvi, my_cur_skin, returnValue)
             else:
@@ -1553,8 +1560,8 @@ def Plugins(**kwargs):
     result = [
               # PluginDescriptor(name='oZetaNSS', description=descplug, where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=autostart),
               PluginDescriptor(name='oZetaNSS', description=descplug, where=PluginDescriptor.WHERE_MENU, icon=iconpic, fnc=mainmenu),
-              PluginDescriptor(name='oZetaNSS', description=descplug, where=PluginDescriptor.WHERE_PLUGINMENU, icon=iconpic, fnc=main)
-               ]
+              PluginDescriptor(name='oZetaNSS', description=descplug, where=PluginDescriptor.WHERE_PLUGINMENU, icon=iconpic, fnc=main),
+             ]
     return result
 
 #  ~ end code lululla 2022.10
