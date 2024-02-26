@@ -191,11 +191,10 @@ class zPosterXDownloadThread(threading.Thread):
                     url_read = requests.get(url_tvdb).text
                     poster = re.findall('<poster>(.*?)</poster>', url_read)
 
-            if poster and poster[0]:
-                if poster and poster != 'null' or poster is not None or poster != '':
-                    url_poster = "https://artworks.thetvdb.com/banners/{}".format(poster[0])
-                    self.savePoster(dwn_poster, url_poster)
-                    return True, "[SUCCESS : tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_poster)
+            if poster and poster[0] != 'null' or poster is not None or poster != '':
+                url_poster = "https://artworks.thetvdb.com/banners/{}".format(poster[0])
+                self.savePoster(dwn_poster, url_poster)
+                return True, "[SUCCESS : tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_poster)
             else:
                 return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tvdbg)
 
@@ -208,7 +207,6 @@ class zPosterXDownloadThread(threading.Thread):
         try:
             year = None
             url_tmdb = ""
-            poster = None
             id = "-"
             chkType, fd = self.checkType(shortdesc, fulldesc)
             try:
@@ -240,16 +238,16 @@ class zPosterXDownloadThread(threading.Thread):
                 print('url fanart poster:', url_poster)
                 if url_poster and url_poster != 'null' or url_poster is not None or url_poster != '':
                     self.savePoster(dwn_poster, url_poster)
-                    return True, "[SUCCESS poster: tmdb] {} [{}-{}] => {} => {}".format(title, chkType, year, url_tmdb, url_poster)
+                    return True, "[SUCCESS poster: tmdb] {} [{}-{}] => {} => {}".format(title, chkType, year, url_maze, url_poster)
                 else:
-                    return False, "[SKIP : tmdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tmdb)
+                    return False, "[SKIP : tmdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_maze)
             except Exception as e:
                 print(e)
 
         except Exception as e:
             if os.path.exists(dwn_poster):
                 os.remove(dwn_poster)
-            return False, "[ERROR : tmdb] {} [{}-{}] => {} ({})".format(title, chkType, year, url_tmdb, str(e))
+            return False, "[ERROR : tmdb] {} [{}-{}] => {} ({})".format(title, chkType, year, url_maze, str(e))
 
     def search_imdb(self, dwn_poster, title, shortdesc, fulldesc, channel=None):
         try:
@@ -400,7 +398,7 @@ class zPosterXDownloadThread(threading.Thread):
             imsg = ''
             url_mgoo = "site:molotov.tv+" + quote(title)
             if channel and title.find(channel.split()[0]) < 0:
-                url_mgoo += "+"+quote(channel)
+                url_mgoo += "+" + quote(channel)
             url_mgoo = "https://www.google.com/search?q={}&tbm=isch".format(url_mgoo)
             ff = requests.get(url_mgoo, stream=True, headers=headers, cookies={'CONSENT': 'YES+'}).text
             if not PY3:
@@ -487,7 +485,7 @@ class zPosterXDownloadThread(threading.Thread):
             else:
                 imsg = "Not found '{}' [{}%-{}%-{}]".format(pltc, molotov_table[0], molotov_table[1], len_plst)
             if poster:
-                url_poster = re.sub('/\d+x\d+/', "/" + re.sub(',', 'x', isz) + "/", poster)
+                url_poster = re.sub('/\d+x\d+/', "/" + re.sub(', ', 'x', isz) + "/", poster)
                 self.savePoster(dwn_poster, url_poster)
                 if self.verifyPoster(dwn_poster):
                     return True, "[SUCCESS url_poster: molotov-google] {} ({}) [{}] => {} => {} => {}".format(title, channel, chkType, imsg, url_mgoo, url_poster)
@@ -519,15 +517,24 @@ class zPosterXDownloadThread(threading.Thread):
                 srch = chkType[6:]
             elif chkType.startswith("tv"):
                 srch = chkType[3:]
-            url_google = '"'+quote(title)+'"'
-            if channel and title.find(channel) < 0:
-                url_google += "+{}".format(quote(channel))
+            url_google = ''
+            # url_google = '"'+quote(title)+'"'
+            # if channel and title.find(channel) != None or < 0:
+                # url_google += "+{}".format(quote(channel))
             if srch:
                 url_google += "+{}".format(srch)
             if year:
                 url_google += "+{}".format(year)
-            # url_google = "https://www.google.com/search?q={}&tbm=isch&tbs=ift:jpg%2Cisz:m".format(url_google)
-            url_google = "https://www.google.com/search?q={}&tbm=isch".format(url_google)
+
+            # # url_google = "https://www.google.com/search?q={}&tbm=isch&tbs=ift:jpg%2Cisz:m".format(url_google)
+            # url_google = "https://www.google.com/search?q={}&tbm=isch".format(url_google)
+
+            url_name = '"' + quote(title) + '"'
+            if title.find(channel) is not None or channel < 0:
+                url_name += "+{}".format(quote(channel))
+
+            url_google = "https://www.google.com/search?q={}&tbm=isch&tbs=sbd:0".format(url_name)
+            url_google += "+{}".format(poster)
             ff = requests.get(url_google, stream=True, headers=headers, cookies={'CONSENT': 'YES+'}).text
 
             posterlst = re.findall('\],\["https://(.*?)",\d+,\d+]', ff)
@@ -539,7 +546,7 @@ class zPosterXDownloadThread(threading.Thread):
 
             for pl in posterlst:
                 url_poster = "https://{}".format(pl)
-                url_poster = re.sub(r"\\u003d", "=", url_poster)
+                url_poster = re.sub(r"\\u003d", " = ", url_poster)
                 self.savePoster(dwn_poster, url_poster)
                 if self.verifyPoster(dwn_poster):
                     self.resizePoster(dwn_poster)
@@ -613,12 +620,12 @@ class zPosterXDownloadThread(threading.Thread):
         fds = fd[:60]
         for i in self.checkMovie:
             if i in fds.lower():
-                srch = "movie"  # :" + i
+                srch = "movie:" + i
                 break
 
         for i in self.checkTV:
             if i in fds.lower():
-                srch = "tv"  # :" + i
+                srch = "tv:" + i
                 break
 
         return srch, fd

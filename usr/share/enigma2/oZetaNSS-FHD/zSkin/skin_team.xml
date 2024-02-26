@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <skin>
     <!-- ***************************************************************************************************************** -->
     <!-- ************ MENUS ***************************** MENUS ************************************ MENUS *************** -->
@@ -168,11 +168,7 @@
             <convert type="MenuEntryCompare">BrowserStyle</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
-        
-<!--         <widget source="menu" render="Pixmap" pixmap="oZetaNSS-FHD/iconsmenu/menu_information_about.png" position="940,10" size="110,110" scale="1" zPosition="10" alphatest="blend">
-            <convert type="MenuEntryCompare">about_screen</convert>
-            <convert type="ConditionalShowHide"/>
-        </widget>      -->   
+  
     </screen>
 
     

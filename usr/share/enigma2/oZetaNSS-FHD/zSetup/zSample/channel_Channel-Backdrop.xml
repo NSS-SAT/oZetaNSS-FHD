@@ -1,4 +1,4 @@
-<!-- *** oZeta - XML Version 2.27 Channel Selection Cover By zSetup v2.0.0 *** -->
+<!-- *** oZeta - XML Version 2.27 by zSetup v2.0.0 ***  -->
 <!-- Author mmark : Modules : TempChannelSelectionLong + zPosterX + zNxtEvnt + zBackdropX-->
 <screen name="ChannelSelection" position="0,0" size="1920,1080" title="InfoBar" backgroundColor="transparent" flags="wfNoBorder">
     <eLabel position="0,40" size="1920,1040" backgroundColor="#20000000" zPosition="0"/>

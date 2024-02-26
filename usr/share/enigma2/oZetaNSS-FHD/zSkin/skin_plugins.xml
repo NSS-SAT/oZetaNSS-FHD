@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <skin>
     <!-- **************************************  -->
     <!-- Skin oZetaNSS-FHD by mmark v2.0.0 	     -->
@@ -1157,10 +1157,10 @@
     <screen name="NetworkServiceSetup" position="0,0" size="1920,1080" backgroundColor="#ff000000" flags="wfNoBorder">
         <panel name="LayerMenu1000-nl"/>
         <panel name="bLogo"/>
-        <ePixmap position="230,150" pixmap="oZeta-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,150" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_green,Label,Button" name="key_green" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,200" pixmap="oZeta-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,200" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_yellow,Label,Button" name="key_yellow" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
         <eLabel position="230,260" size="810,3" backgroundColor="#202020" zPosition="1"/>
@@ -1170,15 +1170,15 @@
         <widget name="labstop" position="550,370" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="red"/>
         <widget name="labrun" position="550,370" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="green" zPosition="1"/>
     </screen>
-    
+
     <!-- [026] Plugin NetworkSamba 026/01 -->
     <screen name="NetworkSamba" position="0,0" size="1920,1080" backgroundColor="#ff000000" flags="wfNoBorder">
         <panel name="LayerMenu1000-nl"/>
         <panel name="bLogo"/>
-        <ePixmap position="230,150" pixmap="oZeta-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,150" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_green,Label,Button" name="key_green" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,200" pixmap="oZeta-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,200" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_yellow,Label,Button" name="key_yellow" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
         <eLabel position="230,260" size="810,3" backgroundColor="#202020" zPosition="1"/>
@@ -1188,18 +1188,18 @@
         <widget name="labstop" position="550,370" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="red"/>
         <widget name="labrun" position="550,370" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="green" zPosition="1"/>
     </screen>
-    
+
     <!-- [027] Plugin NetworkNFS 027/01 -->
     <screen name="NetworkNfs" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
         <panel name="LayerMenu1000-nl"/>
         <panel name="bLogo"/>
-        <ePixmap position="230,150" pixmap="oZeta-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,150" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_green,Label,Button" name="key_green" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,200" pixmap="oZeta-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,200" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_yellow,Label,Button" name="key_yellow" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,250" pixmap="oZeta-FHD/skin_default/buttons/80/key_red.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,250" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_red.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_red,Label,Button" name="key_red" font="Regular;30" position="330,250" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_red,StaticText" source="key_red" render="Label" font="Regular;30" position="330,250" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
         <eLabel position="230,310" size="810,3" backgroundColor="#202020" zPosition="1"/>
@@ -1209,18 +1209,18 @@
         <widget name="labstop" position="550,400" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="red"/>
         <widget name="labrun" position="550,400" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="green" zPosition="1"/>
     </screen>
-    
+
     <!-- [028] Plugin OpenVPN 028/01 -->
     <screen name="NetworkOpenvpn" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
         <panel name="LayerMenu1000-nl"/>
         <panel name="bLogo"/>
-        <ePixmap position="230,150" pixmap="oZeta-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,150" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_green,Label,Button" name="key_green" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,200" pixmap="oZeta-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,200" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_yellow,Label,Button" name="key_yellow" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,250" pixmap="oZeta-FHD/skin_default/buttons/80/key_red.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,250" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_red.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_red,Label,Button" name="key_red" font="Regular;30" position="330,250" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_red,StaticText" source="key_red" render="Label" font="Regular;30" position="330,250" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
         <eLabel position="230,310" size="810,3" backgroundColor="#202020" zPosition="1"/>
@@ -1230,18 +1230,18 @@
         <widget name="labstop" position="550,400" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="red"/>
         <widget name="labrun" position="550,400" size="490,50" font="Regular;32" valign="center" halign="center" backgroundColor="green" zPosition="1"/>
     </screen>
-    
+
     <!-- [029] Plugin Network Sabnzbd 029/01 -->
     <screen name="NetworkSABnzbd" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
         <panel name="LayerMenu1000-nl"/>
         <panel name="bLogo"/>
-        <ePixmap position="230,150" pixmap="oZeta-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,150" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_green.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_green,Label,Button" name="key_green" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" font="Regular;30" position="330,150" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,200" pixmap="oZeta-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,200" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_yellow.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_yellow,Label,Button" name="key_yellow" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" font="Regular;30" position="330,200" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
-        <ePixmap position="230,250" pixmap="oZeta-FHD/skin_default/buttons/80/key_red.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <ePixmap position="230,250" pixmap="oZetaNSS-FHD/skin_default/buttons/80/key_red.png" size="80,40" alphatest="blend" zPosition="2"/>
         <widget objectTypes="key_red,Label,Button" name="key_red" font="Regular;30" position="330,250" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="1" transparent="1"/>
         <widget objectTypes="key_red,StaticText" source="key_red" render="Label" font="Regular;30" position="330,250" size="350,40" halign="left" valign="center" backgroundColor="black" zPosition="2" transparent="1"/>
         <eLabel position="230,310" size="810,3" backgroundColor="#202020" zPosition="1"/>
@@ -1440,11 +1440,11 @@
         <eLabel position="0,120" size="1920,5" backgroundColor="#202020" zPosition="10"/>
         <!-- Cover picture -->
         <!--widget name="no_poster" position="30,150" size="320,440" zPosition="3" alphatest="on" /-->
-        <ePixmap position="30,150" size="320,440" pixmap="oZetaNSS/menu/panels/nocover.png" zPosition="2"/>
+        <ePixmap position="30,150" size="320,440" pixmap="oZetaNSS-FHD/menu/panels/nocover.png" zPosition="2"/>
         <widget name="poster" position="30,150" size="320,440" zPosition="4" alphatest="on"/>
-        <eLabel text="Titolo" position="40,610" size="500,50" font="Regular;30" halign="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="5"/>
-        <widget name="m_info" position="40,660" size="700,80" font="Regular;30" halign="left" foregroundColor="white" backgroundColor="#000000" transparent="1" zPosition="5"/>
-        <widget name="info" position="40,780" size="700,80" font="Regular;36" halign="left" foregroundColor="green" backgroundColor="#000000" transparent="1" zPosition="5"/>
+        <eLabel text="Titolo" position="40,610" size="500,50" font="Regular;34" halign="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="5"/>
+        <widget name="m_info" position="40,660" size="700,50" font="Regular;34" halign="left" foregroundColor="white" backgroundColor="#000000" transparent="1" zPosition="5"/>
+        <widget name="info" position="40,750" size="700,80" font="Regular;36" halign="left" foregroundColor="green" backgroundColor="#000000" transparent="1" zPosition="5"/>
         <widget name="done_msg" position="40,900" size="700,80" font="Regular;32" halign="left" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="5"/>
         <ePixmap position="750,150" pixmap="oZetaNSS-FHD/buttons/button_red.png" size="30,30" alphatest="blend" zPosition="2"/>
         <widget name="ButtonRedText" font="Regular;30" position="430,150" size="300,30" halign="right" valign="center" backgroundColor="black" transparent="1" zPosition="5"/>
@@ -1576,11 +1576,11 @@
         <widget source="Service" render="zRunningText" position="1290,735" size="580,225" font="Regular;28" halign="center" foregroundColor="yellow" backgroundColor="header" transparent="1" zPosition="4" options="movetype=running,direction=top,startpoint=0,startdelay=4000,steptime=50,wrap=1,always=0,repeat=3,oneshot=1">
             <convert type="EMCEventName">FullDescription</convert>
         </widget>
-        <widget name="list" position="30,140" size="1240,810" scrollbarMode="showOnDemand" enableWrapAround="0" transparent="1" itemHeight="45" 
-        	CoolCSPos="905" CoolFolderSize="700" CoolBarHPos="15" CoolBarPos="1020" CoolBarSizeSa="80,20" CoolDateColor="1" CoolDateFont="Regular;26" CoolDateHPos="7" CoolDatePos="990" 
-        	CoolDateWidth="240" CoolDirInfoWidth="300" CoolFont="Regular;28" CoolHighlightColor="1" CoolIconPos="5" CoolIconSize="50,40" CoolMovieHPos="6" CoolMoviePiconPos="140" CoolMoviePiconSize="600" 
-        	CoolMoviePos="65" CoolMovieSize="930" CoolPiconHPos="5" CoolPiconHeight="35" CoolPiconPos="65" CoolProgressPos="1170" CoolSelNumTxtWidth="50" CoolSelectFont="Regular;28" CoolTitleColor="1" 
-        	DefaultColor="foreground" FinishedColor="#38FF48" RecordingColor="red" UnwatchedColor="foreground" FrontColorSel="#bababa" WatchingColor="yellow" scrollbarWidth="10" scrollbarSliderForegroundColor="#808080" 
+        <widget name="list" position="30,140" size="1240,810" scrollbarMode="showOnDemand" enableWrapAround="0" transparent="1" itemHeight="45"
+        	CoolCSPos="905" CoolFolderSize="700" CoolBarHPos="15" CoolBarPos="1020" CoolBarSizeSa="80,20" CoolDateColor="1" CoolDateFont="Regular;26" CoolDateHPos="7" CoolDatePos="990"
+        	CoolDateWidth="240" CoolDirInfoWidth="300" CoolFont="Regular;28" CoolHighlightColor="1" CoolIconPos="5" CoolIconSize="50,40" CoolMovieHPos="6" CoolMoviePiconPos="140" CoolMoviePiconSize="600"
+        	CoolMoviePos="65" CoolMovieSize="930" CoolPiconHPos="5" CoolPiconHeight="35" CoolPiconPos="65" CoolProgressPos="1170" CoolSelNumTxtWidth="50" CoolSelectFont="Regular;28" CoolTitleColor="1"
+        	DefaultColor="foreground" FinishedColor="#38FF48" RecordingColor="red" UnwatchedColor="foreground" FrontColorSel="#bababa" WatchingColor="yellow" scrollbarWidth="10" scrollbarSliderForegroundColor="#808080"
         	scrollbarSliderBackgroundColor="#303030"/>
         <eLabel position="0,970" size="1920,5" backgroundColor="#202020" zPosition="10"/>
         <ePixmap position="30,1008" pixmap="oZetaNSS-FHD/buttons/button_red.png" size="30,30" alphatest="blend" zPosition="2"/>
@@ -2703,7 +2703,7 @@
         <widget source="menu" render="Listbox" position="10,10" size="780,300" scrollbarMode="showOnDemand" selectionDisabled="1">
             <convert type="TemplatedMultiContent">
 				{
-					"template": [  MultiContentEntryText(pos = (10, 0), size = (300, 30), flags = RT_HALIGN_LEFT, text = 0), 
+					"template": [  MultiContentEntryText(pos = (10, 0), size = (300, 30), flags = RT_HALIGN_LEFT, text = 0),
 					MultiContentEntryText(pos = (350, 0), size = (420, 30), flags = RT_HALIGN_LEFT, text = 1)],
 					"fonts": [gFont("Regular", 28)],
 					"itemHeight": 60
@@ -2852,7 +2852,7 @@
 		<widget source="temperaturetxt"   render="Label" position="250,325" size="150,40" font="Regular; 28" foregroundColor="#00f4f4f4" backgroundColor="#000000" halign="left" transparent="1" />
 		<widget source="timezonetxt"    render="Label" position="20,325"  size="200,40" font="Regular; 28" foregroundColor="#00f4f4f4" backgroundColor="#000000" halign="left" transparent="1" />
 		<widget source="humiditytxt"    render="Label" position="250,375" size="150,40" font="Regular; 28" foregroundColor="#00f4f4f4" backgroundColor="#000000" halign="left" transparent="1" />
-		<widget source="windtxt"        render="Label" position="250,400" size="150,40" font="Regular; 28" foregroundColor="#00f4f4f4" backgroundColor="#000000" halign="left" transparent="1" />		
+		<widget source="windtxt"        render="Label" position="250,400" size="150,40" font="Regular; 28" foregroundColor="#00f4f4f4" backgroundColor="#000000" halign="left" transparent="1" />
 		<widget source="feelsliketxt"   render="Label" position="250,350" size="150,40" font="Regular; 28" foregroundColor="#00f4f4f4" backgroundColor="#000000" halign="left" transparent="1" />
 		-->
     </screen>
@@ -2900,21 +2900,22 @@
         <ePixmap position="220,32" size="160,81" pixmap="oZetaNSS-FHD/menu/Logo/Zeta-Logo.png" alphatest="blend" transparent="1" zPosition="1"/>
         <panel name="LayerMenu1700"/>
         <panel name="vButtonTemplate-1500"/>
-        <widget name="config" position="230,140" size="1015,800" font="Regular;32" scrollbarMode="showOnDemand" itemHeight="50" scrollbarSliderBorderWidth="1" scrollbarSliderBorderColor="#202020" scrollbarWidth="10" scrollbarSliderForegroundColor="#808080" transparent="1" zPosition="2"/>
-        <widget name="Preview" position="1260,150" size="420,236" scale="1" zPosition="1"/>
-        <widget name="description" render="Label" position="1260,770" size="420,173" font="Regular;28" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="1" zPosition="5"/>
-        <widget name="status" position="1064,1025" size="529,42" font="Regular;28" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="1" zPosition="5"/>
-        <eLabel position="1260,760" size="420,3" backgroundColor="#303030" zPosition="10"/>
-        <widget name="author" position="1260,394" size="420,362" font="Regular;30" halign="center" valign="top" foregroundColor="white" backgroundColor="#202020" transparent="1"/>
-        <widget name="HelpWindow" pixmap="oZetaNSS-FHD/buttons/vkey_icon.png" position="230,705" size="1,1" transparent="1" zPosition="10" alphatest="on"/>
-        <widget name="image" position="1230,80" size="450,70" font="Regular; 32" foregroundColor="ltbluette" halign="right" backgroundColor="#000000" transparent="1"/>
-        <widget name="city" font="Regular; 26" position="1260,960" size="420,70" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="4" halign="right" valign="center"/>
-        <ePixmap position="1600,1030" pixmap="oZetaNSS-FHD/buttons/80/key_menu.png" size="80,40" alphatest="blend" zPosition="2"/>
-        <ePixmap position="1500,1030" pixmap="oZetaNSS-FHD/buttons/80/key_info.png" size="80,40" alphatest="blend" zPosition="2"/>
+        <widget name="image" position="1040,78" size="650,70" font="Regular; 28" foregroundColor="ltbluette" halign="right" backgroundColor="#000000" transparent="1" zPosition="5" />
+        <widget name="config" position="230,140" size="1015,800" font="Regular;32" scrollbarMode="showOnDemand" itemHeight="50" scrollbarSliderBorderWidth="1" scrollbarSliderBorderColor="#202020" scrollbarWidth="10" scrollbarSliderForegroundColor="#808080" transparent="1" zPosition="2" />
+        <widget name="Preview" position="1260,150" size="420,236" scale="1" zPosition="1" />
+        <widget name="description" position="1260,770" size="420,173" font="Regular;28" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="1" zPosition="5" />
+        <!-- <widget name="description" render="Label" position="1260,770" size="420,173" font="Regular;28" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="1" zPosition="5" /> -->
+        <widget name="status" position="1064,1025" size="529,42" font="Regular;28" halign="center" valign="center" foregroundColor="yellow" backgroundColor="#202020" transparent="1" zPosition="5" />
+        <eLabel position="1260,760" size="420,3" backgroundColor="#303030" zPosition="10" />
+        <widget name="author" position="1260,394" size="420,362" font="Regular;30" halign="center" valign="top" foregroundColor="white" backgroundColor="#202020" transparent="1" />
+        <widget name="city" font="Regular; 26" position="1260,680" size="420,60" foregroundColor="ltbluette" backgroundColor="#000000" transparent="1" zPosition="4" halign="center" valign="bottom" />
+        <ePixmap position="1600,980" pixmap="buttons/80/key_menu.png" size="80,40" alphatest="blend" zPosition="2" />
+        <ePixmap position="1600,1030" pixmap="buttons/80/key_info.png" size="80,40" alphatest="blend" zPosition="2" />
         <!-- <widget name="HelpMenu" position="1066,974" size="486,102" zPosition="5" transparent="1" alphatest="blend"/> -->
-        <widget name="VKeyIcon" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/oZetaNSS/basefile/key_text.png" position="1322,1031" size="38,38" alphatest="blend" transparent="1" zPosition="2"/>
-        <widget source="VKeyIcon" render="Pixmap" conditional="VKeyIcon" pixmap="oZetaNSS-FHD/buttons/key_text.png" position="230,600" zPosition="1" size="64,43" transparent="1" alphatest="blend">
-            <convert type="ConditionalShowHide"/>
+        <widget name="HelpWindow" pixmap="buttons/vkey_icon.png" position="230,705" size="1,1" transparent="1" zPosition="10" alphatest="on" />
+        <widget name="VKeyIcon" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/oZsetup/basefile/key_text.png" position="1322,1031" size="38,38" alphatest="blend" transparent="1" zPosition="2" />
+        <widget source="VKeyIcon" render="Pixmap" conditional="VKeyIcon" pixmap="oZeta-FHD/buttons/key_text.png" position="230,600" zPosition="1" size="64,43" transparent="1" alphatest="blend">
+            <convert type="ConditionalShowHide" />
         </widget>
     </screen>
     <!-- [062] OpenZeta Setup 062/02 -->
@@ -3957,22 +3958,31 @@
             </convert>
         </widget>
     </screen>
+    <!-- [085] CrashLog 085/02 -->
+    <screen name="LogScreen" position="0,0" size="1920,1080" title="View Crashlog file" backgroundColor="transparent" flags="wfNoBorder" >
+        <eLabel position="10,10" size="1900,1060" backgroundColor="#40000000" zPosition="-1" />
+        <eLabel position="20,20" size="1880,1040" backgroundColor="#20000000" zPosition="-1" />
+        <widget name="text"  position="40,40"  size="1840,740" font="Console; 24" text="text" backgroundColor="background" foregroundColor="white" transparent="1" zPosition="10" />
+        <eLabel position="30,790" size="1860,2" backgroundColor="#404040" zPosition="1"/>
+        <widget name="text2" position="40,800" size="1840,240" font="Console; 24" text="text2" foregroundColor="#ff0000" backgroundColor="background" transparent="1" zPosition="10" />
+        <widget source="Redkey" render="Label" position="1760,1010" zPosition="2" size="170,38" font="Regular; 28" halign="center" valign="center" backgroundColor="background" foregroundColor="red" transparent="1" />
+    </screen>
     <!-- [086] NGSettings VHannibal Settings 086/01 -->
     <screen name="MenuSetting" position="0,0" size="1920,1080" title="VHannibal" backgroundColor="#FF000000" flags="wfNoBorder">
         <ePixmap position="0,0" size="1300,1080" pixmap="oZetaNSS-FHD/menu/panels/main2.png" zPosition="-2" />
         <ePixmap position="1300,0" size="420,1080" pixmap="oZetaNSS-FHD/menu/pC.png" zPosition="-1" />
-        <ePixmap position="230,40" size="105,91" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/NGsetting/Panel/logo.png" zPosition="2" alphatest="blend" />	
-        <widget source="Title" render="Label" position="350,20" size="1100,100" font="Regular;76" halign="left" valign="center" foregroundColor="#808060" backgroundColor="#000000" transparent="1" zPosition="5" />	
+        <ePixmap position="230,40" size="105,91" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/NGsetting/Panel/logo.png" zPosition="2" alphatest="blend" />
+        <widget source="Title" render="Label" position="350,20" size="1100,100" font="Regular;76" halign="left" valign="center" foregroundColor="#808060" backgroundColor="#000000" transparent="1" zPosition="5" />
         <ePixmap position="220,130" size="1030,8" pixmap="oZetaNSS-FHD/menu/sep.png" blend="blend" zPosition="5" />
         <widget source="global.CurrentTime" render="Label" position="885,35" size="360,80" font="Regular;32" halign="right" valign="center" foregroundColor="#606060" backgroundColor="#20000000" transparent="1" zPosition="2">
             <convert type="ClockToText">Format %A %d %B %H:%M:%S</convert>
-        </widget>				
+        </widget>
         <widget name="A" position="220,150" size="330,623" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" backgroundColor="#303030" backgroundColorSelected="barColor" font="Regular;28" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="5" />
         <widget name="B" position="570,150" size="680,630" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="5" font="Regular;28" foregroundColor="#5dafff" foregroundColorSelected="#ffffff" backgroundColor="#303030" backgroundColorSelected="barColor" />
         <widget position="220,800" size="300,40" name="Key_Green" font="Regular;30" halign="left" foregroundColor="#ffffff" backgroundColor="#101010" zPosition="1" transparent="1" />
         <widget position="500,800" size="700,40" name="namesat" font="Regular;30" foregroundColor="#bab329" backgroundColor="#101010" transparent="1" zPosition="3" />
-        <widget position="220,850" size="910,50" name="dataDow" font="Regular;28" foregroundColor="yellow" backgroundColor="#101010" transparent="1" zPosition="3" />	
-        <ePixmap position="220,910" size="1030,8" pixmap="oZetaNSS-FHD/menu/sep.png" blend="blend" zPosition="5" />	
+        <widget position="220,850" size="910,50" name="dataDow" font="Regular;28" foregroundColor="yellow" backgroundColor="#101010" transparent="1" zPosition="3" />
+        <ePixmap position="220,910" size="1030,8" pixmap="oZetaNSS-FHD/menu/sep.png" blend="blend" zPosition="5" />
         <ePixmap position="220,945" pixmap="oZetaNSS-FHD/buttons/button_red.png" size="35,35" alphatest="blend" zPosition="2" />
         <widget name="Green" position="220,1020" pixmap="oZetaNSS-FHD/buttons/button_green.png" size="35,35" alphatest="blend" zPosition="2" />
         <widget name="Key_Lcn" position="275,1000" size="300,70" zPosition="1" font="Regular;30" halign="left" valign="center" foregroundColor="#ffffff" backgroundColor="#20000000" transparent="1" />
@@ -3983,22 +3993,186 @@
         <widget name="Key_Red" position="275,930" size="300,70" zPosition="1" font="Regular;30" halign="left" valign="center" foregroundColor="#ffffff" backgroundColor="#20000000" transparent="1" />
     </screen>
 
+    <!-- [089] OscamInfoMenu 089/1 -->
+    <screen name="OscamInfoMenu" position="0,0" size="1920,1080" title="OscamInfo Menu" backgroundColor="#FF000000" flags="wfNoBorder">
+	<panel name="LayerMenu1000"/>
+	<panel name="bLogo"/>
+  	<widget name="mainmenu" position="230,140" font="Regular;30" itemHeight="40" valign="center" size="810,720" backgroundColorSelected="bluette" itemCornerRadius="0" backgroundColor="#000000"
+  		scrollbarRadius="5" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+    </screen>
+
+    <!-- [089] OscamInfoMenu 089/2 -->
+    <screen name="oscInfo" position="0,0" size="1920, 1080" title="Client Info" backgroundColor="#FF000000" flags="wfNoBorder" >
+	<panel name="LayerMenu1700"/>
+	<panel name="bLogo"/>
+  	<widget name="output" position="230,140" font="Regular;30" itemHeight="25" valign="center" size="1450,800" backgroundColorSelected="bluette" backgroundColor="#000000"
+  		scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+        <!--
+        <ePixmap pixmap="buttons/button_red.png" position="230,860" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_red,Label,Button" name="key_red" position="270,860" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="270,860" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+    	-->
+    </screen>
+
+    <!-- [089] OscamInfoMenu 089/3 -->
+    <screen name="OSCamInfo" position="center,center" size="1950,1080" backgroundColor="#10101010" title="OSCam Information" flags="wfNoBorder" resolution="1920,1080">
+	<ePixmap pixmap="icons/OscamLogo.png" position="15,15" size="80,80" scale="1" alphatest="blend" />
+	<widget source="Title" render="Label" position="15,15" size="1920,60" font="Regular;40" halign="center" valign="center" foregroundColor="white" backgroundColor="#10101010" />
+	<widget source="global.CurrentTime" render="Label" position="1635,15" size="260,60" font="Regular;40" halign="right" valign="center" foregroundColor="#0092CBDF" backgroundColor="#10101010">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="timerinfos" render="Label" position="15,72" size="1920,40" font="Regular;28" halign="center" valign="center" foregroundColor="white" backgroundColor="#10101010" />
+	<widget source="buildinfos" render="Label" position="15,105" size="1920,40" font="Regular;28" halign="center" valign="center"  foregroundColor="#092CBDF" backgroundColor="#10101010" />
+	<!-- Server / Reader / Clients -->
+	<eLabel text="#" position="15,150" size="23,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="Reader/User" position="40,150" size="173,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="AU" position="215,150" size="88,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="Address" position="305,150" size="168,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="Port" position="475,150" size="88,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="Protocol" position="565,150" size="288,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="srvid:caid@provid" position="855,150" size="238,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="Last Channel" position="1095,150" size="278,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="LB Value/Reader" position="1375,150" size="218,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="Online\nIdle" position="1595,150" size="138,58" font="Regular;24" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="Status" position="1735,150" size="170,58" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<widget source="outlist" render="Listbox" position="15,210" size="1890,600" backgroundColor="#20aaaaaa" backgroundColorSelected="#20aaaaaa" scrollbarMode="showOnDemand" >
+		<convert type="TemplatedMultiContent">
+			{"template": [ # index 11 is backcolor
+			MultiContentEntryText(pos=(0,0), size=(23,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=0),  # type
+			MultiContentEntryText(pos=(25,0), size=(173,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=1),  # Reader/User
+			MultiContentEntryText(pos=(200,0), size=(88,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=2),  # AU
+			MultiContentEntryText(pos=(290,0), size=(168,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=3),  # Adress
+			MultiContentEntryText(pos=(460,0), size=(88,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=4),  # Port
+			MultiContentEntryText(pos=(550,0), size=(288,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=5),  # Protocol
+			MultiContentEntryText(pos=(840,0), size=(238,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=6),  # srvid:caid@provid
+			MultiContentEntryText(pos=(1080,0), size=(278,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=7),  # Last Channel
+			MultiContentEntryText(pos=(1360,0), size=(218,60), font=1, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=8),  # LB Value/Reader
+			MultiContentEntryText(pos=(1580,0), size=(138,60), font=1, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=9),  # Online+Idle
+			MultiContentEntryText(pos=(1720,0), size=(170,60), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, color_sel=0x000000, backcolor=MultiContentTemplateColor(11), backcolor_sel=MultiContentTemplateColor(11), text=10)  # Status
+			], "fonts": [gFont("Regular",21),gFont("Regular",18)], "itemHeight":60
+			}
+		</convert>
+	</widget>
+	<widget name="logtext" position="15,812" size="1890,150" font="Regular;24" halign="left" valign="top" foregroundColor="black" backgroundColor="#ECEAF6" noWrap="0" scrollbarMode="showNever" />
+	<eLabel text="System Ram" position="15,964" size="171,42" font="Regular;27" halign="center" valign="center" foregroundColor="#FFFF30" backgroundColor="#1B3C85" />
+	<widget source="total" render="Label" position="188,964" size="228,42" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<widget source="used" render="Label" position="418,964" size="228,42" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<widget source="free" render="Label" position="648,964" size="228,42" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<widget source="buffer" render="Label" position="878,964" size="228,42" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel text="OSCam" position="1108,964" size="125,42" font="Regular;27" valign="center" halign="center" foregroundColor="#FFFF30" backgroundColor="#1B3C85" />
+	<widget source="virtuell" render="Label" position="1235,964" size="338,42" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<widget source="resident" render="Label" position="1575,964" size="330,42" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="#1B3C85" />
+	<eLabel name="blue" position="920,1010" size="10,65" backgroundColor="blue" zPosition="1" />
+	<widget source="key_blue" render="Label" position="940,1020" size="380,42" font="Regular;30" halign="left" valign="center" foregroundColor="grey" />
+	<widget source="key_menu" render="Label" position="1530,1020" size="150,42" font="Regular;30" halign="center" valign="center" foregroundColor="black" backgroundColor="grey" />
+	<widget source="key_exit" render="Label" position="1730,1020" size="150,42" font="Regular;30" halign="center" valign="center" foregroundColor="black" backgroundColor="grey" />
+    </screen>
+
+    <!-- [089] OscamInfoMenu 089/4 -->
+    <screen name="oscEntitlements" position="0,0" size="1920, 1080" title="Client Info" backgroundColor="#FF000000" flags="wfNoBorder" >
+	<panel name="LayerMenu1000"/>
+	<panel name="bLogo"/>
+	<widget source="output" render="Listbox" position="230,140" size="810,560" scrollbarMode="showOnDemand" >
+		<convert type="TemplatedMultiContent">
+		{"templates":
+			{"default": (55,[
+					MultiContentEntryText(pos = (0, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
+					MultiContentEntryText(pos = (90, 1), size = (150, 24), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
+					MultiContentEntryText(pos = (250, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
+					MultiContentEntryText(pos = (290, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
+					MultiContentEntryText(pos = (330, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
+					MultiContentEntryText(pos = (370, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
+					MultiContentEntryText(pos = (410, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
+					MultiContentEntryText(pos = (480, 1), size = (70, 24), font=0, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
+					MultiContentEntryText(pos = (550, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 8), # index 8 is reshare
+					MultiContentEntryText(pos = (0, 25), size = (700, 24), font=1, flags = RT_HALIGN_LEFT, text = 9), # index 9 is providers
+					]),
+			"HD": (55,[
+					MultiContentEntryText(pos = (0, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
+					MultiContentEntryText(pos = (90, 1), size = (150, 24), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
+					MultiContentEntryText(pos = (250, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
+					MultiContentEntryText(pos = (290, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
+					MultiContentEntryText(pos = (330, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
+					MultiContentEntryText(pos = (370, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
+					MultiContentEntryText(pos = (410, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
+					MultiContentEntryText(pos = (480, 1), size = (70, 24), font=0, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
+					MultiContentEntryText(pos = (550, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 8), # index 8 is reshare
+					MultiContentEntryText(pos = (630, 1), size = (1024, 50), font=1, flags = RT_HALIGN_LEFT, text = 9), # index 9 is providers
+					]),
+			},
+			"fonts": [gFont("Regular", 20),gFont("Regular", 18),gFont("Regular", 24),gFont("Regular", 20)],
+			"itemHeight": 56
+		}
+		</convert>
+	</widget>
+    </screen>
+
+    <!-- [089] OscamInfoMenu 089/5 -->
+    <screen name="oscReaderStats" position="0,0" size="1920,1080" title="Client Info" backgroundColor="#FF000000" flags="wfNoBorder">
+	<panel name="LayerMenu1000"/>
+	<panel name="bLogo"/>
+	<widget source="output" render="Listbox" position="230,140" size="810,560" scrollbarMode="showOnDemand" >
+		<convert type="TemplatedMultiContent">
+		{"templates":
+			{"default": (25,[
+					MultiContentEntryText(pos = (0, 1), size = (100, 24), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
+					MultiContentEntryText(pos = (100, 1), size = (50, 24), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
+					MultiContentEntryText(pos = (150, 1), size = (150, 24), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
+					MultiContentEntryText(pos = (300, 1), size = (60, 24), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
+					MultiContentEntryText(pos = (360, 1), size = (60, 24), font=0, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
+					MultiContentEntryText(pos = (420, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
+					MultiContentEntryText(pos = (510, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
+					MultiContentEntryText(pos = (590, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
+					]),
+			"HD": (25,[
+					MultiContentEntryText(pos = (0, 1), size = (200, 24), font=1, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
+					MultiContentEntryText(pos = (200, 1), size = (70, 24), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
+					MultiContentEntryText(pos = (300, 1), size = (220, 24), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
+					MultiContentEntryText(pos = (540, 1), size = (80, 24), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
+					MultiContentEntryText(pos = (630, 1), size = (80, 24), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
+					MultiContentEntryText(pos = (720, 1), size = (130, 24), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
+					MultiContentEntryText(pos = (840, 1), size = (130, 24), font=1, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
+					MultiContentEntryText(pos = (970, 1), size = (100, 24), font=1, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
+					]),
+			},
+			"fonts": [gFont("Regular", 18),gFont("Regular", 20),gFont("Regular", 24),gFont("Regular", 22)],
+			"itemHeight": 28
+		}
+		</convert>
+	</widget>
+    <!-- [093] ChoCholoosek Picons Setup FHD 093/1 -->
+    <screen name="mainConfigScreen" position="0,0" size="1920,1080" title="Chocholousek picons" flags="wfNoBorder" backgroundColor="transparent">
+	<panel name="LayerMenu1500"/>
+        <panel name="ex-RGYB-1700"/>
+	<widget name="config" position="230,140" font="Regular;30" itemHeight="40" valign="center" size="1250,720" backgroundColorSelected="bluette" itemCornerRadius="5" backgroundColor="bluette"
+		scrollbarRadius="5" scrollbarMode="showOnDemand" scrollbarForegroundColor="ltbluette" scrollbarBorderWidth="1" scrollbarBorderColor="ltbluette" scrollbarWidth="8" enableWrapAround="1" transparent="1" />
+	<widget name="previewImage" position="0,230" size="1600,300" zPosition="1" alphatest="blend" transparent="1" backgroundColor="transparent" />
+       	<eLabel position="800,425" size="220,200" backgroundColor="barColor" cornerRadius="12" backgroundGradient="black,barColor,vertical" />
+	<widget name="u" position="890,455" size="45,44" zPosition="1" alphatest="blend" transparent="1" backgroundColor="transparent" />
+	<widget name="l" position="830,510" size="45,44" zPosition="1" alphatest="blend" transparent="1" backgroundColor="transparent" />
+	<widget name="r" position="950,510" size="45,44" zPosition="1" alphatest="blend" transparent="1" backgroundColor="transparent" />
+	<widget name="d" position="890,565" size="45,44" zPosition="1" alphatest="blend" transparent="1" backgroundColor="transparent" />
+	<widget name="o" position="890,510" size="45,44" zPosition="1" alphatest="blend" transparent="1" backgroundColor="transparent" />
+	<widget name="version_txt" position="0,0" size="0,0" font="Regular;42" foregroundColor="yellow" transparent="1" halign="center" valign="center" />
+	<widget name="author_txt"  position="0,0" size="0,0" font="Regular;28" foregroundColor="yellow" transparent="1" halign="center" valign="center" />
+    </screen>
+    </screen>
     <screen name="MenuSelect" position="0,0" size="1920,1080" title="VHannibal" backgroundColor="#FF000000" flags="wfNoBorder">
         <ePixmap position="0,0" size="1500,1080" pixmap="oZetaNSS-FHD/menu/panels/main2.png" zPosition="-2" />
         <ePixmap position="1500,0" size="420,1080" pixmap="oZetaNSS-FHD/menu/pC.png" zPosition="-1" />
-        <ePixmap position="230,40" size="105,91" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/NGsetting/Panel/logo.png" zPosition="2" alphatest="blend" />	
-        <widget source="Title" render="Label" position="350,20" size="1100,100" font="Regular;76" halign="left" valign="center" foregroundColor="#808060" backgroundColor="#000000" transparent="1" zPosition="5" />	
+        <ePixmap position="230,40" size="105,91" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/NGsetting/Panel/logo.png" zPosition="2" alphatest="blend" />
+        <widget source="Title" render="Label" position="350,20" size="1100,100" font="Regular;76" halign="left" valign="center" foregroundColor="#808060" backgroundColor="#000000" transparent="1" zPosition="5" />
         <ePixmap position="220,130" size="1250,8" pixmap="oZetaNSS-FHD/menu/sep.png" blend="blend" zPosition="5" />
         <widget source="global.CurrentTime" render="Label" position="885,35" size="360,80" font="Regular;32" halign="right" valign="center" foregroundColor="#606060" backgroundColor="#20000000" transparent="1" zPosition="2">
             <convert type="ClockToText">Format %A %d %B %H:%M:%S</convert>
-        </widget>				
+        </widget>
         <widget name="A" position="220,150" size="450,620" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" backgroundColor="#303030" backgroundColorSelected="barColor" font="Regular;28" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="5" />
         <widget name="B" position="685,150" size="800,630" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="5" font="Regular;28" foregroundColor="#5dafff" foregroundColorSelected="#ffffff" backgroundColor="#303030" backgroundColorSelected="barColor" />
-        <widget position="220,150" size="450,620" name="text" font="Regular;28" foregroundColor="yellow" backgroundColor="#101010" transparent="1" zPosition="3" />	
+        <widget position="220,150" size="450,620" name="text" font="Regular;28" foregroundColor="yellow" backgroundColor="#101010" transparent="1" zPosition="3" />
         <widget position="220,800" size="300,40" name="Key_Green" font="Regular;30" halign="left" foregroundColor="#ffffff" backgroundColor="#101010" zPosition="1" transparent="1" />
         <widget position="500,800" size="700,40" name="namesat" font="Regular;30" foregroundColor="#bab329" backgroundColor="#101010" transparent="1" zPosition="3" />
-        <widget position="220,850" size="910,50" name="dataDow" font="Regular;28" foregroundColor="yellow" backgroundColor="#101010" transparent="1" zPosition="3" />	
-        <ePixmap position="220,910" size="1250,8" pixmap="oZetaNSS-FHD/menu/sep.png" blend="blend" zPosition="5" />	
+        <widget position="220,850" size="910,50" name="dataDow" font="Regular;28" foregroundColor="yellow" backgroundColor="#101010" transparent="1" zPosition="3" />
+        <ePixmap position="220,910" size="1250,8" pixmap="oZetaNSS-FHD/menu/sep.png" blend="blend" zPosition="5" />
         <ePixmap position="220,945" pixmap="oZetaNSS-FHD/buttons/button_red.png" size="35,35" alphatest="blend" zPosition="2" />
         <widget name="Green" position="220,1020" pixmap="oZetaNSS-FHD/buttons/button_green.png" size="35,35" alphatest="blend" zPosition="2" />
         <widget name="Key_Lcn" position="275,1000" size="300,70" zPosition="1" font="Regular;30" halign="left" valign="center" foregroundColor="#ffffff" backgroundColor="#20000000" transparent="1" />

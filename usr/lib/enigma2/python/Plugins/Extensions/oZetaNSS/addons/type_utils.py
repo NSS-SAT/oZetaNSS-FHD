@@ -8,13 +8,11 @@ from Components.MenuList import MenuList
 # from Components.AVSwitch import AVSwitch
 # from Components.Pixmap import Pixmap
 # from Components.Sources.StaticText import StaticText
-
 # Screens
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.HelpMenu import HelpableScreen
 # from Screens.InfoBar import MoviePlayer as Movie_Audio_Player
-
 # Tools
 from Tools.Directories import fileExists  # , fileReadLines
 from errno import ENOENT
@@ -23,21 +21,15 @@ from errno import ENOENT
 from sys import _getframe as getframe
 DEFAULT_MODULE_NAME = __name__.split(".")[-1]
 # forceDebug = eGetEnigmaDebugLvl() > 4
-
 # Various
 # from .InputBox import InputBoxWide
 # from enigma import eTimer, getDesktop, gFont, eSize, ePicLoad
 import skin
-
 ##################################
-
 pname = _("File Commander - Addon Mediaplayer")
 pdesc = _("play/show Files")
 pversion = "1.0-r0"
-
-
 from enigma import eLabel
-
 # Calls onto the static function in eLabel. This avoids causing an invalidate
 # on the parent container which is detrimental to UI performance,
 # particularly in a complex screen like the graph EPG

@@ -13,7 +13,7 @@ from .addons.Utils import RequestAgent
 from Components.AVSwitch import AVSwitch
 from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigListScreen
-from Components.config import configfile
+# from Components.config import configfile
 from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.Sources.StaticText import StaticText
@@ -33,8 +33,10 @@ from enigma import ePicLoad, loadPic, eTimer
 import os
 import sys
 import time
+import re
 
-global nss_my_cur_skin, zaddon
+global nss_my_cur_skin, zaddon, filexml
+filexml = ''
 PY3 = sys.version_info.major >= 3
 thisdir = resolveFilename(SCOPE_PLUGINS, "Extensions/{}".format('oZetaNSS'))
 my_cur_skin = config.skin.primary_skin.value.replace('/skin.xml', '')
@@ -94,7 +96,7 @@ except:
 
 Uri.imagevers()
 #  config section - ===========
-version = '1.0_r1'
+version = '1.0_r2'
 descplug = 'Customization tool for oZeta NSS Skin v.%s' % version
 plugindesc = 'Manage your oZeta NSS Skin v.%s' % version
 iconpic = 'plugin.png'
@@ -123,7 +125,7 @@ ozetapluginspredefinedlist = []
 # ozetaalogopredefinedlist = []
 # ozetablogopredefinedlist = []
 # ozetamvipredefinedlist = []
-
+# ozetamsgboxpredefinedlist = []
 config.ozetanss.actapi = NoSave(ConfigOnOff(default=False))
 config.ozetanss.data = NoSave(ConfigOnOff(default=False))
 config.ozetanss.api = NoSave(ConfigSelection(['-> Ok']))
@@ -157,6 +159,7 @@ config.ozetanss.PluginsFHD = ConfigSelection(default='PluginBrowser Default', ch
 # config.ozetanss.LogoaFHD = ConfigSelection(default='TopLogo Default', choices=ozetaalogopredefinedlist)
 # config.ozetanss.LogobFHD = ConfigSelection(default='BottomLogo Default', choices=ozetablogopredefinedlist)
 # config.ozetanss.Logoboth = ConfigSelection(default='Bootlogo Default', choices=ozetamvipredefinedlist)
+# config.ozetanss.MessageBox = ConfigSelection(default='Messagebox Default', choices=ozetamsgboxpredefinedlist)
 config.ozetanss.XStreamity = NoSave(ConfigSelection(['-> Ok']))
 config.ozetanss.fake = NoSave(ConfigNothing())
 
@@ -202,6 +205,9 @@ if f:
             if 'plugins_' in nssline:
                 ozetaplugins = nssline[8:].replace("-", " ")
                 ozetapluginspredefinedlist.append(ozetaplugins)
+        # if 'msgbox_' in nssline:
+            # ozetamsgbox = nssline[7:].replace("-", " ")
+            # ozetamsgboxpredefinedlist.append(ozetamsgbox)
         # if 'alogo_' in nssline:
             # ozetalogo = nssline[6:].replace("-", " ")
             # ozetaalogopredefinedlist.append(ozetalogo)
@@ -220,6 +226,7 @@ if f:
     if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
         ozetapluginspredefinedlist.sort()
     # ozetamvipredefinedlist.sort()
+    # ozetamsgboxpredefinedlist.sort()
     # ozetaalogopredefinedlist.sort()
     # ozetablogopredefinedlist.sort()
     # if ozetamenupredefinedlist and 'Menu Default' in ozetamenupredefinedlist:
@@ -259,7 +266,10 @@ if f:
             config.ozetanss.PluginsFHD = ConfigSelection(default='PluginBrowser Default', choices=ozetapluginspredefinedlist)
         else:
             config.ozetanss.PluginsFHD = ConfigSelection(choices=ozetapluginspredefinedlist)
-
+    # if ozetamsgboxpredefinedlist and 'MessageBox Default' in ozetamsgboxpredefinedlist:
+        # config.ozetanss.MessageBoxFHD = ConfigSelection(default='MessageBox Default', choices=ozetamsgboxpredefinedlist)
+    # else:
+        # config.ozetanss.MessageBoxFHD = ConfigSelection(choices=ozetamsgboxpredefinedlist)
     # if ozetaalogopredefinedlist and 'TopLogo Default' in ozetaalogopredefinedlist:
         # config.ozetanss.LogoaFHD = ConfigSelection(default='TopLogo Default', choices=ozetaalogopredefinedlist)
     # else:
@@ -317,6 +327,7 @@ def localreturn(name):
         ["bootlogo", "bootlogo"],
         ["setup", "setup"],
         ["options", "options"],
+        ["preview", "preview"],
         ["tmdb api:", "tmdb api:"],
         ["omdb api:", "omdb api:"],
         ["visualweather api:", "visualweather api:"],
@@ -350,9 +361,10 @@ class oZetaNSS(ConfigListScreen, Screen):
         self['key_yellow'] = Label('')
         if str(my_cur_skin) == 'oZetaNSS-FHD':
             self['key_yellow'] = Label(_('Preview'))
-        # self['key_blue'] = Label(_('Restart'))
-        # self["key_blue"] = StaticText(self.getSkinSelector() is not None and "Skin" or "")
-        self["key_blue"] = Label('Skin')
+            self['key_blue'] = Label(_('Restart'))
+        else:
+            # self["key_blue"] = StaticText(self.getSkinSelector() is not None and "Skin" or "")
+            self["key_blue"] = Label('Skin')
         # self["key_blue"].hide()
         self["HelpWindow"] = Pixmap()
         self["HelpWindow"].hide()
@@ -411,6 +423,12 @@ class oZetaNSS(ConfigListScreen, Screen):
         self.onLayoutFinish.append(self.__layoutFinished)
         self.onLayoutFinish.append(self.UpdatePicture)
 
+    def restrt(self, answer=None):
+        if answer is None:
+            self.session.openWithCallback(self.restrt, MessageBox, _("This operation restart Gui\nDo you really want to continue?"))
+        else:
+            self.session.open(TryQuitMainloop, 3)
+
     def passs(self, foo):
         pass
 
@@ -457,11 +475,14 @@ class oZetaNSS(ConfigListScreen, Screen):
             print(e)
 
     def keyOpenSkinselector(self):
-        try:
-            if self.getSkinSelector() is not None:
-                self.session.openWithCallback(self.restoreCurrentSkin, self.getSkinSelector())
-        except Exception as e:
-            print(e)
+        if str(my_cur_skin) == 'oZetaNSS-FHD':
+            self.restrt()
+        else:
+            try:
+                if self.getSkinSelector() is not None:
+                    self.session.openWithCallback(self.restoreCurrentSkin, self.getSkinSelector())
+            except Exception as e:
+                print(e)
 
     def restoreCurrentSkin(self, SkinSelector):
         try:
@@ -528,6 +549,8 @@ class oZetaNSS(ConfigListScreen, Screen):
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     if ozetapluginspredefinedlist:
                         self.list.append(getConfigListEntry('PluginBrowser Panel:', config.ozetanss.PluginsFHD, _("Settings PluginBrowser Panels")))
+                # if ozetamsgboxpredefinedlist:
+                    # self.list.append(getConfigListEntry('MessageBox Panel:', config.ozetanss.MessageBoxFHD, _("Settings MessageBox Colors")))
                 # if ozetaalogopredefinedlist:
                     # self.list.append(getConfigListEntry('Logo Image Top:', config.ozetanss.LogoaFHD, _("Settings Logo Image Top")))
                 # if ozetablogopredefinedlist:
@@ -687,10 +710,10 @@ class oZetaNSS(ConfigListScreen, Screen):
             self.session.open(MessageBox, _("Missing XStreamity Plugins!"), MessageBox.TYPE_INFO, timeout=4)
 
     def zLogoboth(self, answer=None):
-        sel2 = self['config'].getCurrent()[1].value
-        print('sel2-- ', sel2)
-        sel2 = sel2.replace(" ", "-")
-        filemvi = self.chooseFile + 'bootlogo_' + sel2 + '.mvi'
+        sel4 = self['config'].getCurrent()[1].value
+        print('sel4-- ', sel4)
+        sel4 = sel4.replace(" ", "-")
+        filemvi = self.chooseFile + 'bootlogo_' + sel4 + '.mvi'
         origmvi = self.chooseFile + 'bootlogo_Original-Bootlogo.mvi'
         print('filemvi ', filemvi)
         if answer is None:
@@ -735,44 +758,54 @@ class oZetaNSS(ConfigListScreen, Screen):
         self['author'].setText(welcome)
         sel1 = self['config'].getCurrent()[1].value  # InfoBar-Meteo
         selx = self['config'].getCurrent()[0]
-
         if localreturn(selx):
             return
-        sel2 = sel1.replace(" ", "-")
-        filexml = ''
-        # if 'menu' in sel2.lower():
-            # filexml = self.chooseFile + 'menu_' + sel2 + '.xml'
-        if 'infobar' in sel2.lower():
-            filexml = self.chooseFile + 'infobar_' + sel2 + '.xml'
-        if 'second' in sel2.lower():
-            filexml = self.chooseFile + 'second_' + sel2 + '.xml'
-        if 'channel' in sel2.lower():
-            filexml = self.chooseFile + 'channel_' + sel2 + '.xml'
-        if 'radio' in sel2.lower():
-            filexml = self.chooseFile + 'radio_' + sel2 + '.xml'
-        if 'mediaplayer' in sel2.lower():
-            filexml = self.chooseFile + 'mediaplayer_' + sel2 + '.xml'
-        if 'eventview' in sel2.lower():
-            filexml = self.chooseFile + 'eventview_' + sel2 + '.xml'
-        if 'plugins' in sel2.lower():
-            filexml = self.chooseFile + 'plugins_' + sel2 + '.xml'
-        if 'bottom' in sel2.lower():
-            filexml = self.chooseFile + 'blogo_' + sel2 + '.xml'
-        if 'top' in sel2.lower():
-            filexml = self.chooseFile + 'alogo_' + sel2 + '.xml'
-        if 'volume' in sel2.lower():
-            filexml = self.chooseFile + 'volume_' + sel2 + '.xml'
-        # print('===========filexml========== ', filexml)
+        sel2 = sel1.lower()  # .replace(" ", "-")
+        # print('selx: xml author: ', selx)
+        # print('sel1: xml author: ', sel1)
+        # print('sel2=sel1 lower: ', sel2)
+        global filexml
+        if 'menu' in sel2:
+            filexml = self.chooseFile + 'menu_' + sel1
+
+        if 'infobar' in sel2:
+            filexml = self.chooseFile + 'infobar_' + sel1
+
+        if 'Second Infobar:' in selx:
+            filexml = self.chooseFile + 'second_' + sel1
+
+        if 'channel' in sel2:
+            filexml = self.chooseFile + 'channel_' + sel1
+        if 'radio' in sel2:
+            filexml = self.chooseFile + 'radio_' + sel1
+        if 'mediaplayer' in sel2:
+            filexml = self.chooseFile + 'mediaplayer_' + sel1
+        if 'eventview' in sel2:
+            filexml = self.chooseFile + 'eventview_' + sel1
+        if 'messagebox' in sel2:
+            filexml = self.chooseFile + 'msgbox_' + sel1
+        if 'plugins' in sel2:
+            filexml = self.chooseFile + 'plugins_' + sel1
+        if 'bottom' in sel2:
+            filexml = self.chooseFile + 'blogo_' + sel1
+        if 'top' in sel2:
+            filexml = self.chooseFile + 'alogo_' + sel1
+        if 'volume' in sel2:
+            filexml = self.chooseFile + 'volume_' + sel1
+
+        filexml = filexml.replace(" ", "-") + '.xml'
+        print('===========filexml att ========== ', filexml)
         #  <!-- Author mmark Infobar + Crypt + Cover + DataChannel + IP -->
         if fileExists(filexml):
+            print('===========filexml========== ', filexml)
             with open(filexml, 'r') as openFile:
                 for x in openFile:
                     y = x.find('Author')
-                    if y > 1:
-                        x = x.replace('<!-- ', '').replace(' -->', '')
-                        x.replace('+', '\n')
+                    if y >= 0:
+                        x = x.replace('<!-- ', '').replace(' -->', '').replace('+', '\n')
                         x = x.strip()
                         break
+                print('xxxx author:', x)
                 self['author'].setText(x)
         else:
             try:
@@ -783,23 +816,41 @@ class oZetaNSS(ConfigListScreen, Screen):
                 print(e)
                 self['author'].setText(welcome)
                 self['description'].setText('-')
-
-# (1, _("Style 1")),
-# (2, _("Style 2")),
-# (3, _("Style 3")),
-# (4, _("Style 4")),
-# (5, _("Style 5")),
-# (6, _("Style 6"))])
+        return
 
     def GetPicturePath(self):
+        # (1, _("Style 1")),
+        # (2, _("Style 2")),
+        # (3, _("Style 3")),
+        # (4, _("Style 4")),
+        # (5, _("Style 5")),
+        # (6, _("Style 6"))])
         PicturePath = '%sbasefile/default.jpg' % thisdir
         sel = self["config"].getCurrent()[1]
-        sel2 = self['config'].getCurrent()[1].value
+        sel3 = self['config'].getCurrent()[1].value
         xxxx = self["config"].getCurrent()[0]
-        # print('sel2: ', str(sel2))
-        # print(type(sel2))
+        # print('sel3: ', str(sel3))
+        # print(type(sel3))
         returnValue = '%sbasefile/default.jpg' % thisdir
         try:
+            if '1' in str(sel3) and 'style' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style1'))
+                return PicturePath
+            if '2' in str(sel3) and 'style' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style2'))
+                return PicturePath
+            if '3' in str(sel3) and 'style' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style3'))
+                return PicturePath
+            if '4' in str(sel3) and 'style' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style4'))
+                return PicturePath
+            if '5' in str(sel3) and 'style' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style5'))
+                return PicturePath
+            if '6' in str(sel3) and 'style' in xxxx.lower():
+                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style6'))
+                return PicturePath
             if 'tmdb api:' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'tmdb'))
                 return PicturePath
@@ -811,25 +862,6 @@ class oZetaNSS(ConfigListScreen, Screen):
                 return PicturePath
             if 'visualweather plugin api:' in xxxx.lower():
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'visualweather'))
-                return PicturePath
-
-            if '1' in str(sel2) and 'style' in xxxx.lower():
-                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style1'))
-                return PicturePath
-            if '2' in str(sel2) and 'style' in xxxx.lower():
-                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style2'))
-                return PicturePath
-            if '3' in str(sel2) and 'style' in xxxx.lower():
-                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style3'))
-                return PicturePath
-            if '4' in str(sel2) and 'style' in xxxx.lower():
-                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style4'))
-                return PicturePath
-            if '5' in str(sel2) and 'style' in xxxx.lower():
-                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style5'))
-                return PicturePath
-            if '6' in str(sel2) and 'style' in xxxx.lower():
-                PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'style6'))
                 return PicturePath
 
             c = ['setup', 'autoupdate', ' weather', 'oaweather', 'nonsolosat']
@@ -865,9 +897,8 @@ class oZetaNSS(ConfigListScreen, Screen):
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'API-Manualkey'))
             if sel and sel == config.ozetanss.XStreamity:
                 PicturePath = ('%sbasefile/%s.jpg' % (thisdir, 'xstreamity'))
-            
-            if sel2 is not None or sel2 != '' or sel2 != 'None':
-                returnValue = str(sel2).replace(" ", "-")
+            if sel3 is not None or sel3 != '' or sel3 != 'None':
+                returnValue = str(sel3).replace(" ", "-")
             if fileExists('%senigma2/%s/zSetup/zPreview/%s.jpg' % (mvi, my_cur_skin, returnValue)):
                 PicturePath = '%senigma2/%s/zSetup/zPreview/%s.jpg' % (mvi, my_cur_skin, returnValue)
             else:
@@ -925,120 +956,44 @@ class oZetaNSS(ConfigListScreen, Screen):
 
     def nssSave(self):
         if str(my_cur_skin) == 'oZetaNSS-FHD':
-            # menu_file = (self.chooseFile + 'menu_' + config.ozetanss.FirstMenuFHD.value + '.xml').replace(" ", "-")
-            infobar_file = (self.chooseFile + 'infobar_' + config.ozetanss.FirstInfobarFHD.value + '.xml').replace(" ", "-")
-            secinfobar_file = (self.chooseFile + 'second_' + config.ozetanss.SecondInfobarFHD.value + '.xml').replace(" ", "-")
-            chansel_file = (self.chooseFile + 'channel_' + config.ozetanss.ChannSelectorFHD.value + '.xml').replace(" ", "-")
-            volume_file = (self.chooseFile + 'volume_' + config.ozetanss.VolumeFHD.value + '.xml').replace(" ", "-")
-            radio_file = (self.chooseFile + 'radio_' + config.ozetanss.RadioFHD.value + '.xml').replace(" ", "-")
-            mediaplayer_file = (self.chooseFile + 'mediaplayer_' + config.ozetanss.MediaPlayerFHD.value + '.xml').replace(" ", "-")
-            eventview_file = (self.chooseFile + 'eventview_' + config.ozetanss.EventviewFHD.value + '.xml').replace(" ", "-")
+            asd = str(self.chooseFile)
+            menu = []
+            # menu.append(asd + 'menu_' + str(config.ozetanss.FirstMenuFHD.value))
+            menu.append(asd + 'infobar_' + str(config.ozetanss.FirstInfobarFHD.value))
+            menu.append(asd + 'second_' + str(config.ozetanss.SecondInfobarFHD.value))
+            menu.append(asd + 'channel_' + str(config.ozetanss.ChannSelectorFHD.value))
+            menu.append(asd + 'volume_' + str(config.ozetanss.VolumeFHD.value))
+            menu.append(asd + 'radio_' + str(config.ozetanss.RadioFHD.value))
+            menu.append(asd + 'mediaplayer_' + str(config.ozetanss.MediaPlayerFHD.value))
+            menu.append(asd + 'eventview_' + str(config.ozetanss.EventviewFHD.value))
+            # menu.append(asd + 'msgbox_' + str(config.ozetanss.MessageBoxFHD.value))
             if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
-                plugins_file = (self.chooseFile + 'plugins_' + config.ozetanss.PluginsFHD.value + '.xml').replace(" ", "-")
-            # alogo_file = (self.chooseFile + 'alogo_' + config.ozetanss.LogoaFHD.value + '.xml').replace(" ", "-")
-            # blogo_file = (self.chooseFile + 'blogo_' + config.ozetanss.LogobFHD.value + '.xml').replace(" ", "-")
+                menu.append(asd + 'plugins_' + str(config.ozetanss.PluginsFHD.value))
+            # menu.append(asd + 'alogo_' + str(config.ozetanss.LogoaFHD.value))
+            # menu.append(asd + 'blogo_' + str(config.ozetanss.LogobFHD.value))
+            print('menu list=', menu)
+            init_file = '%s/basefile/init' % thisdir
             file_lines = ''
-            try:
-                init_file = '%s/basefile/init' % thisdir
-                #  print (init_file + "\n#########################")
-                skFile = open(init_file, 'r')
-                file_lines = skFile.read()
-                skFile.close()
-                skFilew = open(self.skinFileTmp, 'w')
-                skFilew.write(file_lines + '\n')
-                # if fileExists(menu_file):
-                    # print("Menu file %s found, reading....." % menu_file)
-                    # menu_file = open(menu_file, 'r')
-                    # file_menu = menu_file.read()
-                    # skinMenu = mvi + 'enigma2/oZetaNSS-FHD/zSkin/skin_menu.xml'
-                    # skFilewM = open(skinMenu, 'w')
-                    # skFilewM.write('<?xml version="1.0" encoding="UTF-8"?>\n<skin>\n' + file_menu + '\n</skin>\n')
-                    # skFilewM.close()
-
-                if fileExists(infobar_file):
-                    print("Infobar file %s found, writing....." % infobar_file)
-                    skFile = open(infobar_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
-                if fileExists(secinfobar_file):
-                    print("Second Infobar file %s found, writing....." % secinfobar_file)
-                    skFile = open(secinfobar_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
-
-                if fileExists(chansel_file):
-                    print("Channel Selection file %s found, writing....." % chansel_file)
-                    skFile = open(chansel_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
-
-                if fileExists(volume_file):
-                    print("Volume file %s found, writing....." % volume_file)
-                    skFile = open(volume_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
-
-                if fileExists(radio_file):
-                    print("Radio file %s found, writing....." % radio_file)
-                    skFile = open(radio_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
-
-                if fileExists(mediaplayer_file):
-                    print("mediaplayer file %s found, writing....." % mediaplayer_file)
-                    skFile = open(mediaplayer_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
-
-                if fileExists(eventview_file):
-                    print("eventview file %s found, writing....." % eventview_file)
-                    skFile = open(eventview_file, 'r')
-                    file_lines = skFile.read()
-                    skFile.close()
-                    skFilew.write('\n' + file_lines + '\n')
-
-                if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
-                    if fileExists(plugins_file):
-                        print("plugins_file file %s found, writing....." % plugins_file)
-                        skFile = open(plugins_file, 'r')
-                        file_lines = skFile.read()
-                        skFile.close()
-                        skFilew.write('\n' + file_lines + '\n')
-
-                # if fileExists(alogo_file):
-                    # print("Logo Top file %s found, writing....." % alogo_file)
-                    # skFile = open(alogo_file, 'r')
-                    # file_lines = skFile.read()
-                    # skFile.close()
-                    # skFilew.write('\n' + file_lines + '\n')
-
-                # if fileExists(blogo_file):
-                    # print("Logo Bottom file %s found, writing....." % blogo_file)
-                    # skFile = open(blogo_file, 'r')
-                    # file_lines = skFile.read()
-                    # skFile.close()
-                    # skFilew.write('\n' + file_lines + '\n')
-                skFilew.write('\n</skin>\n')
-                skFilew.close()
-
-                #  final write
-                if fileExists(self.skinFile):
-                    os.remove(self.skinFile)
-                    print("********** Removed %s" % self.skinFile)
-                os.rename(self.skinFileTmp, self.skinFile)
-                print("********** Renamed %s" % self.skinFileTmp)
-                self.savecfgall()
-                self.session.open(MessageBox, _('Successfully creating Skin!'), MessageBox.TYPE_INFO, timeout=5)
-                # self.keyOpenSkinselector()
-            except Exception as e:
-                print(e)
-                self.session.open(MessageBox, _('Error creating Skin!\nError %s' % e), MessageBox.TYPE_ERROR, timeout=5)
+            skFile = open(init_file, 'r')
+            file_lines = skFile.read()
+            skFile.close()
+            skFilew = open(self.skinFileTmp, 'w')
+            skFilew.write(str(file_lines) + '\n')
+            for f in menu:
+                f = f.replace(" ", "-") + '.xml'
+                if fileExists(f):
+                    with open(f, 'r') as e:
+                        fpage = e.read()
+                        fpage = fpage.replace("[", "").replace("]", "")
+                        skFilew.write(fpage)
+            skFilew.write('\n</skin>\n')
+            skFilew.close()
+            if fileExists(self.skinFile):
+                os.remove(self.skinFile)
+                print("********** Removed %s" % self.skinFile)
+            os.rename(self.skinFileTmp, self.skinFile)
+            self.savecfgall()
+            self.session.open(MessageBox, _('Successfully creating Skin!'), MessageBox.TYPE_INFO, timeout=5)
 
     def savecfgall(self):
         try:
@@ -1065,6 +1020,7 @@ class oZetaNSS(ConfigListScreen, Screen):
                 config.ozetanss.RadioFHD.save()
                 config.ozetanss.MediaPlayerFHD.save()
                 config.ozetanss.EventviewFHD.save()
+                # config.ozetanss.MessageBoxFHD.save()
                 config.misc.pluginstyle.save()
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     config.ozetanss.PluginsFHD.save()
@@ -1191,11 +1147,13 @@ class oZetaNSS(ConfigListScreen, Screen):
                 config.ozetanss.EventviewFHD.value = 'Eventview Default'
                 if not os.path.exists('/usr/lib/enigma2/python/Plugins/PLi'):
                     config.ozetanss.PluginsFHD.value = 'PluginBrowser Default'
+                # config.ozetanss.MessageBoxFHD.value = 'Messagebox Default'
                 # config.ozetanss.LogoaFHD.value = 'TopLogo Default'
                 # config.ozetanss.LogobFHD.value = 'BottomLogo Default'
                 # config.ozetanss.Logoboth.value = 'Bootlogo Default'
                 self.createSetup()
                 self.UpdatePicture()
+            return
 
     def dowfil(self):
         if PY3:
@@ -1255,9 +1213,9 @@ class oZetaNSS(ConfigListScreen, Screen):
         print('error: errorLoad')
 
 # weather search
-# config.plugins.ozeta.zweather = ConfigOnOff(default=False)
-# config.plugins.ozeta.weather = NoSave(ConfigSelection(['-> Ok']))
-# config.plugins.ozeta.city = ConfigText(default='', visible_width=50, fixed_size=False)
+# config.plugins.ozetanss.zweather = ConfigOnOff(default=False)
+# config.plugins.ozetanss.weather = NoSave(ConfigSelection(['-> Ok']))
+# config.plugins.ozetanss.city = ConfigText(default='', visible_width=50, fixed_size=False)
 
     def KeyMenu(self):
         if os.path.isdir(weatherz):

@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <skin>
     <!-- **************************************  -->
-    <!-- Skin oZetaNSS-FHD by mmark v.2.0.0	     -->
+    <!-- Skin oZetaNSS-FHD by mmark v.2.0.0      -->
     <!-- Currently Tested on ATV v7.X            -->
     <!-- Don't Remove this Disclaimer            -->
     <!-- Release  v.2.0.0 10/07/2022             -->
     <!-- **************************************  -->
     <copyright>
         <abouth name="oZetaNSS-FHD">
-			author="mmark"
-			license="Open"
-			Support="openATV 7.x"
-			Release="2.0.0 15/07/2022"
-			supporturl="http://e2skin.blogspot.com"
-		</abouth>
+            author="mmark"
+            license="Open"
+            Support="openATV 7.x"
+            Release="2.0.0 15/07/2022"
+            supporturl="http://e2skin.blogspot.com"
+        </abouth>
     </copyright>
     <!-- *************************************** -->
     <!--  SYS*TEMPLATES ***** SYS*TEMPLATES *    -->
@@ -80,11 +80,11 @@
             <convert type="eCryptoInfo">VerboseInfo</convert>
         </widget>
         <!-- CLOCK
-		<widget source="global.CurrentTime" render="Label" borderWidth="2" position="1703,970" size="210,40" backgroundColor="#10000000" noWrap="1" transparent="1" zPosition="10"
-			foregroundColor="#707070" font="Regular;32" valign="center" halign="right">
-			<convert type="ClockToText">Format:%H:%M:%S</convert>
-		</widget>
-		-->
+        <widget source="global.CurrentTime" render="Label" borderWidth="2" position="1703,970" size="210,40" backgroundColor="#10000000" noWrap="1" transparent="1" zPosition="10"
+            foregroundColor="#707070" font="Regular;32" valign="center" halign="right">
+            <convert type="ClockToText">Format:%H:%M:%S</convert>
+        </widget>
+        -->
         <!-- ENCRYPT SERVICE -->
         <ePixmap pixmap="oZetaNSS-FHD/icons/ico_crypt_off.png" position="1590,965" size="50,30" alphatest="blend" zPosition="4" scale="1"/>
         <widget source="session.CurrentService" render="Pixmap" pixmap="oZetaNSS-FHD/icons/ico_crypt_on.png" position="1590,965" size="50,30" alphatest="blend" zPosition="5" scale="1">
@@ -140,7 +140,6 @@
     <!-- TEMPLATE InfoBar Poster -->
     <screen name="PartInfoPoster">
         <!-- POSTER -->
-        <!-- <widget source="ServiceEvent" render="zInfoEvents" position="0,0" size="0,0" /> -->
         <eLabel position="0,665" size="290,415" backgroundColor="#40000000"/>
         <widget source="session.Event_Now" render="zPosterX" position="10,675" size="270,395" zPosition="50"/>
     </screen>
@@ -260,45 +259,6 @@
         </widget>
         <!-- lululla -->
     </screen>
-    <!-- paused lululla -->
-    <!--
- 	<screen name="PartInfoCrypt">
-		<eLabel text="Free To Air" position="1660,964" size="260,45" font="Regular;28" backgroundColor="#20000000" foregroundColor="#808080" transparent="0" zPosition="3" />
-		<widget source="session.CurrentService" render="FixedLabel" position="1660,964" size="260,45" text="BetaCrypt" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">BetaCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="FixedLabel" position="1645,964" size="260,45" text="Via Crypt" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">ViaCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="FixedLabel" position="1645,964" size="260,45" text="Irdeto" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">IrdCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="FixedLabel" position="1645,964" size="260,45" text="Seca Crypt" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">SecaCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="FixedLabel" position="1645,964" size="260,45" text="NagraVision" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">NagraCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="FixedLabel" position="1645,964" size="260,45" text="CryptoWork" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">CrwCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="FixedLabel" position="1645,964" size="260,45" text="NDS-VideoGuard" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">NdsCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="FixedLabel" position="1645,964" size="260,45" text="Conax Crypt" font="Regular;28" halign="right" backgroundColor="#20000000" foregroundColor="green" transparent="0" zPosition="4">
-			<convert type="zCryptoInfo">ConaxCrypt</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-           
-	</screen>
-    -->
     <!-- TEMPLATE Infobar IP Data -->
     <screen name="PartInfoIP">
         <!-- EXTERNAL IP -->
@@ -525,7 +485,7 @@
             <convert type="MSNWeather">weekday,day4</convert>
         </widget>
         <widget source="session.MSNWeather" render="Label" position="1730,60" size="190,40" font="Regular; 28" halign="left" backgroundColor="background" transparent="1" zPosition="12">19
-			<convert type="MSNWeather">temperature_heigh_low,day4</convert>
+            <convert type="MSNWeather">temperature_heigh_low,day4</convert>
         </widget>
     </screen>
     <!-- ************************* -->
@@ -613,8 +573,6 @@
         <eLabel text="C H A N N E L S" position="90,10" size="460,60" font="Regular;40" halign="left" valign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="1"/>
         <!-- List Channel -->
         <widget name="list" position="20,95" size="880,950" scrollbarMode="showOnDemand" scrollbarWidth="10" transparent="1" zPosition="3" itemHeight="50" itemWidth="1090" serviceItemHeight="50" serviceNumberFont="Regular;32" serviceNameFont="Regular;32" serviceInfoFont="Regular;32" progressPercentWidth="70" foregroundColor="#ffffff" foregroundColorSelected="ltbluette" backgroundColor="#000000" additionalInfoFont="Regular;28" colorAdditionalInfo="#808080" colorServiceDescription="ltbluette" colorServiceDescriptionSelected="white" foregroundColorServiceNotAvail="#505050" fieldMargins="15" nonplayableMargins="15" itemsDistances="8" colorEventProgressbarBorder="grey" colorEventProgressbarBorderSelected="white" picServiceEventProgressbar="skin_default/progcl.png" backgroundColorSelected="bluette" scrollbarSliderForegroundColor="ltbluette" scrollbarSliderBorderColor="#808080"/>
-        <!-- List Channel openSPA -->
-        <!-- <widget name="list2" zPosition="-10" valign="bottom" position="20,95" size="880,950" font="Regular;21" backgroundColor="black" foregroundColor="white" backgroundColorSelected="black" transparent="1" posDuration="195" posEvent="235" posyBegin="0" postxt="60" posyEvent="0" itemHeight="50" sizey="42" fontBegin="Regular;23" fontEvent="Regular;23" fontDate="Regular;21" fontDuration="Regular;23" selectionpixmap="oZetaNSS-FHD/menu/sl1000.png"/> -->
         <!-- Poster -->
         <eLabel position="940,50" size="265,380" backgroundColor="#30000000" zPosition="1"/>
         <ePixmap pixmap="oZetaNSS-FHD/menu/panels/nocover.png" position="950,60" size="245,360" alphatest="blend" scale="1" zPosition="2"/>
@@ -667,12 +625,12 @@
         </widget>
         <eLabel position="950,695" size="960,5" backgroundColor="#404040" zPosition="1"/>
         <!--
- 		<widget source="ServiceEvent" render="zRunningText" position="950,450" size="950,295" font="Regular;28" foregroundColor="#ffffff" backgroundColor="black" halign="block" transparent="1" zPosition="5"
-			options="movetype=running,direction=top,startpoint=0,startdelay=4000,wrap=1,always=0,repeat=3,oneshot=1">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
-		<eLabel position="950,760" size="960,5" backgroundColor="#404040" zPosition="1" />
-		-->
+        <widget source="ServiceEvent" render="zRunningText" position="950,450" size="950,295" font="Regular;28" foregroundColor="#ffffff" backgroundColor="black" halign="block" transparent="1" zPosition="5"
+            options="movetype=running,direction=top,startpoint=0,startdelay=4000,wrap=1,always=0,repeat=3,oneshot=1">
+            <convert type="EventName">FullDescription</convert>
+        </widget>
+        <eLabel position="950,760" size="960,5" backgroundColor="#404040" zPosition="1" />
+        -->
         <widget source="global.CurrentTime" render="Label" position="580,42" size="320,30" foregroundColor="grey" backgroundColor="#000000" transparent="1" zPosition="3" font="Regular;24" valign="center" halign="right">
             <convert type="ClockToText">Format:%d.%m.%Y</convert>
         </widget>
@@ -688,7 +646,6 @@
         <eLabel text="C H A N N E L S" position="90,10" size="460,60" font="Regular;40" halign="left" valign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="1"/>
         <!-- List Channel -->
         <widget name="list" position="20,95" size="880,845" scrollbarMode="showOnDemand" scrollbarWidth="10" transparent="1" zPosition="3" itemHeight="45" itemWidth="1090" serviceItemHeight="45" serviceNumberFont="Regular;32" serviceNameFont="Regular;30" serviceInfoFont="Regular;30" progressPercentWidth="70" foregroundColor="#ffffff" foregroundColorSelected="ltbluette" backgroundColor="#000000" additionalInfoFont="Regular;30" colorAdditionalInfo="#808080" colorServiceDescription="ltbluette" colorServiceDescriptionSelected="white" foregroundColorServiceNotAvail="#505050" fieldMargins="15" nonplayableMargins="15" itemsDistances="8" colorEventProgressbarBorder="grey" colorEventProgressbarBorderSelected="white" picServiceEventProgressbar="skin_default/progcl.png" backgroundColorSelected="bluette" scrollbarSliderForegroundColor="ltbluette" scrollbarSliderBorderColor="#808080"/>
-        <!-- <widget name="list2" zPosition="-10" valign="bottom" position="1140,78" size="720,910" font="Regular;21" backgroundColor="black" foregroundColor="white" backgroundColorSelected="black" transparent="1" posDuration="195" posEvent="235" posyBegin="0" postxt="60" posyEvent="0" itemHeight="50" sizey="42" fontBegin="Regular;23" fontEvent="Regular;23" fontDate="Regular;21" fontDuration="Regular;23" selectionpixmap="oZetaNSS-FHD/menu/sl1000.png"/> -->
         <!-- BIG PICON -->
         <widget source="ServiceEvent" render="Picon" position="1690,50" size="220,132" backgroundColor="#000000" alphatest="blend" valign="top" transparent="1" zPosition="1">
             <convert type="ServiceName">Reference</convert>
@@ -751,10 +708,10 @@
             <convert type="zEventList">beginOnly=yes,primetime=yes,eventcount=5</convert>
         </widget>
         <!--
-		<widget source="ServiceEvent" borderWidth="2" render="NextEvents" lines="3" position="1080,610" zPosition="3" size="1070,250" font="Regular;24" foregroundColor="white" backgroundColor="black" transparent="1">
-			<convert type="ServiceName">Reference</convert>
-		</widget>
-		-->
+        <widget source="ServiceEvent" borderWidth="2" render="NextEvents" lines="3" position="1080,610" zPosition="3" size="1070,250" font="Regular;24" foregroundColor="white" backgroundColor="black" transparent="1">
+            <convert type="ServiceName">Reference</convert>
+        </widget>
+        -->
     </screen>
     <!-- CHANNEL POSTERS -->
     <screen name="PartChannelSelectionPoster">
@@ -784,6 +741,262 @@
         <widget source="ServiceEvent" render="zNxtEvnt" nxtEvents="" snglEvent="2" font="Regular;20" position="1195,1000" size="205,73" halign="center" zPosition="5" foregroundColor="yellow" backgroundColor="#000000" transparent="1"/>
         <widget source="ServiceEvent" render="zNxtEvnt" nxtEvents="" snglEvent="3" font="Regular;20" position="1450,1000" size="205,73" halign="center" zPosition="5" foregroundColor="yellow" backgroundColor="#000000" transparent="1"/>
         <widget source="ServiceEvent" render="zNxtEvnt" nxtEvents="" snglEvent="4" font="Regular;20" position="1705,1000" size="205,73" halign="center" zPosition="5" foregroundColor="yellow" backgroundColor="#000000" transparent="1"/>
+    </screen>
+    <!-- ************************ -->
+    <!-- ***** MSGBOX PANEL ***** -->
+    <!-- ************************ -->
+    <!-- ________________________ -->
+    <!-- MessageBox BlueGradient Default -->
+    <screen name="MSGB-BlueGradient">
+        <!-- BackColor Header Messagebox -->
+        <eLabel name="underline" position="0,0" size="1200,100" backgroundGradient="bluette,black,vertical"/>
+        <!-- Skin Title Messagebox -->
+        <eLabel name="underline" position="0,0" size="1199,1" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="0,0" size="1,100" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="0,100" size="1200,1" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="1199,0" size="1,100" backgroundColor="ltbluette"/>
+        <!-- Separators Header Messagebox -->
+        <eLabel name="underline" position="0,101" size="1200,5" backgroundColor="#ff000000"/>
+        <!-- Skin Text Messagebox -->
+        <eLabel name="underline" position="0,106" size="1199,1" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="0,106" size="1,300" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="0,406" size="1200,1" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="1199,106" size="1,300" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="0,407" size="1200,5" backgroundColor="#ff000000"/>
+        <!-- Skin List Messagebox -->
+        <eLabel name="underline" position="0,412" size="1199,1" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="0,412" size="1,200" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="0,599" size="1200,1" backgroundColor="ltbluette"/>
+        <eLabel name="underline" position="1199,412" size="1,200" backgroundColor="ltbluette"/>
+    </screen>
+    <!-- MessageBox GreyGradient -->
+    <screen name="MSGB-GreyGradient">
+        <!-- BackColor Header Messagebox -->
+        <eLabel name="underline" position="0,0" size="1200,100" backgroundGradient="msggrey,black,vertical"/>
+        <!-- Skin Title Messagebox -->
+        <eLabel name="underline" position="0,0" size="1199,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,0" size="1,100" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,100" size="1200,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="1199,0" size="1,100" backgroundColor="msggrey"/>
+        <!-- Separators Header Messagebox -->
+        <eLabel name="underline" position="0,101" size="1200,5" backgroundColor="#ff000000"/>
+        <!-- Skin Text Messagebox -->
+        <eLabel name="underline" position="0,106" size="1199,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,106" size="1,300" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,406" size="1200,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="1199,106" size="1,300" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,407" size="1200,5" backgroundColor="#ff000000"/>
+        <!-- Skin List Messagebox -->
+        <eLabel name="underline" position="0,412" size="1199,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,412" size="1,200" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,599" size="1200,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="1199,412" size="1,200" backgroundColor="msggrey"/>
+    </screen>
+    <!-- MessageBox BlackFlat -->
+    <screen name="MSGB-BlackFlat">
+        <!-- BackColor Header Messagebox -->
+        <eLabel name="underline" position="0,0" size="1200,100" backgroundColor="#10000000"/>
+        <!-- Skin Title Messagebox -->
+        <eLabel name="underline" position="0,0" size="1199,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,0" size="1,100" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,100" size="1200,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="1199,0" size="1,100" backgroundColor="msggrey"/>
+        <!-- Separators Header Messagebox -->
+        <eLabel name="underline" position="0,101" size="1200,5" backgroundColor="#ff000000"/>
+        <!-- Skin Text Messagebox -->
+        <eLabel name="underline" position="0,106" size="1199,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,106" size="1,300" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,406" size="1200,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="1199,106" size="1,300" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,407" size="1200,5" backgroundColor="#ff000000"/>
+        <!-- Skin List Messagebox -->
+        <eLabel name="underline" position="0,412" size="1199,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,412" size="1,200" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="0,599" size="1200,1" backgroundColor="msggrey"/>
+        <eLabel name="underline" position="1199,412" size="1,200" backgroundColor="msggrey"/>
+    </screen>
+    <!-- *************************** -->
+    <!-- ***** PLUGINS BROWSER ***** -->
+    <!-- *************************** -->
+    <!-- ___________________________ -->
+    <!-- Plugin Browser List Default -->
+    <screen name="PluginBrowserList" position="0,0" size="1920,1080" Title="Plugins List" backgroundColor="transparent" flags="wfNoBorder">
+        <panel name="LayerMenu1500"/>
+        <ePixmap position="230,10" size="110,110" pixmap="oZeta-FHD/iconsmenu/menu_mainmenu_pluginhider.png" alphatest="blend" transparent="1" scale="1" zPosition="1"/>
+        <widget name="quickselect" position="230,140" size="1240,716" backgroundColor="background90" font="Regular;150" halign="center" transparent="1" valign="center" zPosition="5"/>
+        <widget name="description" position="230,140" size="1250,60" font="Regular; 28" halign="center" valign="center" backgroundColor="#303030" foregroundColor="yellow" transparent="0"/>
+        <eLabel position="230,205" size="1250,3" backgroundColor="#202020" zPosition="1"/>
+        <widget source="pluginList" render="Listbox" position="230,215" size="1250,725" itemHeight="80" scrollbarMode="showOnDemand" backgroundColor="background90" transparent="1" listOrientation="vertical">
+            <convert type="TemplatedMultiContent">
+                        {
+                        "template": [
+                        MultiContentEntryText(pos = (180, 5), size = (840, 40), font=0, flags = RT_HALIGN_LEFT, text = 1),
+                        MultiContentEntryText(pos = (200, 45), size = (840, 35), font=1, flags = RT_HALIGN_LEFT,color=0xa9e8fd, text = 2),
+                        MultiContentEntryPixmapAlphaBlend(pos=(10, 10), size=(150, 60), png=3, flags=BT_SCALE)
+                                ],
+                        "fonts": [gFont("Regular", 28),gFont("Regular", 26)],
+                        "itemHeight" : 80
+                        }
+            </convert>
+        </widget>
+        <!-- Red -->
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="buttons/button_red.png" position="230,985" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_red,Button,Label" pixmap="buttons/button_red.png" position="230,985" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_red,Label,Button" name="key_red" position="275,985" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="275,985" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <!-- Green -->
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="buttons/button_green.png" position="230,1035" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_green,Button,Label" pixmap="buttons/button_green.png" position="230,1035" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_green,Label,Button" name="key_green" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <!-- Yellow -->
+        <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="buttons/button_yellow.png" position="1450,985" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_yellow,Button,Label" pixmap="buttons/button_yellow.png" position="1450,985" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1085,985" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1085,985" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <!-- Blue -->
+        <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="buttons/button_blue.png" position="1450,1035" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_blue,Button,Label" pixmap="buttons/button_blue.png" position="1450,1035" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1085,1035" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1085,1035" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <ePixmap pixmap="buttons/80/key_menu.png" position="1400,1025" size="80,40" alphatest="blend"/>
+    </screen>
+    <!-- Plugin Browser List Default -->
+    <screen name="PluginBrowserGridF" position="0,0" size="1920,1080" Title="ATV Plugins" backgroundColor="transparent" flags="wfNoBorder">
+        <panel name="Logo"/>
+        <ePixmap position="230,10" size="110,110" pixmap="oZeta-FHD/iconsmenu/menu_mainmenu_pluginhider.png" alphatest="blend" transparent="1" scale="1" zPosition="1"/>
+        <widget source="Title" render="Label" position="400,7" size="1067,110" font="Mmenu;102" foregroundColor="ltbluette" backgroundColor="#000000" transparent="1" zPosition="5"/>
+        <eLabel position="190,130" size="1560,3" backgroundColor="#303030" zPosition="4"/>
+        <widget name="description" position="190,140" size="1560,60" font="Regular; 26" halign="center" valign="center" backgroundColor="#303030" foregroundColor="yellow" transparent="0"/>
+        <eLabel position="190,205" size="1560,3" backgroundColor="#303030" zPosition="4"/>
+        <ePixmap position="50,0" size="125,1080" pixmap="oZeta-FHD/menu/Lc.png" zPosition="-1"/>
+        <eLabel position="175,0" size="1610,1080" backgroundColor="#20000000" zPosition="-1"/>
+        <ePixmap position="1765,0" size="125,1080" pixmap="oZeta-FHD/menu/pC.png" zPosition="-1"/>
+        <eLabel position="190,960" size="1560,3" backgroundColor="#303030" zPosition="4"/>
+        <widget name="quickselect" position="190,220" size="1560,725" backgroundColor="#000000" font="Regular;150" halign="center" transparent="1" valign="center" zPosition="5"/>
+        <widget source="pluginGrid" render="Listbox" position="190,220" size="1560,725" itemSpacing="25,25" selectionZoom="15" scrollbarMode="showAlways" transparent="1" listOrientation="grid" moveBackgroundColor="#00000000" backgroundPixmap="window/plugingridbg.png" selectionPixmap="window/plugingridfg.png">
+            <convert type="TemplatedMultiContent">
+                        {
+                        "template": [
+                        MultiContentEntryText(pos = (5, 0), size = (220, 60), font=0, flags = RT_VALIGN_CENTER|RT_HALIGN_CENTER|RT_WRAP, backcolor = 0x505050),
+                        MultiContentEntryText(pos = (5, 85), size = (220, 30), font=0, flags = RT_VALIGN_CENTER|RT_HALIGN_CENTER|RT_WRAP, text = 1),
+                        MultiContentEntryPixmapAlphaBlend(pos=(40, 15), size=(150, 60), png=3, flags=BT_SCALE)
+                        ],
+                        "fonts": [gFont("Regular", 24),gFont("Regular", 22)],
+                        "itemWidth" : 230,
+                        "itemHeight" : 120
+                        }
+            </convert>
+        </widget>
+        <!-- Red -->
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="buttons/button_red.png" position="230,985" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_red,Button,Label" pixmap="buttons/button_red.png" position="230,985" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_red,Label,Button" name="key_red" position="275,985" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="275,985" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <!-- Green -->
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="buttons/button_green.png" position="230,1035" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_green,Button,Label" pixmap="buttons/button_green.png" position="230,1035" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_green,Label,Button" name="key_green" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <!-- Yellow -->
+        <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="buttons/button_yellow.png" position="1450,985" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_yellow,Button,Label" pixmap="buttons/button_yellow.png" position="1450,985" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1085,985" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1085,985" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <!-- Blue -->
+        <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="buttons/button_blue.png" position="1450,1035" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_blue,Button,Label" pixmap="buttons/button_blue.png" position="1450,1035" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1085,1035" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1085,1035" size="350,32" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <ePixmap pixmap="buttons/80/key_menu.png" position="1670,1025" size="80,40" alphatest="blend"/>
+    </screen>
+    <!-- *** oZeta - XML Version 2.27 Channel Selection Cover By zSetup v2.0.0 *** -->
+    <!-- Author lululla : Modules : PluginBrowserGrid Horizontal -->
+    <screen name="PluginBrowserGridH" position="0,0" size="1920,1080" Title="EGAMI Plugins" backgroundColor="#FF000000" flags="wfNoBorder">
+        <eLabel position="0,820" size="1930,260" cornerRadius="0" backgroundColor="#70000000"/>
+        <eLabel position="0,860" size="1930,190" cornerRadius="0" backgroundColor="#30000000"/>
+        <widget name="quickselect" position="12,890" size="1540,140" backgroundColor="#20000000" font="Regular;15" halign="center" transparent="1" valign="center" zPosition="5"/>
+        <widget source="pluginGrid" render="Listbox" position="12,890" size="1540,140" itemSpacing="15,15" selectionZoomSize="200,100" scrollbarMode="showAlways" scrollbarForegroundColor="blue" listOrientation="grid" moveBackgroundColor="black" zPosition="3" transparent="1">
+            <convert type="TemplatedMultiContent">
+			{
+			"template": [
+			<!-- MultiContentEntryText(pos = (47, 83), size = (160, 30), font=0, backcolor = 0x505050), -->
+			MultiContentEntryText(pos = (40, 85), size = (150, 25), font=0, color=0xffff00, flags = RT_VALIGN_CENTER|RT_HALIGN_CENTER|RT_WRAP, text=1),
+			MultiContentEntryPixmapAlphaBlend(pos=(40, 15), size=(150, 60), png=3, flags=BT_SCALE)
+			],
+			"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
+			"itemWidth" : 230,
+			"itemHeight" : 120
+			}
+		</convert>
+        </widget>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="buttons/button_red.png" position="1870,890" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_red,Button,Label" pixmap="buttons/button_red.png" position="1870,890" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_red,Label,Button" name="key_red" position="1610,890" size="250,30" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1610,890" size="250,30" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="buttons/button_green.png" position="1870,940" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_green,Button,Label" pixmap="buttons/button_green.png" position="1870,940" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_green,Label,Button" name="key_green" position="1610,940" size="250,30" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1610,940" size="250,30" font="Regular;28" halign="right" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <ePixmap pixmap="buttons/80/key_menu.png" position="1820,995" size="80,35" alphatest="blend" zPosition="1"/>
+        <widget name="description" position="92,1097" size="1560,60" font="Regular; 26" halign="center" valign="center" backgroundColor="#303030" foregroundColor="yellow" transparent="0"/>
+    </screen>
+    <!-- *** oZeta - XML Version 2.27 Channel Selection Cover By zSetup v2.0.0 *** -->
+    <!-- Author lululla : Modules : PluginBrowserGrid Vertical -->
+    <screen name="PluginBrowserGridV" position="0,0" size="1920,1080" Title="EGAMI Plugins" backgroundColor="transparent" flags="wfNoBorder">
+        <!-- <ePixmap position="4,971" size="110,110" pixmap="oZeta-FHD/iconsmenu/menu_mainmenu_pluginhider.png" alphatest="blend" transparent="1" scale="1" zPosition="3" /> -->
+        <widget name="quickselect" position="12,181" size="275,890" backgroundColor="background90" font="Regular;150" halign="center" transparent="1" valign="center" zPosition="5"/>
+        <widget source="Title" render="Label" position="513,1092" size="1067,110" font="Mmenu;102" foregroundColor="ltbluette" backgroundColor="#000000" transparent="1" zPosition="5"/>
+        <widget source="pluginGrid" render="Listbox" position="12,183" size="275,890" itemSpacing="15,15" selectionZoomSize="200,100" scrollbarMode="showAlways" scrollbarForegroundColor="blue" listOrientation="grid" moveBackgroundColor="black" zPosition="3" transparent="1">
+            <convert type="TemplatedMultiContent">
+			{
+			"template": [
+			<!-- MultiContentEntryText(pos = (47, 83), size = (160, 30), font=0, backcolor = 0x505050), -->
+			MultiContentEntryText(pos = (40, 85), size = (150, 25), font=0, color=0xffff00, flags = RT_VALIGN_CENTER|RT_HALIGN_CENTER|RT_WRAP, text=1),
+			MultiContentEntryPixmapAlphaBlend(pos=(40, 15), size=(150, 60), png=3, flags=BT_SCALE)
+			],
+			"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
+			"itemWidth" : 230,
+			"itemHeight" : 120
+			}
+		</convert>
+        </widget>
+        <eLabel position="5,8" size="280,150" cornerRadius="20" backgroundColor="#20000000"/>
+        <eLabel position="5,173" size="280,900" cornerRadius="20" backgroundColor="#20000000"/>
+        <ePixmap pixmap="buttons/80/key_menu.png" position="11,105" size="80,40" alphatest="blend" zPosition="1"/>
+        <ePixmap objectTypes="key_red,Button,Label" pixmap="buttons/button_red.png" position="11,20" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_red,Label,Button" name="key_red" position="50,20" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="50,20" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="yellow" backgroundColor="black" transparent="1" zPosition="2"/>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="buttons/button_red.png" position="11,20" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <ePixmap objectTypes="key_green,Button,Label" pixmap="buttons/button_green.png" position="11,60" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_green,Label,Button" name="key_green" position="50,60" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="50,60" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="yellow" backgroundColor="black" transparent="1" zPosition="2"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="buttons/button_green.png" position="11,60" size="30,30" zPosition="1" alphatest="blend">
+            <convert type="ConditionalShowHide"/>
+        </widget>
+        <widget name="description" position="92,1097" size="1560,60" font="Regular; 26" halign="center" valign="center" backgroundColor="#303030" foregroundColor="yellow" transparent="0"/>
     </screen>
     <!-- ************************ -->
     <!-- ***** RADIO PANEL ****** -->
@@ -899,11 +1112,11 @@
         <widget name="albumtext" position="780,1035" size="120,30" font="Regular;26" foregroundColor="white" backgroundColor="#101010" transparent="1" zPosition="6"/>
         <widget name="album" position="880,1035" size="600,40" font="Regular;26" foregroundColor="yellow" backgroundColor="#101010" transparent="1" zPosition="6"/>
         <!--
-		<widget name="titletext"   position="30,620"  size="120,40" font="Regular;30" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="yeartext"    position="30,1770" size="150,37" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" font="Regular;30" valign="top" zPosition="6" />
-		<widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		<widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		-->
+        <widget name="titletext"   position="30,620"  size="120,40" font="Regular;30" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="yeartext"    position="30,1770" size="150,37" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" font="Regular;30" valign="top" zPosition="6" />
+        <widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        <widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        -->
         <widget name="coverArt" pixmap="oZetaNSS-FHD/menu/zlogo.png" position="20,880" size="210,180" transparent="0" scale="1" zPosition="6"/>
         <!-- PlayerKeys  FW -->
         <eLabel text="3" position="1595,870" size="20,35" font="Regular;26" foregroundColor="green" backgroundColor="#10000000" transparent="1" zPosition="6"/>
@@ -983,26 +1196,26 @@
         </widget>
         <widget name="repeat" position="685,1015" size="60,40" zPosition="10" pixmaps="skin_default/icons/repeat_off.png,skin_default/icons/repeat_on.png" scale="1" alphatest="blend"/>
         <!--
-		<widget name="yeartext"    position="30,1770" size="150,37" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" font="Regular;30" valign="top" zPosition="6" />
-		<widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		<widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		-->
+        <widget name="yeartext"    position="30,1770" size="150,37" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" font="Regular;30" valign="top" zPosition="6" />
+        <widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        <widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        -->
         <!-- PlayerKeys  FW
-		<eLabel text="3"      position="1595,870" size="20,35" font="Regular;26"  foregroundColor="green"   backgroundColor="#10000000" transparent="1" zPosition="6" />
-		<eLabel text="(+10s)" position="1615,870" size="80,35" font="Regular;26" foregroundColor="#ffff00" backgroundColor="#10000000" transparent="1" zPosition="5" />
-		<eLabel text="6"      position="1705,870" size="20,35" font="Regular;26"  foregroundColor="green"   backgroundColor="#10000000" transparent="1" zPosition="6" />
-		<eLabel text="(+1m)"  position="1725,870" size="80,35" font="Regular;26" foregroundColor="#ffff00" backgroundColor="#10000000" transparent="1" zPosition="5" />
-		<eLabel text="9"      position="1815,870" size="20,35" font="Regular;26"  foregroundColor="green"   backgroundColor="#10000000" transparent="1" zPosition="6" />
-		<eLabel text="(+5m)"  position="1835,870" size="80,35" font="Regular;26" foregroundColor="#ffff00" backgroundColor="#10000000" transparent="1" zPosition="5" />
-		-->
+        <eLabel text="3"      position="1595,870" size="20,35" font="Regular;26"  foregroundColor="green"   backgroundColor="#10000000" transparent="1" zPosition="6" />
+        <eLabel text="(+10s)" position="1615,870" size="80,35" font="Regular;26" foregroundColor="#ffff00" backgroundColor="#10000000" transparent="1" zPosition="5" />
+        <eLabel text="6"      position="1705,870" size="20,35" font="Regular;26"  foregroundColor="green"   backgroundColor="#10000000" transparent="1" zPosition="6" />
+        <eLabel text="(+1m)"  position="1725,870" size="80,35" font="Regular;26" foregroundColor="#ffff00" backgroundColor="#10000000" transparent="1" zPosition="5" />
+        <eLabel text="9"      position="1815,870" size="20,35" font="Regular;26"  foregroundColor="green"   backgroundColor="#10000000" transparent="1" zPosition="6" />
+        <eLabel text="(+5m)"  position="1835,870" size="80,35" font="Regular;26" foregroundColor="#ffff00" backgroundColor="#10000000" transparent="1" zPosition="5" />
+        -->
         <!-- PlayerKeys  RW
-		<eLabel text="1"      position="1595,907" size="20,35" font="Regular;26" foregroundColor="red"     backgroundColor="#10000000" transparent="1" zPosition="6" />
-		<eLabel text="(-10s)" position="1615,907" size="80,35" font="Regular;26" foregroundColor="#5483fe" backgroundColor="#10000000" transparent="1" zPosition="1" />
-		<eLabel text="4"      position="1705,907" size="20,35" font="Regular;26" foregroundColor="red"     backgroundColor="#10000000" transparent="1" zPosition="6" />
-		<eLabel text="(-1m)"  position="1725,907" size="80,35" font="Regular;26" foregroundColor="#5483fe" backgroundColor="#10000000" transparent="1" zPosition="1" />
-		<eLabel text="7"      position="1815,907" size="20,35" font="Regular;26" foregroundColor="red"     backgroundColor="#10000000" transparent="1" zPosition="6" />
-		<eLabel text="(-5m)"  position="1835,907" size="80,35" font="Regular;26" foregroundColor="#5483fe" backgroundColor="#10000000" transparent="1" zPosition="1" />
-		-->
+        <eLabel text="1"      position="1595,907" size="20,35" font="Regular;26" foregroundColor="red"     backgroundColor="#10000000" transparent="1" zPosition="6" />
+        <eLabel text="(-10s)" position="1615,907" size="80,35" font="Regular;26" foregroundColor="#5483fe" backgroundColor="#10000000" transparent="1" zPosition="1" />
+        <eLabel text="4"      position="1705,907" size="20,35" font="Regular;26" foregroundColor="red"     backgroundColor="#10000000" transparent="1" zPosition="6" />
+        <eLabel text="(-1m)"  position="1725,907" size="80,35" font="Regular;26" foregroundColor="#5483fe" backgroundColor="#10000000" transparent="1" zPosition="1" />
+        <eLabel text="7"      position="1815,907" size="20,35" font="Regular;26" foregroundColor="red"     backgroundColor="#10000000" transparent="1" zPosition="6" />
+        <eLabel text="(-5m)"  position="1835,907" size="80,35" font="Regular;26" foregroundColor="#5483fe" backgroundColor="#10000000" transparent="1" zPosition="1" />
+        -->
     </screen>
     <!-- MediaPlayer Default -->
     <screen name="TimeMediaPlayer2" title="MediaPlayer" position="0,0" size="1920,1080" backgroundColor="#FF000000" flags="wfNoBorder">
@@ -1055,10 +1268,10 @@
         <widget name="playlist" position="830,150" size="1045,800" itemHeight="50" foregroundColor="ltbluette" backgroundColor="#101010" transparent="1" backgroundColorSelected="barColor" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="ltbluette" scrollbarSliderBorderColor="barColor" scrollbarMode="showOnDemand" zPosition="2"/>
         <widget name="currenttext" position="830,990" size="1040,60" font="Regular;28" foregroundColor="yellow" backgroundColor="#101010" transparent="1" valign="center" halign="center" noWrap="1" zPosition="6"/>
         <!--
-		<widget name="titletext"   position="50,950"  size="170,40" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		<widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		-->
+        <widget name="titletext"   position="50,950"  size="170,40" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        <widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        -->
     </screen>
     <!-- MediaPlayer Default -->
     <screen name="TimeMediaPlayer" title="MediaPlayer" position="0,0" size="1920,1080" backgroundColor="#FF000000" flags="wfNoBorder">
@@ -1100,14 +1313,14 @@
         <widget name="title" position="110,880" size="1230,70" font="Regular;30" halign="left" valign="center" nowrap="1" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="2"/>
         <widget name="currenttext" position="30,990" size="1230,60" font="Regular;30" foregroundColor="#808080" backgroundColor="#101010" transparent="1" valign="center" halign="left" noWrap="1" zPosition="6"/>
         <!--
-		<widget name="artisttext"  position="50,860"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="albumtext"   position="50,900"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="yeartext"    position="50,940"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="year"        position="170,940" size="400,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="titletext"   position="50,920"  size="170,40" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		<widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		-->
+        <widget name="artisttext"  position="50,860"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="albumtext"   position="50,900"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="yeartext"    position="50,940"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="year"        position="170,940" size="400,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="titletext"   position="50,920"  size="170,40" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        <widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        -->
     </screen>
     <!-- MediaPlayer Default -->
     <screen name="TechnicsMediaPlayer" title="MediaPlayer" position="0,0" size="1920,1080" backgroundColor="#FF000000" flags="wfNoBorder">
@@ -1146,14 +1359,14 @@
         <widget name="title" position="50,975" size="1290,70" font="Regular;30" halign="left" valign="center" nowrap="1" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="2"/>
         <widget name="currenttext" position="50,975" size="1290,0" font="Regular;30" foregroundColor="#808080" backgroundColor="#101010" transparent="1" valign="center" halign="left" noWrap="1" zPosition="6"/>
         <!--
-		<widget name="artisttext"  position="50,860"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="albumtext"   position="50,900"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="yeartext"    position="50,940"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="year"        position="170,940" size="400,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="titletext"   position="50,920"  size="170,40" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
-		<widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		<widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
-		-->
+        <widget name="artisttext"  position="50,860"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="albumtext"   position="50,900"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="yeartext"    position="50,940"  size="100,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="year"        position="170,940" size="400,30" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="titletext"   position="50,920"  size="170,40" font="Regular;26" foregroundColor="white"  backgroundColor="#101010" transparent="1" zPosition="6" />
+        <widget name="genretext"   position="30,1820" size="150,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        <widget name="genre"       position="350,1820" size="517,37" font="Regular;30" backgroundColor="noTransBG" transparent="1" foregroundColor="darkgrey" valign="top" zPosition="6" />
+        -->
     </screen>
     <!-- ************************ -->
     <!-- **** PLAYER BLOCK  ***** -->

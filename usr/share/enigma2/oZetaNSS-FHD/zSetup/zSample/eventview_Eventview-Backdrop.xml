@@ -1,5 +1,5 @@
-	<!-- *** oZeta - XML Version 2.27 EventView Default By zSetup v2.0.0 *** -->  
-	<!-- Author lululla : Modules : EventView + zBackdropX -->
+<!-- *** oZeta - XML Version 2.27 by zSetup v2.0.0 ***  -->
+<!-- Author lululla : Modules : EventView + zBackdropX -->
 
     <screen name="EventView" title="Eventview" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
         <panel name="bLogo" />

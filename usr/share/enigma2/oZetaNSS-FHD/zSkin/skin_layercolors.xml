@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <skin>
     <!-- **************************************  -->
     <!-- Skin oZetaNSS-FHD by mmark v.2.0.0	     -->
@@ -233,7 +233,7 @@
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="275,1035" size="350,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
     </screen>
 
-    
+
     <screen name="vButtonGraphicYellow-1000">
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="1010,985" size="30,30" zPosition="1" alphatest="blend">
             <convert type="ConditionalShowHide"/>
@@ -353,6 +353,26 @@
         <panel name="vButtonYellow-m1000"/>
         <panel name="vButtonGreen-m1000"/>
     </screen>
+
+    <!-- ********** FULL COLORS ********** -->
+    <!-- ********** FULL COLORS ********** -->
+    <!-- ********** FULL COLORS ********** -->
+    <screen name="fullRGYB">
+        <eLabel position="30,985" size="1860,3" backgroundColor="#303030" zPosition="1"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_red.png" position="30,1028" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_red,Label,Button" name="key_red" position="70,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="70,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_green.png" position="390,1028" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_green,Label,Button" name="key_green" position="430,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="430,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="750,1028" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="790,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="790,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_blue.png" position="1110,1028" size="30,30" zPosition="1" alphatest="blend"/>
+        <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1150,1025" size="350,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
+        <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1150,1025" size="350,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
+    </screen>
+
     <!-- ********** VERTICAL COLORS 1500 ********** -->
     <!-- ********** VERTICAL COLORS 1500 ********** -->
     <!-- ********** VERTICAL COLORS 1500 ********** -->
@@ -386,13 +406,13 @@
         <panel name="vButtonGraphicBlue-1500"/>
         <panel name="vButtonTextBlue-1500"/>
     </screen>
-    
+
     <screen name="vButtonGreen-1500">
         <panel name="vButtonGraphicGreen-1500"/>
         <panel name="vButtonTextGreen-1500"/>
     </screen>
-    
-    
+
+
     <!-- Buttons Template -->
     <screen name="vButtonTemplate-1500">
         <panel name="vButtonRed-1000"/>
@@ -440,23 +460,6 @@
         <panel name="vButtonYellow-1700"/>
         <panel name="vButtonBlue-1700"/>
     </screen>
-    <!-- ********** FULL COLORS ********** -->
-    <!-- ********** FULL COLORS ********** -->
-    <!-- ********** FULL COLORS ********** -->
-    <screen name="fullRGYB">
-        <eLabel position="30,985" size="1860,3" backgroundColor="#303030" zPosition="1"/>
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_red.png" position="30,1028" size="30,30" zPosition="1" alphatest="blend"/>
-        <widget objectTypes="key_red,Label,Button" name="key_red" position="70,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
-        <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="70,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_green.png" position="390,1028" size="30,30" zPosition="1" alphatest="blend"/>
-        <widget objectTypes="key_green,Label,Button" name="key_green" position="430,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
-        <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="430,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="750,1028" size="30,30" zPosition="1" alphatest="blend"/>
-        <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="790,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
-        <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="790,1025" size="300,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
-        <ePixmap pixmap="oZetaNSS-FHD/buttons/button_blue.png" position="1110,1028" size="30,30" zPosition="1" alphatest="blend"/>
-        <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1150,1025" size="350,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
-        <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1150,1025" size="350,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
-    </screen>
+
     <!-- ************* TEMPLATE BUTTONS ************* -->
 </skin>

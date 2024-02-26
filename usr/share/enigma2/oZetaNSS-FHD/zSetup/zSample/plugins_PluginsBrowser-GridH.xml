@@ -1,0 +1,5 @@
+<!-- *** oZeta - XML Version 2.27 By zSetup v2.0.0 *** -->
+<!-- Author lululla : Modules : PluginBrowserGrid Horizontal -->
+    <screen name="PluginBrowserGrid" position="0,0" size="1920,1080" Title="EGAMI Plugins" backgroundColor="#FF000000" flags="wfNoBorder">
+        <panel name="PluginBrowserGridH"/>
+    </screen>

@@ -1,0 +1,5 @@
+<!-- *** oZeta - XML Version 2.27 By zSetup v2.0.0 *** -->
+<!-- Author lululla : Modules : PluginBrowserGrid Default -->
+    <screen name="PluginBrowserGrid" position="0,0" size="1920,1080" Title="Browser Plugins" backgroundColor="transparent" flags="wfNoBorder">
+        <panel name="PluginBrowserGridF"/>
+    </screen>
