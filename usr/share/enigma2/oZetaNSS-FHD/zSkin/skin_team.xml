@@ -168,7 +168,6 @@
             <convert type="MenuEntryCompare">BrowserStyle</convert>
             <convert type="ConditionalShowHide"/>
         </widget>
-  
     </screen>
 
     

@@ -209,9 +209,9 @@ class zBackdropXDownloadThread(threading.Thread):
 
             if backdrop and backdrop[0] or backdrop is not None or backdrop != '':
                 # if backdrop and backdrop != 'null' or backdrop is not None or backdrop != '':
-                    url_backdrop = "https://artworks.thetvdb.com/banners/{}".format(backdrop[0])
-                    self.savebackdrop(dwn_backdrop, url_backdrop)
-                    return True, "[SUCCESS backdrop: tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_backdrop)
+                url_backdrop = "https://artworks.thetvdb.com/banners/{}".format(backdrop[0])
+                self.savebackdrop(dwn_backdrop, url_backdrop)
+                return True, "[SUCCESS backdrop: tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_backdrop)
             else:
                 return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tvdbg)
 
@@ -223,8 +223,8 @@ class zBackdropXDownloadThread(threading.Thread):
     def search_fanart(self, dwn_backdrop, title, shortdesc, fulldesc, channel=None):
         try:
             year = None
-            url_tmdb = ""
-            backdrop = None
+            url_fanart = ""
+            url_backdrop = None
             id = "-"
             chkType, fd = self.checkType(shortdesc, fulldesc)
             try:
@@ -256,16 +256,16 @@ class zBackdropXDownloadThread(threading.Thread):
                 print('url fanart url_backdrop:', url_backdrop)
                 if url_backdrop and url_backdrop != 'null' or url_backdrop is not None or url_backdrop != '':
                     self.savebackdrop(dwn_backdrop, url_backdrop)
-                    return True, "[SUCCESS backdrop: tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_backdrop)
+                    return True, "[SUCCESS backdrop: tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_maze, url_fanart, url_backdrop)
                 else:
-                    return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tvdbg)
+                    return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_fanart)
             except Exception as e:
                 print(e)
 
         except Exception as e:
             if os.path.exists(dwn_backdrop):
                 os.remove(dwn_backdrop)
-            return False, "[ERROR : tvdb] {} => {} ({})".format(title, url_tvdbg, str(e))
+            return False, "[ERROR : tvdb] {} => {} ({})".format(title, url_fanart, str(e))
 
     def search_imdb(self, dwn_backdrop, title, shortdesc, fulldesc, channel=None):
         try:
@@ -380,9 +380,9 @@ class zBackdropXDownloadThread(threading.Thread):
                     if ptitle == get_title:
                         h_ori = float(url_backdrop_size[0][1])
                         h_tar = float(re.findall('(\d+)', isz)[1])
-                        ratio = h_ori/h_tar
+                        ratio = h_ori / h_tar
                         w_ori = float(url_backdrop_size[0][0])
-                        w_tar = w_ori/ratio
+                        w_tar = w_ori / ratio
                         w_tar = int(w_tar)
                         h_tar = int(h_tar)
                         url_backdrop = re.sub('/\d+x\d+/', "/" + str(w_tar) + "x" + str(h_tar) + "/", url_backdrop)

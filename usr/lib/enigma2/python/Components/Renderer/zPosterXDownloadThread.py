@@ -191,10 +191,11 @@ class zPosterXDownloadThread(threading.Thread):
                     url_read = requests.get(url_tvdb).text
                     poster = re.findall('<poster>(.*?)</poster>', url_read)
 
-            if poster and poster[0] != 'null' or poster is not None or poster != '':
-                url_poster = "https://artworks.thetvdb.com/banners/{}".format(poster[0])
-                self.savePoster(dwn_poster, url_poster)
-                return True, "[SUCCESS : tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_poster)
+            if poster and poster[0]:
+                if poster and poster != 'null' or poster is not None or poster != '':
+                    url_poster = "https://artworks.thetvdb.com/banners/{}".format(poster[0])
+                    self.savePoster(dwn_poster, url_poster)
+                    return True, "[SUCCESS : tvdb] {} [{}-{}] => {} => {} => {}".format(title, chkType, year, url_tvdbg, url_tvdb, url_poster)
             else:
                 return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title, chkType, year, url_tvdbg)
 
@@ -206,7 +207,7 @@ class zPosterXDownloadThread(threading.Thread):
     def search_fanart(self, dwn_poster, title, shortdesc, fulldesc, channel=None):
         try:
             year = None
-            url_tmdb = ""
+            url_maze = ""
             id = "-"
             chkType, fd = self.checkType(shortdesc, fulldesc)
             try:

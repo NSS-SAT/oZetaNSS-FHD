@@ -217,9 +217,6 @@
         <widget objectTypes="key_green,Label,Button" name="key_green" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="275,1035" size="250,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
     </screen>
-
-
-
     <!-- ButtonGraphicGreen -->
     <screen name="vButtonGraphicGreen-1500">
         <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="oZetaNSS-FHD/buttons/button_green.png" position="230,1035" size="30,30" zPosition="1" alphatest="blend">
@@ -232,8 +229,6 @@
         <widget objectTypes="key_green,Label,Button" name="key_green" position="275,1035" size="350,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
         <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="275,1035" size="350,32" font="Regular;28" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
     </screen>
-
-
     <screen name="vButtonGraphicYellow-1000">
         <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="oZetaNSS-FHD/buttons/button_yellow.png" position="1010,985" size="30,30" zPosition="1" alphatest="blend">
             <convert type="ConditionalShowHide"/>
@@ -353,7 +348,6 @@
         <panel name="vButtonYellow-m1000"/>
         <panel name="vButtonGreen-m1000"/>
     </screen>
-
     <!-- ********** FULL COLORS ********** -->
     <!-- ********** FULL COLORS ********** -->
     <!-- ********** FULL COLORS ********** -->
@@ -372,7 +366,6 @@
         <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1150,1025" size="350,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="1"/>
         <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1150,1025" size="350,34" font="Regular;30" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="1" zPosition="2"/>
     </screen>
-
     <!-- ********** VERTICAL COLORS 1500 ********** -->
     <!-- ********** VERTICAL COLORS 1500 ********** -->
     <!-- ********** VERTICAL COLORS 1500 ********** -->
